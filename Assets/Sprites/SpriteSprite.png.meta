@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 29853ac8989cf8041b6581162b2d2223
-timeCreated: 1442216343
+timeCreated: 1442246565
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 15
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -59,9 +59,9 @@ TextureImporter:
     - name: SpriteSprite_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 4
         y: 192
-        width: 24
+        width: 26
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -69,9 +69,9 @@ TextureImporter:
     - name: SpriteSprite_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 36
         y: 192
-        width: 23
+        width: 26
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -79,9 +79,9 @@ TextureImporter:
     - name: SpriteSprite_2
       rect:
         serializedVersion: 2
-        x: 69
+        x: 68
         y: 192
-        width: 23
+        width: 25
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -89,9 +89,9 @@ TextureImporter:
     - name: SpriteSprite_3
       rect:
         serializedVersion: 2
-        x: 101
+        x: 100
         y: 192
-        width: 23
+        width: 25
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -99,9 +99,9 @@ TextureImporter:
     - name: SpriteSprite_4
       rect:
         serializedVersion: 2
-        x: 133
+        x: 132
         y: 192
-        width: 23
+        width: 25
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -109,9 +109,9 @@ TextureImporter:
     - name: SpriteSprite_5
       rect:
         serializedVersion: 2
-        x: 165
+        x: 164
         y: 192
-        width: 24
+        width: 26
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
