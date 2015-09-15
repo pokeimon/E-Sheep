@@ -7,7 +7,7 @@ public class MovementTest : MonoBehaviour {
     public float jumpSpeed = 100f;
 
     private bool isOnPlatform = true;
-    private bool jump = true;
+    private bool jump = false;
 	private Rigidbody2D body2d;
 
     // Use this for initialization
