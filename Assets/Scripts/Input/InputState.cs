@@ -7,9 +7,9 @@ public class ButtonState{
 	public float holdTime = 0;
 }
 
-public enum Directions{
-	Right = 1,
-	Left = -1
+public enum Directions{//This is also causing the scaling issue
+	Right = 1,         //
+	Left = -1          //
 }
 
 public class InputState : MonoBehaviour {

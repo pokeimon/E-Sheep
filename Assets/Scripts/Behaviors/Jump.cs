@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Jump : AbstractBehavior {
 
-	public float jumpSpeed = 6f;
+	public float jumpSpeed = 15f;
 
 	// Use this for initialization
 	void Start () {

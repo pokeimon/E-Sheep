@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Walk : AbstractBehavior {
 
-	public float speed = 5f;
+	public float speed = 7f;
 	// Use this for initialization
 	void Start () {
 	
