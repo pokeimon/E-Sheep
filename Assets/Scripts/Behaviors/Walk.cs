@@ -17,11 +17,11 @@ public class Walk : AbstractBehavior {
 
 		if (right || left) {
 
-			if (left){
-				inputState.direction = Directions.Left;
-			} else if (right) {
-				inputState.direction = Directions.Right;
-			}
+			//if (left){                                 // Works without this when FaceDirection 
+			//	inputState.direction = Directions.Left;  // Script is added to character.
+			//} else if (right) {                        //  
+			//	inputState.direction = Directions.Right; //
+			//}
 
 			var tmpSpeed = speed;
 
