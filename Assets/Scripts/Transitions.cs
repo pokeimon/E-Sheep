@@ -8,12 +8,11 @@ public class Transitions : MonoBehaviour
     public float fadeSpeed = 0.8f;	
 
     private int drawDepth = -1000;
-    private float alpha = 1.0f; 	
+    private float alpha = 0.0f; 	
     private int fadeDirection = -1; //-1 fadeIn or 1 fadeOut
 
 
-    void OnGUI()
-    {
+    void OnGUI(){
         alpha += fadeDirection * fadeSpeed * Time.deltaTime;
         alpha = Mathf.Clamp01(alpha);												//keeps the fading within 0 to 1
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
@@ -23,25 +22,33 @@ public class Transitions : MonoBehaviour
 
 	/*used to fadIn the scene (typcally used at the start of a scene)
 	fadeSpeed is returned to use to time the transition of scenes*/
-    public float FadeIn()
-    {
+    public float FadeIn(){
+		alpha = 1.0f;
         fadeDirection = -1;
         return fadeSpeed;
     }
 
 	/*used to fadeOut the scene (typcally used at the end of a scene)
 	fadeSpeed is returned to use to time the transition of scenes*/
-    public float FadeOut()
-    {
+    public float FadeOut(){
+		alpha = 0.0f;
         fadeDirection = 1;
         return fadeSpeed;
     }
 
-	//This function is called after a new level was loaded.
-    void OnLevelWasLoaded()
+	/*This function is called after a new level was loaded.
+	the level is the current level it is loading.  
+	This will be used to pick which levels to transitions and which not too.*/
+    void OnLevelWasLoaded(int level)
     {
-        FadeIn();
+		Debug.Log ("Test");
+		if(level!=0){
+			FadeIn ();
+		}
+		else {
+			fadeDirection = 1;
+			alpha = 1.0f;
+		}
     }
-
 }
     
