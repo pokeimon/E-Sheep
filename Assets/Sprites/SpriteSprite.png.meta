@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 29853ac8989cf8041b6581162b2d2223
-timeCreated: 1442246565
+timeCreated: 1442560083
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,16 @@ TextureImporter:
     21300006: SpriteSprite_3
     21300008: SpriteSprite_4
     21300010: SpriteSprite_5
+    21300012: SpriteSprite_6
+    21300014: SpriteSprite_7
+    21300016: SpriteSprite_8
+    21300018: SpriteSprite_9
+    21300020: SpriteSprite_10
+    21300022: SpriteSprite_11
+    21300024: SpriteSprite_12
+    21300026: SpriteSprite_13
+    21300028: SpriteSprite_14
+    21300030: SpriteSprite_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -43,6 +53,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -58,19 +69,19 @@ TextureImporter:
     - name: SpriteSprite_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 5
         y: 192
-        width: 26
+        width: 24
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 37
         y: 192
-        width: 26
+        width: 24
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -78,19 +89,19 @@ TextureImporter:
     - name: SpriteSprite_2
       rect:
         serializedVersion: 2
-        x: 68
+        x: 69
         y: 192
-        width: 25
+        width: 24
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_3
       rect:
         serializedVersion: 2
-        x: 100
+        x: 101
         y: 192
-        width: 25
+        width: 24
         height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -98,18 +109,118 @@ TextureImporter:
     - name: SpriteSprite_4
       rect:
         serializedVersion: 2
-        x: 132
+        x: 133
         y: 192
-        width: 25
+        width: 24
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_5
       rect:
         serializedVersion: 2
-        x: 164
+        x: 165
         y: 192
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_8
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_9
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_10
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_11
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 152
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_12
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 108
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_13
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 108
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_14
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 108
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_15
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 108
         width: 26
         height: 32
       alignment: 0
