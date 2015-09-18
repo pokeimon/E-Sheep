@@ -24,7 +24,7 @@ public class CollisionState : MonoBehaviour {
 		var pos = bottomPosition;
 		pos.x += transform.position.x;
 		pos.y += transform.position.y;
-
+		
 		standing = Physics2D.OverlapCircle (pos, collisionRadius, collisionLayer);
 	}
 
