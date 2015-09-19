@@ -5,6 +5,8 @@ public class Walk : AbstractBehavior {
 
 	public float speed = 7f;
 	public Animator anim;
+
+	public bool hasGun = false; 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> (); 
@@ -16,10 +18,20 @@ public class Walk : AbstractBehavior {
 		var right = inputState.GetButtonValue (inputButtons [0]);
 		var left = inputState.GetButtonValue (inputButtons [1]);
 
-		anim.SetInteger ("playerState", 0);//idle state in animator controller
+		if(hasGun){
+			anim.SetInteger ("gun", 1);//walking state in animator controller 
+		}
+		else
+			anim.SetInteger("gun", 0);
+
 		if (right || left) {
 
-			anim.SetInteger ("playerState", 1);//walking state in animator controller 
+
+			if(hasGun){
+				anim.SetInteger ("gun", 3);//walking state in animator controller 
+			}
+			else
+				anim.SetInteger("gun", 2);
 			//if (left){                                 // Works without this when FaceDirection 
 			//	inputState.direction = Directions.Left;  // Script is added to character.
 			//} else if (right) {                        //  
@@ -33,4 +45,15 @@ public class Walk : AbstractBehavior {
 			body2d.velocity = new Vector2 (velX, body2d.velocity.y);
 		}
 	}
+	
+	void OnCollisionEnter2D (Collision2D other)
+	{
+		if (other.gameObject.tag == "Gun") {
+			hasGun = true;
+			other.gameObject.SetActive (false);
+		}
+
+	}
+
+
 }
