@@ -31,5 +31,23 @@ public class PauseMenu : MonoBehaviour {
 		}
 		
 	}
+
+	public void Resume(){
+		paused = false;
+	}
+
+	public void Restart(){
+		Application.LoadLevel (Application.loadedLevel);//reload's the current level
+	}
+
+	public void MainMenu(){
+		Application.LoadLevel (0);//0 should correspond to Main Menu Scene as designated on Build Settings
+
+	}
+
+	public void Quit(){
+
+		Application.Quit ();
+	}
 	
 }
