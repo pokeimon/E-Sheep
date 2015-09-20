@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovementTest : MonoBehaviour {
+public class OldMovement : MonoBehaviour {
 
 	public float speed = 10f;
     public float jumpSpeed = 100f;
