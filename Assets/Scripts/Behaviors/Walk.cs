@@ -18,20 +18,32 @@ public class Walk : AbstractBehavior {
 		var right = inputState.GetButtonValue (inputButtons [0]);
 		var left = inputState.GetButtonValue (inputButtons [1]);
 
-		if(hasGun){
+		if (hasGun) {
 			anim.SetInteger ("gun", 1);//walking state in animator controller 
+			if(Input.GetKeyDown("s")){
+				anim.SetInteger ("gun", 5);
+			}
+		} else {
+			anim.SetInteger ("gun", 0);
+			if(Input.GetKeyDown("s")){
+				anim.SetInteger ("gun", 4);
+			}
 		}
-		else
-			anim.SetInteger("gun", 0);
-
 		if (right || left) {
 
 
 			if(hasGun){
 				anim.SetInteger ("gun", 3);//walking state in animator controller 
+				if(Input.GetKeyDown("s")){
+					anim.SetInteger ("gun", 5);
+				}
 			}
-			else
+			else{
 				anim.SetInteger("gun", 2);
+				if(Input.GetKeyDown("s")){
+					anim.SetInteger ("gun", 4);
+				}
+			}
 			//if (left){                                 // Works without this when FaceDirection 
 			//	inputState.direction = Directions.Left;  // Script is added to character.
 			//} else if (right) {                        //  

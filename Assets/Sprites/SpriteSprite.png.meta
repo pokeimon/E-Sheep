@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 29853ac8989cf8041b6581162b2d2223
-timeCreated: 1442708551
+timeCreated: 1442714712
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -33,6 +33,12 @@ TextureImporter:
     21300052: SpriteSprite_26
     21300054: SpriteSprite_27
     21300056: SpriteSprite_28
+    21300058: SpriteSprite_29
+    21300060: SpriteSprite_30
+    21300062: SpriteSprite_31
+    21300064: SpriteSprite_32
+    21300066: SpriteSprite_33
+    21300068: SpriteSprite_34
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -87,7 +93,7 @@ TextureImporter:
         width: 24
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_1
       rect:
@@ -107,7 +113,7 @@ TextureImporter:
         width: 24
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_3
       rect:
@@ -157,7 +163,7 @@ TextureImporter:
         width: 24
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_8
       rect:
@@ -197,7 +203,7 @@ TextureImporter:
         width: 24
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_12
       rect:
@@ -207,7 +213,7 @@ TextureImporter:
         width: 26
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: SpriteSprite_13
       rect:
@@ -312,8 +318,8 @@ TextureImporter:
     - name: SpriteSprite_23
       rect:
         serializedVersion: 2
-        x: 11
-        y: 28
+        x: 9
+        y: 35
         width: 24
         height: 32
       alignment: 0
@@ -322,8 +328,8 @@ TextureImporter:
     - name: SpriteSprite_24
       rect:
         serializedVersion: 2
-        x: 43
-        y: 28
+        x: 41
+        y: 35
         width: 24
         height: 32
       alignment: 0
@@ -332,8 +338,8 @@ TextureImporter:
     - name: SpriteSprite_25
       rect:
         serializedVersion: 2
-        x: 75
-        y: 28
+        x: 73
+        y: 35
         width: 24
         height: 32
       alignment: 0
@@ -342,8 +348,8 @@ TextureImporter:
     - name: SpriteSprite_26
       rect:
         serializedVersion: 2
-        x: 107
-        y: 28
+        x: 105
+        y: 35
         width: 24
         height: 32
       alignment: 0
@@ -352,8 +358,8 @@ TextureImporter:
     - name: SpriteSprite_27
       rect:
         serializedVersion: 2
-        x: 139
-        y: 28
+        x: 137
+        y: 35
         width: 24
         height: 32
       alignment: 0
@@ -362,12 +368,72 @@ TextureImporter:
     - name: SpriteSprite_28
       rect:
         serializedVersion: 2
-        x: 171
-        y: 28
+        x: 169
+        y: 35
         width: 24
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_29
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_30
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_31
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_32
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_33
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpriteSprite_34
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
