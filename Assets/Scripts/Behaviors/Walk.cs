@@ -29,33 +29,42 @@ public class Walk : AbstractBehavior {
 				anim.SetInteger ("gun", 4);
 			}
 		}
-		if (right || left) {
+        if (right || left)
+        {
 
 
-			if(hasGun){
-				anim.SetInteger ("gun", 3);//walking state in animator controller 
-				if(Input.GetKeyDown("s")){
-					anim.SetInteger ("gun", 5);
-				}
-			}
-			else{
-				anim.SetInteger("gun", 2);
-				if(Input.GetKeyDown("s")){
-					anim.SetInteger ("gun", 4);
-				}
-			}
-			//if (left){                                 // Works without this when FaceDirection 
-			//	inputState.direction = Directions.Left;  // Script is added to character.
-			//} else if (right) {                        //  
-			//	inputState.direction = Directions.Right; //
-			//}
+            if (hasGun)
+            {
+                anim.SetInteger("gun", 3);//walking state in animator controller 
+                if (Input.GetKeyDown("s"))
+                {
+                    anim.SetInteger("gun", 5);
+                }
+            }
+            else
+            {
+                anim.SetInteger("gun", 2);
+                if (Input.GetKeyDown("s"))
+                {
+                    anim.SetInteger("gun", 4);
+                }
+            }
+            //if (left){                                 // Works without this when FaceDirection 
+            //	inputState.direction = Directions.Left;  // Script is added to character.
+            //} else if (right) {                        //  
+            //	inputState.direction = Directions.Right; //
+            //}
 
-			var tmpSpeed = speed;
+            var tmpSpeed = speed;
 
-			var velX = tmpSpeed * (float)inputState.direction;
+            var velX = tmpSpeed * (float)inputState.direction;
 
-			body2d.velocity = new Vector2 (velX, body2d.velocity.y);
-		}
+            body2d.velocity = new Vector2(velX, body2d.velocity.y);
+        }
+        else
+        {
+            body2d.velocity = new Vector2(0f, body2d.velocity.y);
+        }
 	}
 	
 	void OnCollisionEnter2D (Collision2D other)
