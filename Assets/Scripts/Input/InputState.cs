@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ButtonState{
-	public bool value; //if the button is pressed or not
-	public float holdTime = 0; 
+	public bool value;
+	public float holdTime = 0;
 }
 
-public enum Directions{
-	Right = 1,         
-	Left = -1          
+public enum Directions{//This is also causing the scaling issue
+	Right = 1,         //
+	Left = -1          //
 }
 
 public class InputState : MonoBehaviour {
@@ -55,12 +55,4 @@ public class InputState : MonoBehaviour {
 		else
 			return false;
 	}
-
-    public float GetButtonHoldTime(Buttons key)
-    {
-        if (buttonStates.ContainsKey(key))
-            return buttonStates[key].holdTime;
-        else
-            return 0;
-    }
 }
