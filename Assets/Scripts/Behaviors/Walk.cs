@@ -19,14 +19,14 @@ public class Walk : AbstractBehavior {
 		var left = inputState.GetButtonValue (inputButtons [1]);
 
 		if (hasGun) {
-			anim.SetInteger ("gun", 1);//walking state in animator controller 
-			if(Input.GetKeyDown("s")){
-				anim.SetInteger ("gun", 5);
+			anim.SetInteger ("gun", 1);//walking with gun animation
+			if(Input.GetKeyDown("p")){
+				anim.SetInteger ("gun", 5); //shooting animation
 			}
 		} else {
-			anim.SetInteger ("gun", 0);
-			if(Input.GetKeyDown("s")){
-				anim.SetInteger ("gun", 4);
+			anim.SetInteger ("gun", 0); //idle unarmed animation
+			if(Input.GetKeyDown("space")){
+				anim.SetInteger ("gun", 4); // jumping unarmed animation
 			}
 		}
         if (right || left)
@@ -35,25 +35,21 @@ public class Walk : AbstractBehavior {
 
             if (hasGun)
             {
-                anim.SetInteger("gun", 3);//walking state in animator controller 
-                if (Input.GetKeyDown("s"))
+                anim.SetInteger("gun", 3);//walking with gun animation
+                if (Input.GetKeyDown("p"))
                 {
-                    anim.SetInteger("gun", 5);
+                    anim.SetInteger("gun", 5); //shooting animation
                 }
             }
             else
             {
-                anim.SetInteger("gun", 2);
-                if (Input.GetKeyDown("s"))
+                anim.SetInteger("gun", 2); //walking unarmed animation
+                if (Input.GetKeyDown("space"))
                 {
-                    anim.SetInteger("gun", 4);
+                    anim.SetInteger("gun", 4);// jumping unarmed animation
                 }
             }
-            //if (left){                                 // Works without this when FaceDirection 
-            //	inputState.direction = Directions.Left;  // Script is added to character.
-            //} else if (right) {                        //  
-            //	inputState.direction = Directions.Right; //
-            //}
+     
 
             var tmpSpeed = speed;
 
@@ -63,13 +59,13 @@ public class Walk : AbstractBehavior {
         }
         else
         {
-            body2d.velocity = new Vector2(0f, body2d.velocity.y);
+            body2d.velocity = new Vector2(0f, body2d.velocity.y); //stops character from moving when no buttons pressed
         }
 	}
 	
-	void OnCollisionEnter2D (Collision2D other)
+	void OnCollisionEnter2D (Collision2D other) 
 	{
-		if (other.gameObject.tag == "Gun") {
+		if (other.gameObject.tag == "Gun") { //picks up gun
 			hasGun = true;
 			other.gameObject.SetActive (false);
 		}
