@@ -19,7 +19,7 @@ public class CollisionState : MonoBehaviour {
 	
 	}
 
-	void FixedUpdate(){
+	void FixedUdate(){
 
 		var pos = bottomPosition;
 		pos.x += transform.position.x;
