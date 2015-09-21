@@ -4,7 +4,8 @@ using System.Collections;
 public enum Buttons{
 	Right,
 	Left,
-	A
+	A,
+	B
 }
 
 public enum Condition{
