@@ -42,7 +42,7 @@ public class Transitions : MonoBehaviour
     void OnLevelWasLoaded(int level)
     {
 		Debug.Log ("Test");
-		if(level!=0){
+		if(level!=0){		//do not fade main menu upon load
 			FadeIn ();
 		}
 		else {
