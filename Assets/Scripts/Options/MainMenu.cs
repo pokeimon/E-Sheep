@@ -23,7 +23,6 @@ public class MainMenu : MonoBehaviour {
 
 		exitMenu.enabled = false; //exit menu is disabled
 		creditMenu.enabled = false; //credit menu is disabled
-
 		
 	}
 	
@@ -56,9 +55,7 @@ public class MainMenu : MonoBehaviour {
 	//go back to main menu
 	public void MenuPress() {
 		
-		creditMenu.enabled = false;
-		startText.enabled = true;
-		exitText.enabled = true;
+		Application.LoadLevel(0);
 		
 	}
 	
