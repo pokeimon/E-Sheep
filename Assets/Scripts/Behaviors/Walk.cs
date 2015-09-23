@@ -4,6 +4,7 @@ using System.Collections;
 public class Walk : AbstractBehavior {
 
 	public float speed = 7f;
+	public float runMultiplyer = 2f;
 	public Animator anim;
 
 	// Use this for initialization
@@ -16,10 +17,15 @@ public class Walk : AbstractBehavior {
 	
 		var right = inputState.GetButtonValue (inputButtons [0]);
 		var left = inputState.GetButtonValue (inputButtons [1]);
+		var X = inputState.GetButtonValue (inputButtons [2]);
 		
         if (right || left)
         {
             var tmpSpeed = speed;
+
+			if (X && runMultiplyer > 0){
+				tmpSpeed *= runMultiplyer;
+			}
 
             var velX = tmpSpeed * (float)inputState.direction;
 

@@ -5,7 +5,9 @@ public enum Buttons{
 	Right,
 	Left,
 	A,
-	B
+	B,
+	X,
+	Y
 }
 
 public enum Condition{
