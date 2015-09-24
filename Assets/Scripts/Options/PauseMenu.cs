@@ -41,7 +41,8 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void MainMenu(){
-		Application.LoadLevel (0);//0 should correspond to Main Menu Scene as designated on Build Settings
+		paused = false;
+		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(0));//0 should correspond to Main Menu Scene as designated on Build Settings
 
 	}
 

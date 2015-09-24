@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour {
 	
 	//press start game button
 	public void StartLevel() {
-		StartCoroutine(FadeStartLevel());	//loads game with transition
+		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));
 		
 	}
 	
@@ -70,12 +70,6 @@ public class MainMenu : MonoBehaviour {
 
 		Application.Quit (); //quits game
 
-	}
-	//allows the fading of the Main Menu when start game is pressed
-	IEnumerator FadeStartLevel(){
-		float fadeTime = GameObject.Find("GM").GetComponent<Transitions>().FadeOut();
-		yield return new WaitForSeconds(fadeTime);
-		Application.LoadLevel(1);
 	}
 
 }

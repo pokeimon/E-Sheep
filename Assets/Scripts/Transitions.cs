@@ -23,7 +23,7 @@ public class Transitions : MonoBehaviour
 	/*used to fadIn the scene (typcally used at the start of a scene)
 	fadeSpeed is returned to use to time the transition of scenes*/
     public float FadeIn(){
-		//alpha = 1.0f;
+		alpha = 1.0f;
         fadeDirection = -1;
         return fadeSpeed;
     }
@@ -31,7 +31,7 @@ public class Transitions : MonoBehaviour
 	/*used to fadeOut the scene (typcally used at the end of a scene)
 	fadeSpeed is returned to use to time the transition of scenes*/
     public float FadeOut(){
-		//alpha = 0.0f;
+		alpha = 0.0f;
         fadeDirection = 1;
         return fadeSpeed;
     }
@@ -41,16 +41,16 @@ public class Transitions : MonoBehaviour
 	This will be used to pick which levels to transitions and which not too.*/
     void OnLevelWasLoaded(int level)
     {
-		/*Debug.Log ("Test");
-		if(level!=0){		//do not fade main menu upon load
+		Debug.Log ("Test");
+		if(level!=null){		//replace null with the int of levels/scenes that should not fade in
 			FadeIn ();
 		}
-		else {
-			fadeDirection = -1;
-			alpha = 0.0f;
-		}*/
-
-		FadeIn ();
     }
+
+	public IEnumerator FadeStartLevel(int i){
+		float fadeTime = GameObject.Find("GM").GetComponent<Transitions>().FadeOut();
+		yield return new WaitForSeconds(fadeTime);
+		Application.LoadLevel(i);
+	}
 }
     
