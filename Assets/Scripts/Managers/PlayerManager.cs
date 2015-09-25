@@ -5,13 +5,13 @@ public class PlayerManager : MonoBehaviour {
 
 	private InputState inputState;
 	private Walk walkBehavior;
-	//private Animator animator;
+	private Animator animator;
 	private CollisionState collisionState;
 
 	void Awake(){
 		inputState = GetComponent<InputState> ();
 		walkBehavior = GetComponent<Walk> ();
-		//animator = GetComponent<Animator> ();
+		animator = GetComponent<Animator> ();
 		collisionState = GetComponent<CollisionState> ();
 	}
 
@@ -28,10 +28,13 @@ public class PlayerManager : MonoBehaviour {
 		}
 		if (inputState.absVelX > 0) {
 			ChangeAnimationState (1);
+			if(!collisionState.standing){
+				ChangeAnimationState(2);
+			}
 		}
 	}
 
 	void ChangeAnimationState(int value){
-		//animator.SetInteger ("AnimState", value);
+		animator.SetInteger ("AnimState", value);
 	}
 }
