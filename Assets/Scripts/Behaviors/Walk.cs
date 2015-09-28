@@ -5,7 +5,6 @@ public class Walk : AbstractBehavior {
 
 	public float speed = 7f;
 	public float runMultiplyer = 2f;
-	public Animator anim;
 
 	// Use this for initialization
 	void Start () {

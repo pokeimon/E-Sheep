@@ -3,31 +3,35 @@ using System.Collections;
 
 public class Shoot : AbstractBehavior {
 
-    public float shootDelay = .5f;
+    public float shootDelay = .1f;
     public GameObject projectilePrefab;
     public Vector2 firePosition = Vector2.zero;
     public Color debugColor = Color.yellow;
     public float debugRadius = 3.5f;
+	public bool shooting = false;
 
     private float timeElapsed = 0f;
 
 	// Update is called once per frame
 	void Update () {
-	
-        if(projectilePrefab != null){
 
-            var canFire = inputState.GetButtonValue(inputButtons[0]);
+        if (projectilePrefab != null) {
 
-            if(canFire && timeElapsed > shootDelay) {
-                CreateProjectile(CalculateFirePosition());
-                timeElapsed = 0;
-         
-            }
+			var canFire = inputState.GetButtonValue (inputButtons [0]);
 
-            timeElapsed += Time.deltaTime;
-  
-        }
+			if(canFire){
+				shooting = true; //shooting animation
+
+			}else { shooting = false;}
+
+			if (canFire && timeElapsed > shootDelay) {
+				CreateProjectile (CalculateFirePosition ());
+				timeElapsed = 0;	 
+			}
+			timeElapsed += Time.deltaTime;
+		} 
 	}
+
     Vector2 CalculateFirePosition() {
         var pos = firePosition;
         pos.x *= (float)inputState.direction;

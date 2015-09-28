@@ -7,12 +7,14 @@ public class PlayerManager : MonoBehaviour {
 	private Walk walkBehavior;
 	private Animator animator;
 	private CollisionState collisionState;
+	private Shoot shootBehavior;
 
 	void Awake(){
 		inputState = GetComponent<InputState> ();
 		walkBehavior = GetComponent<Walk> ();
 		animator = GetComponent<Animator> ();
 		collisionState = GetComponent<CollisionState> ();
+		shootBehavior = GetComponent<Shoot> ();
 	}
 
 	// Use this for initialization
@@ -23,14 +25,37 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 
 	void Update () {
-		if (collisionState.standing) { // Animations work allready I will consult with Ivan about how he wants to handle this -Steven
-			ChangeAnimationState (0);
+
+		int caseSwitch = 0;
+
+		if (inputState.absVelX > 0 && collisionState.standing) {
+			if(shootBehavior.shooting){
+				caseSwitch = 3;
+			} else {caseSwitch = 1;}
 		}
-		if (inputState.absVelX > 0) {
-			ChangeAnimationState (1);
-			if(!collisionState.standing){
-				ChangeAnimationState(2);
-			}
+		if (!collisionState.standing) {
+			if(shootBehavior.shooting){
+				caseSwitch = 3;
+			} else {caseSwitch = 2;}
+		}
+		if (shootBehavior.shooting) {
+			caseSwitch = 3;
+		}
+
+		switch (caseSwitch)
+		{
+		case 1:
+			ChangeAnimationState (1); //walking
+			break;
+		case 2:
+			ChangeAnimationState (2); // jumping
+			break;
+		case 3:
+			ChangeAnimationState (3); // shooting
+			break;
+		default:
+			ChangeAnimationState (0); // idle
+			break;
 		}
 	}
 

@@ -4,11 +4,11 @@ using System.Collections;
 public class Jump : AbstractBehavior {
 
 	public float jumpSpeed = 20f;
-	public Animator anim;
+	//public Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animator> (); 
+		//anim = GetComponent<Animator> (); 
 	}
 	
 	// Update is called once per frame
@@ -16,11 +16,11 @@ public class Jump : AbstractBehavior {
 		var canJump = inputState.GetButtonValue (inputButtons [0]);
         var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
 
-		anim.SetInteger("playerState", 0);
+		//anim.SetInteger("playerState", 0);
 		if (collisionState.standing) {
 			if(canJump && holdTime < .1f){
 				OnJump();
-				anim.SetInteger("playerState", 2);
+				//anim.SetInteger("playerState", 2);
 			}
 		}
 	}
