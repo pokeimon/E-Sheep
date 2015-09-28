@@ -22,23 +22,23 @@ public class PlayerManager : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
+	// Character animation
 
 	void Update () {
 
 		int caseSwitch = 0;
 
-		if (inputState.absVelX > 0 && collisionState.standing) {
+		if (inputState.absVelX > 0 && collisionState.standing) { // walking
 			if(shootBehavior.shooting){
 				caseSwitch = 3;
 			} else {caseSwitch = 1;}
 		}
-		if (!collisionState.standing) {
+		if (!collisionState.standing) { // jumping
 			if(shootBehavior.shooting){
 				caseSwitch = 3;
 			} else {caseSwitch = 2;}
 		}
-		if (shootBehavior.shooting) {
+		if (shootBehavior.shooting) { // shooting
 			caseSwitch = 3;
 		}
 
