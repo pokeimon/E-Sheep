@@ -7,7 +7,7 @@ public class CollisionState : MonoBehaviour {
 	public bool standing;
 	public Vector2 bottomPosition = Vector2.zero;
 	public float collisionRadius = 0.25f;
-	public Color debugcCollisionColor = Color.red;
+	public Color debugCollisionColor = Color.red;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +29,7 @@ public class CollisionState : MonoBehaviour {
 	}
 
 	void OnDrawGizmos(){
-		Gizmos.color = debugcCollisionColor;
+		Gizmos.color = debugCollisionColor;
 
 		var pos = bottomPosition;
 		pos.x += transform.position.x;
