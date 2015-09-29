@@ -55,13 +55,13 @@ public class MainMenu : MonoBehaviour {
 	//go back to main menu
 	public void MenuPress() {
 		
-		Application.LoadLevel(0);
+		Application.LoadLevel(1);
 		
 	}
 	
 	//press start game button
 	public void StartLevel() {
-		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));
+		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(2));
 		
 	}
 	

@@ -10,7 +10,7 @@ public class Startup : MonoBehaviour {
 
 	IEnumerator wait(){
 		yield return new WaitForSeconds(sceneTimeLegnth);
-		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(0));
+		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));
 	}
 
 }
