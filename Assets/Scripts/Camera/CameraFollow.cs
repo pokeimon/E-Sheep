@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour {
 	public float smoothTimeX;
 	public float smoothTimeY;
 	
-	public GameObject player;
+	private GameObject player;
 	
 	public bool bounds;
 	
