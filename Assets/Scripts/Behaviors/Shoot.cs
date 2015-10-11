@@ -25,8 +25,17 @@ public class Shoot : AbstractBehavior {
 			}else { shooting = false;}
 
 			if (canFire && timeElapsed > shootDelay) {
-				CreateProjectile (CalculateFirePosition ());
-				timeElapsed = 0;	 
+                GameObject obj = ObjectPooler.current.getPooledObject();
+
+                if (obj != null)
+                {
+                    obj.transform.position = CalculateFirePosition();
+                    obj.transform.rotation = transform.rotation;
+                    obj.transform.localScale = transform.localScale * .2f;
+                    obj.SetActive(true);
+                    
+                }
+                timeElapsed = 0;	 
 			}
 			timeElapsed += Time.deltaTime;
 		} 
@@ -34,18 +43,12 @@ public class Shoot : AbstractBehavior {
 
     Vector2 CalculateFirePosition() {
         var pos = firePosition;
-        pos.x *= (float)inputState.direction;
+        if(inputState != null)
+            pos.x *= (float)inputState.direction;
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
         return pos;
-    }
-
-
-    public void CreateProjectile(Vector2 pos){
-        var clone = Instantiate(projectilePrefab, pos, Quaternion.identity) as GameObject;
-        clone.transform.localScale = transform.localScale * .2f;
-  
     }
 
     void OnDrawGizmos() {

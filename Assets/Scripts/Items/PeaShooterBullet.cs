@@ -11,15 +11,23 @@ public class PeaShooterBullet : MonoBehaviour {
         body2d = GetComponent<Rigidbody2D>();
     }
 
-	// Use this for initialization
-	void Start () {
+    void OnEnable() {
 
         var startVelX = bulletSpeed.x * transform.localScale.x;
         body2d.velocity = new Vector2(startVelX, bulletSpeed.y);
+        Invoke("Destroy", 3f); //destroy after set time (3 seconds) if it doesn't collide
 
-	}
-	
-	void OnCollisionEnter2D(Collision2D target) {
-        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D target) {
+        Destroy();
+    }
+
+    void Destroy() {
+        gameObject.SetActive(false);
+    }
+
+    void OnDisable() {
+        CancelInvoke();
     }
 }
