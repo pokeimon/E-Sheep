@@ -28,7 +28,8 @@ public class BranchBreak : MonoBehaviour
     {
         if (other.name == "Breakable Branch")
         {
-            other.enabled = false;
+            other.gameObject.SetActive(false);
+            other.GetComponentInParent<BoxCollider2D>().enabled = false;
         }
 
     }
