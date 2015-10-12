@@ -12,17 +12,28 @@ public class CameraFollow : MonoBehaviour {
     public float smoothTimeX;//Camera movement on the X-axis, used as a way to smoothly move the camera
     public float smoothTimeY;//Camera movement on the Y-axis, used as a way to smoothly move the camera
     public bool bounds;//A check for if you want your camera bounded
-    public bool reset;//Used to trigger a dampening effect on the camera reset during Fixed Update
 
+    private bool reset;//Used to trigger a dampening effect on the camera reset during Fixed Update
 	private Vector2 velocity;//Camera velocity used on dampening effect
 
-    //Specific Stage Limits
-    private const float stageminX = -45f;
-    private const float stagemaxX = 165f;
-    private const float stageminY = 7f;
-    private const float stagemaxY = 9f;
-    private const float stageminZ = -1f;
-    private const float stagemaxZ = 0f;
+    /// <summary>
+    /// Since CameraFollow script is shared on all scenes, have to set stage limits separately
+    /// </summary>
+    ////Specific Stage Limits
+    //private const float stageminX = -45f;
+    //private const float stagemaxX = 165f;
+    //private const float stageminY = 7f;
+    //private const float stagemaxY = 9f;
+    //private const float stageminZ = -1f;
+    //private const float stagemaxZ = 0f;
+
+    //General Stage Limits
+    public float stageminX;
+    public float stagemaxX;
+    public float stageminY;
+    public float stagemaxY;
+    public float stageminZ;
+    public float stagemaxZ;
 
     //Used to manipulate camera (use specific stage limits as defaults)
     private float minX;
