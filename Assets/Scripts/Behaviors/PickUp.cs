@@ -21,7 +21,7 @@ public class PickUp : AbstractBehavior {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("Current Item = " + _currentItem);                      // This is all temporary code
+		//Debug.Log ("Current Item = " + _currentItem);                      // This is all temporary code
 	}
 }
 
