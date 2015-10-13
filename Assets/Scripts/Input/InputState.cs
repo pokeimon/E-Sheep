@@ -39,9 +39,7 @@ public class InputState : MonoBehaviour {
 			//Debug.Log ("Button " + key + " released "+state.holdTime);
 			state.holdTime = 0;
 		} else if (state.value && value) {
-
 			state.holdTime += Time.deltaTime;
-
 			//Debug.Log("Button "+key+" down "+state.holdTime);
 		}
 
