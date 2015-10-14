@@ -3,14 +3,18 @@ using System.Collections;
 
 public class Mallow : AbstractEnemy {
 	
-	float speed = 3f;
-	float jumpSpeed = 8f;
-	int maxHP = 5;
+	new private float speed = 3f;
+	new private float jumpSpeed = 8f;
 
 	// Update is called once per frame
 	void Update () {
 
 		}
+
+	new void Start (){
+		base.Start ();
+	}
+
 
 	void FixedUpdate (){                                                      //Handles movement and jumps
 
