@@ -2,9 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class Mallow : AbstractEnemy {
-	
-	new private float speed = 3f;
-	new private float jumpSpeed = 8f;
 
 	// Update is called once per frame
 	void Update () {
@@ -13,6 +10,8 @@ public class Mallow : AbstractEnemy {
 
 	new void Start (){
 		maxHP = 5;
+		speed = 3f;
+		jumpSpeed = 8f;
 		base.Start ();
 	}
 
