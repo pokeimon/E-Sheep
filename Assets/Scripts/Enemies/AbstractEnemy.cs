@@ -8,7 +8,7 @@ public enum enemyDirections{ //Enemy direction
 
 public abstract class AbstractEnemy : MonoBehaviour {
 
-	public int maxHP = 5;
+	public int _maxHP = 4;
 	public int currentHP;
 
 	protected enemyDirections direction = enemyDirections.Right;
@@ -26,6 +26,11 @@ public abstract class AbstractEnemy : MonoBehaviour {
 
 	public void Start (){
 		currentHP = maxHP;
+	}
+
+	public int maxHP{
+		set{ _maxHP = value;}
+		get{return this._maxHP;}
 	}
 
 	void OnCollisionEnter2D(Collision2D target) {

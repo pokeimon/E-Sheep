@@ -12,6 +12,7 @@ public class Mallow : AbstractEnemy {
 		}
 
 	new void Start (){
+		maxHP = 5;
 		base.Start ();
 	}
 
