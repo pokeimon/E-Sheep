@@ -4,17 +4,41 @@ using System.Collections;
 public class Jump : AbstractBehavior {
 
 	public float jumpSpeed = 20f;
+	public int extraJumps = 1;
+	public int currentJump;
+	private bool canJump;
+
 	
-	// Update is called once per frame
+	void Start() {
+		currentJump = 0;
+		canJump = true;
+	}
+
 	void Update () {
-		var canJump = inputState.GetButtonValue (inputButtons [0]);
+		var jumpButton = inputState.GetButtonValue (inputButtons [0]);
         var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
 
+		if (!jumpButton) {
+			canJump = true;
+		}
+
 		if (collisionState.standing) {
-			if(canJump && holdTime < .1f){
-				OnJump();
+			currentJump = 0;
+
+			if (jumpButton && canJump) {
+				OnJump ();
+				canJump = false;
+			}
+		} 
+
+		else if (currentJump < extraJumps) {
+			if (jumpButton && canJump) {
+				OnJump ();
+				canJump = false;
+				currentJump++;
 			}
 		}
+
 	}
 
 	protected virtual void OnJump(){
