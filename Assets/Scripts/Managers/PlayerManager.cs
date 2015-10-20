@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour {
 	private Animator animator;
 	private CollisionState collisionState;
 	private Shoot shootBehavior;
+	private Climb climbBehavior;
 
 	void Awake(){
 		inputState = GetComponent<InputState> ();
@@ -15,6 +16,7 @@ public class PlayerManager : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 		collisionState = GetComponent<CollisionState> ();
 		shootBehavior = GetComponent<Shoot> ();
+		climbBehavior = GetComponent<Climb> ();
 	}
 
 	// Use this for initialization
@@ -42,6 +44,10 @@ public class PlayerManager : MonoBehaviour {
 			caseSwitch = 3;
 		}
 
+		if(climbBehavior.onLadder){ //climbing
+			caseSwitch = 4;
+		}
+
 		switch (caseSwitch)
 		{
 		case 1:
@@ -52,6 +58,9 @@ public class PlayerManager : MonoBehaviour {
 			break;
 		case 3:
 			ChangeAnimationState (3); // shooting
+			break;
+		case 4:
+			ChangeAnimationState (4); // shooting
 			break;
 		default:
 			ChangeAnimationState (0); // idle
