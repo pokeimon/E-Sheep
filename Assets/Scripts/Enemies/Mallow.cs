@@ -23,12 +23,11 @@ public class Mallow : AbstractEnemy {
 		
 		body2d.velocity = new Vector2(velX, body2d.velocity.y);
 		
-		if ((Time.time % 2) == 0) {
+		if ((Time.time % 2) == 0 && collisionState.standing) {
 			OnJump ();
 		}
 		
 		if ((Time.time % 4) == 0 && direction == enemyDirections.Right) {
-			
 			//Debug.Log("Mallow direction changed: Left");
 			direction = enemyDirections.Left;
 		}
@@ -36,6 +35,12 @@ public class Mallow : AbstractEnemy {
 		if((Time.time % 8) == 0 && direction == enemyDirections.Left){
 			//Debug.Log("Mallow direction changed: Right");
 			direction = enemyDirections.Right;
+		}
+	}
+
+	protected virtual void OnCollisionStay2D(Collision2D target) {
+		if (target.gameObject.tag == "Player") {
+			speed = 15f;
 		}
 	}
 
