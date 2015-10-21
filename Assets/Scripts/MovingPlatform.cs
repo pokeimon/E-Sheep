@@ -2,37 +2,30 @@
 using System.Collections;
 
 public class MovingPlatform : MonoBehaviour {
-	
-	public Transform platform;
-	public Transform startTransform;
-	public Transform endTransform;
-	public float platformSpeed = 2;
 
-	Vector3 direction;
-	Transform destination;
+	public GameObject platform;
+	public float moveSpeed;
+	public int startPoint;
+	public Transform[] points;
+
+	private Transform currentPoint;
+	private int pointSelection;
+
 
 	void Start(){
-		SetDestination(startTransform);
+		currentPoint = points[startPoint];
+		pointSelection = startPoint;
 	}
 
+	void Update(){
+		platform.transform.position = Vector3.MoveTowards(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
 
-	void FixedUpdate(){
-		platform.GetComponent<Rigidbody>().MovePosition(platform.position + direction * platformSpeed * Time.fixedDeltaTime);
-
-		if(Vector3.Distance(platform.position, destination.position) < platformSpeed * Time.fixedDeltaTime){
-			SetDestination(destination == startTransform ? endTransform : startTransform);
+		if(platform.transform.position == currentPoint.position){
+			pointSelection++;
+			if(pointSelection == points.Length){
+				pointSelection = 0;
+			}
+			currentPoint = points[pointSelection];
 		}
-	}
-
-	void OnDrawGizmos(){
-		Gizmos.color = Color.green;
-		Gizmos.DrawWireCube(startTransform.position, platform.localScale);
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireCube(endTransform.position, platform.localScale);
-	}
-
-	void SetDestination(Transform dest){
-		destination = dest;
-		direction = (destination.position - platform.position).normalized;
 	}
 }

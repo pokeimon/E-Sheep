@@ -35,4 +35,15 @@ public class Walk : AbstractBehavior {
             body2d.velocity = new Vector2(0f, body2d.velocity.y); //stops character from moving when no buttons pressed
         }
 	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		if(other.transform.tag == "Moving Platform"){
+			transform.parent = other.transform;
+		}
+	}
+	void OnCollisionExit2D(Collision2D other){
+		if(other.transform.tag == "Moving Platform"){
+			transform.parent = null;
+		}
+	}
 }
