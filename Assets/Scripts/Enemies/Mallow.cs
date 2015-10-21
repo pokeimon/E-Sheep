@@ -38,9 +38,14 @@ public class Mallow : AbstractEnemy {
 		}
 	}
 
-	protected virtual void OnCollisionStay2D(Collision2D target) {
+	protected virtual void OnTriggerEnter2D(Collider2D target) {
 		if (target.gameObject.tag == "Player") {
 			speed = 15f;
+		}
+	}
+	protected virtual void OnTriggerExit2D(Collider2D target) {
+		if (target.gameObject.tag == "Player") {
+			speed = 3f;
 		}
 	}
 

@@ -36,11 +36,18 @@ public class Walk : AbstractBehavior {
         }
 	}
 
+	/* detects when the player is on the moving platform
+	 * and makes the player move with the platform
+	 */
 	void OnCollisionEnter2D(Collision2D other){
 		if(other.transform.tag == "Moving Platform"){
 			transform.parent = other.transform;
 		}
 	}
+
+	/* detects when the player leaves the moving platform
+	 * and makes the player stop moving with the platorm
+	 */
 	void OnCollisionExit2D(Collision2D other){
 		if(other.transform.tag == "Moving Platform"){
 			transform.parent = null;
