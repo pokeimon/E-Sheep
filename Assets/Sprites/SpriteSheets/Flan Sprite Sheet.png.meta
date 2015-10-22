@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ad77f352480e8b4888d579c8698efe1
-timeCreated: 1443896774
+timeCreated: 1445544750
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -56,33 +56,33 @@ TextureImporter:
     - name: Flan Sprite Sheet_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 421
-        width: 147
-        height: 137
+        x: 27
+        y: 422
+        width: 143
+        height: 135
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Flan Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 203
-        y: 421
-        width: 146
-        height: 134
+        x: 219
+        y: 425
+        width: 143
+        height: 133
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 1, y: 0, z: 0, w: 0}
     - name: Flan Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 388
+        x: 420
         y: 423
         width: 146
         height: 145
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 1, w: 0}
+      border: {x: 2, y: 0, z: 1, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
