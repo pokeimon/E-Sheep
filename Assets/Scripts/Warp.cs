@@ -7,8 +7,11 @@ public class Warp : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 
-		//other.gameObject.transform.position = warpTarget.position; //changes position of player
-		//Camera.main.transform.position = warpTarget.position; //changes position of camera
+		if (other.name == "Player") {
+			other.gameObject.transform.position = warpTarget.position; //changes position of player
+			//Camera.main.transform.position = warpTarget.position; //changes position of camera //might not need this line
+
+		}
 
 	}
 
