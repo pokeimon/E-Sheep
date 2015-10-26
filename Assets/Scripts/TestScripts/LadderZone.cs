@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿
+/*
+using UnityEngine;
 using System.Collections;
 
-/*
+
 This is supposed to trigger a boolean from the player scripts to enable the Up button to climb
 Can't get it to work since I don't fully understand how our input is being handled
 For now, just sets player gravity to zero (can jump up)
-*/
+
 public class LadderZone : MonoBehaviour
 {
 
@@ -38,3 +40,5 @@ public class LadderZone : MonoBehaviour
         }
     }
 }
+
+*/

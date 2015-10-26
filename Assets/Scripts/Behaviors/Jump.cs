@@ -22,7 +22,7 @@ public class Jump : AbstractBehavior {
 			canJump = true;
 		}
 
-		if (collisionState.standing) {
+		if (collisionState.standing || collisionState.climbing) {
 			currentJump = 0;
 
 			if (jumpButton && canJump) {

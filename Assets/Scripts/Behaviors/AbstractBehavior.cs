@@ -14,13 +14,4 @@ public abstract class AbstractBehavior : MonoBehaviour {
 		body2d = GetComponent<Rigidbody2D> ();
 		collisionState = GetComponent<CollisionState> ();
 	}
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

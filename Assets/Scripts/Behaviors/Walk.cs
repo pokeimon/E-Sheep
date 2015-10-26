@@ -6,12 +6,6 @@ public class Walk : AbstractBehavior {
 	public float speed = 7f;
 	public float runMultiplyer = 2f;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
 	void Update () {
 	
 		var right = inputState.GetButtonValue (inputButtons [0]);

@@ -18,6 +18,8 @@ public class Shoot : AbstractBehavior {
         if (projectilePrefab != null) {
 
 			var canFire = inputState.GetButtonValue (inputButtons [0]);
+			var up = inputState.GetButtonValue (inputButtons [1]);
+			var down = inputState.GetButtonValue (inputButtons [2]);
 
 			if(canFire){
 				shooting = true; //shooting animation
@@ -27,12 +29,21 @@ public class Shoot : AbstractBehavior {
 			if (canFire && timeElapsed > shootDelay) {
                 GameObject obj = ObjectPooler.current.getPooledObject();
 
+
                 if (obj != null)
                 {
+
                     obj.transform.position = CalculateFirePosition();
                     obj.transform.rotation = transform.rotation;
                     obj.transform.localScale = transform.localScale * .2f;
+					Rigidbody2D body2d = obj.GetComponent<Rigidbody2D>();
                     obj.SetActive(true);
+					if (up && !down){
+						body2d.velocity = new Vector2(body2d.velocity.y , Mathf.Abs(body2d.velocity.x));
+					}
+					else if (!up && down){
+						body2d.velocity = new Vector2(body2d.velocity.y , Mathf.Abs(body2d.velocity.x) * -1);
+					}
                     
                 }
                 timeElapsed = 0;	 

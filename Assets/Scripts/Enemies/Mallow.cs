@@ -3,11 +3,6 @@ using System.Collections;
 
 public class Mallow : AbstractEnemy {
 
-	// Update is called once per frame
-	void Update () {
-
-		}
-
 	new void Start (){
 		maxHP = 5;
 		speed = 3f;

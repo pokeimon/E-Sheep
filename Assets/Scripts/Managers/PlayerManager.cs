@@ -16,7 +16,6 @@ public class PlayerManager : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 		collisionState = GetComponent<CollisionState> ();
 		shootBehavior = GetComponent<Shoot> ();
-		climbBehavior = GetComponent<Climb> ();
 	}
 
 	// Use this for initialization
@@ -44,7 +43,7 @@ public class PlayerManager : MonoBehaviour {
 			caseSwitch = 3;
 		}
 
-		if(climbBehavior.onLadder){ //climbing
+		if(collisionState.climbing){ //climbing
 			caseSwitch = 4;
 		}
 

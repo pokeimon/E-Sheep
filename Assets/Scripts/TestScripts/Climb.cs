@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Climb : MonoBehaviour {
-
-    public bool onLadder;
-    private Rigidbody2D myrigidbody2D;
+public class Climb : AbstractBehavior {
 
     public float climbSpeed;
     private float climbVelocity;
@@ -12,29 +9,38 @@ public class Climb : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        onLadder = false;
-        myrigidbody2D = GetComponent<Rigidbody2D>();
 
-        gravityStore = myrigidbody2D.gravityScale;
+		gravityStore = body2d.gravityScale;
         //Debug.Log("GravityStore = " + gravityStore);
     }
 
 
     void Update()
     {
+		var up = inputState.GetButtonValue (inputButtons [0]);
+		var down = inputState.GetButtonValue (inputButtons [1]);
+
         //Debug.Log("onLadder? " + onLadder);
-        if (onLadder)
+		if (collisionState.climbing)
         {
-            myrigidbody2D.gravityScale = 0f;
+			body2d.gravityScale = 0f;
 
-            climbVelocity = climbSpeed * Input.GetAxisRaw("Vertical");
+			if (up && !down){
+				climbVelocity = climbSpeed ;
+			}
+			else if (!up && down){
+				climbVelocity = climbSpeed * -1;
+			}
+			else { //won't climb if up and down held
+				climbVelocity = 0;
+			}
 
-            myrigidbody2D.velocity = new Vector2(myrigidbody2D.velocity.x, climbVelocity);
+			body2d.velocity = new Vector2(body2d.velocity.x, climbVelocity);
 
         }
-        if (!onLadder)
+        else
         {
-            myrigidbody2D.gravityScale = gravityStore;
+			body2d.gravityScale = gravityStore;
         }
     }
 }

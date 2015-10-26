@@ -9,7 +9,7 @@ public class Flan : AbstractEnemy {
 	}	
 
 	new void Start (){
-		maxHP = 5;
+		maxHP = 100;
 		base.Start ();
 	}
 
