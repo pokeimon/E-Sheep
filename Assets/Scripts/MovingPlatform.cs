@@ -4,12 +4,12 @@ using System.Collections;
 public class MovingPlatform : MonoBehaviour {
 
 	public GameObject platform;
-	public float moveSpeed;
+	public float moveSpeed;				
 	public int startPoint;
-	public Transform[] points;
+	public Transform[] points;			//creates an array of points that the platform will cycle through
 
-	private Transform currentPoint;
-	private int pointSelection;
+	private Transform currentPoint;		//current point the platform will head too
+	private int pointSelection;			
 
 
 	void Start(){
@@ -22,8 +22,8 @@ public class MovingPlatform : MonoBehaviour {
 
 		if(platform.transform.position == currentPoint.position){
 			pointSelection++;
-			if(pointSelection == points.Length){
-				pointSelection = 0;
+			if(pointSelection == points.Length){				//once at the last array it resets the pointSelection to 0
+				pointSelection = 0;								//this starts the loop over again
 			}
 			currentPoint = points[pointSelection];
 		}
