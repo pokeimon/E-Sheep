@@ -41,7 +41,6 @@ public class Transitions : MonoBehaviour
 	This will be used to pick which levels to transitions and which not too.*/
     void OnLevelWasLoaded(int level)
     {
-		Debug.Log ("Test");
 		if(level!=null){		//replace null with the int of levels/scenes that should not fade in
 			FadeIn ();
 		}
