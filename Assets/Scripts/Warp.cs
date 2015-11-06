@@ -9,7 +9,15 @@ public class Warp : MonoBehaviour {
 
 	public Vector3 playerPosition;
 
-	void OnTriggerEnter2D (Collider2D other) {
+	IEnumerator OnTriggerEnter2D (Collider2D other) {
+
+		ScreenFader sf = GameObject.FindGameObjectWithTag ("Fader").GetComponent<ScreenFader> ();
+
+		Debug.Log ("PRE FADE OUT");
+
+		yield return StartCoroutine (sf.FadeToBlack ());
+
+		Debug.Log ("UPDATE PLAYER POS");
 
 		if (other.name == "Player") {
 			other.gameObject.transform.position = warpTarget.position; //changes position of player
@@ -18,6 +26,10 @@ public class Warp : MonoBehaviour {
 			playerPosition.z = -2;
 			theCamera.transform.position = playerPosition;
 		}
+
+		yield return StartCoroutine (sf.FadeToClear ());
+
+		Debug.Log ("FADE IN COMPLETE");
 
 	}
 
