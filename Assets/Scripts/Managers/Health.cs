@@ -22,12 +22,12 @@ public class Health : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D target) {
 		if (this.tag == "Player") {
-			if((target.gameObject.tag == "EnemyBullet") && (currentInvuln >= maxInvuln)){
+			if((target.gameObject.tag == "Enemy") && (currentInvuln >= maxInvuln)){
 				currentHP -= 1; //player always takes 1 damage.
 				currentInvuln = 0; //make player unable to take damage for a time;
 			}
 			if (currentHP < 1) {
-				//player death stuff
+				gameObject.SetActive (false);
 			}
 		} 
 		else { // This is an enemy 
