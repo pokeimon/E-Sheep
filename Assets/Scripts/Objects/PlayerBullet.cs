@@ -7,15 +7,19 @@ public class PlayerBullet : MonoBehaviour {
 	public float bulletLifeTime = 2.1f;
 	public int damage;
 
+
     private Rigidbody2D body2d;
 
 	private GameObject player;
+	private GameObject objPool;
 	private Vector2 playerSpeed;
 
     void Awake() {
         body2d = GetComponent<Rigidbody2D>();
 		player = GameObject.FindGameObjectWithTag ("Player");
-		this.transform.SetParent(player.transform);
+		objPool = GameObject.Find("PlayerBulletObjectPool");
+
+		this.transform.SetParent(objPool.transform);
 
     }
 
