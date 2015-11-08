@@ -6,9 +6,7 @@ public class Chocolate : AbstractEnemy {
 	// Use this for initialization
 
 		new void Start (){
-			maxHP = 5;
 			speed = 3f;
-			base.Start ();
 		} //target the player
 
 	

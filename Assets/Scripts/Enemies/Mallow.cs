@@ -4,14 +4,11 @@ using System.Collections;
 public class Mallow : AbstractEnemy {
 
 	new void Start (){
-		maxHP = 5;
 		speed = 3f;
 		jumpSpeed = 8f;
-		base.Start ();
 	}
 
-
-	void FixedUpdate (){                                                      //Handles movement and jumps
+	void FixedUpdate (){  //Handles movement and jumps
 
 		var tmpSpeed = speed;
 		var velX = tmpSpeed * (float)direction;

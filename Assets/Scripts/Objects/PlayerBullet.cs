@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PeaShooterBullet : MonoBehaviour {
+public class PlayerBullet : MonoBehaviour {
 
     public Vector2 bulletSpeed = new Vector2(100, 0);
 	public float bulletLifeTime = 2.1f;
+	public int damage;
 
     private Rigidbody2D body2d;
 
@@ -14,22 +15,18 @@ public class PeaShooterBullet : MonoBehaviour {
     void Awake() {
         body2d = GetComponent<Rigidbody2D>();
 		player = GameObject.FindGameObjectWithTag ("Player");
+		this.transform.SetParent(player.transform);
+
     }
 
     void OnEnable() {
+		//damage = player.health.currentHP - 1;
 
         var startVelX = bulletSpeed.x * transform.localScale.x;
 		playerSpeed = player.GetComponent<Rigidbody2D>().velocity;
-		/*
-		if (playerSpeed.x > 0) //add player speed to bullet looks weird trying higher bullet speed
-			startVelX += Mathf.Abs(playerSpeed.x); 
-		else
-			startVelX -= Mathf.Abs(playerSpeed.x);
-		*/	
 		body2d.velocity = new Vector2(startVelX, bulletSpeed.y);
 
-		Invoke("Destroy", bulletLifeTime); //destroy after set time (3 seconds) if it doesn't collide
-		//may want to find way to avoid killing off screen enemies?
+		Invoke("Destroy", bulletLifeTime); //destroy after set time if it doesn't collide
 
     }
 
