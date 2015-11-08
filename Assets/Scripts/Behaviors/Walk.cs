@@ -16,7 +16,7 @@ public class Walk : AbstractBehavior {
         {
             var tmpSpeed = speed;
 
-			if (X && runMultiplyer > 0){
+			if (X && runMultiplyer > 0 && !collisionState.climbing){
 				tmpSpeed *= runMultiplyer;
 			}
 
@@ -24,10 +24,12 @@ public class Walk : AbstractBehavior {
 
             body2d.velocity = new Vector2(velX, body2d.velocity.y);
         }
+
         else
         {
-            body2d.velocity = new Vector2(0f, body2d.velocity.y); //stops character from moving when no buttons pressed
+            	body2d.velocity = new Vector2(0f, body2d.velocity.y); //stops character from moving when no buttons pressed
         }
+
 	}
 
 	/* detects when the player is on the moving platform
