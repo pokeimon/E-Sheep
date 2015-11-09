@@ -13,7 +13,7 @@ public class BranchBreak : MonoBehaviour
     //When the player enters the trigger collider, drop this object's rigidbody
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Trigger Entered");
+//        Debug.Log("Trigger Entered");
         if (other.name == "Player")
         {
             breakrigidbody2d = GetComponentInChildren<Rigidbody2D>();
