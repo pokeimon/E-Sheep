@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Mallow : AbstractEnemy {
 
-	new void Start (){
+	void Start (){
 		speed = 3f;
 		jumpSpeed = 8f;
 	}

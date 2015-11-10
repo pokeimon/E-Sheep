@@ -5,7 +5,7 @@ public class PlayerBullet : MonoBehaviour {
 
     public Vector2 bulletSpeed = new Vector2(100, 0);
 	public float bulletLifeTime = 2.1f;
-	public int damage;
+	public int damage = 1;
 
 
     private Rigidbody2D body2d;

@@ -10,23 +10,25 @@ public class Shoot : AbstractBehavior {
     public float debugRadius = 3.5f;
 	public bool shooting = false;
 
-    private float timeElapsed = 0f;
-
-	// Update is called once per frame
+    private float curretShootDelay = 0f;
+	
 	void Update () {
 
         if (projectilePrefab != null) {
 
-			var canFire = inputState.GetButtonValue (inputButtons [0]);
+			var shootButton = inputState.GetButtonValue (inputButtons [0]);
 			var up = inputState.GetButtonValue (inputButtons [1]);
 			var down = inputState.GetButtonValue (inputButtons [2]);
 
-			if(canFire){
+			if(shootButton){
 				shooting = true; //shooting animation
+			}
+			else { 
+				shooting = false;
+			}
 
-			}else { shooting = false;}
 
-			if (canFire && timeElapsed > shootDelay) {
+			if (shootButton && curretShootDelay > shootDelay) {
                 GameObject obj = ObjectPooler.current.getPooledObject();
 
 
@@ -46,9 +48,9 @@ public class Shoot : AbstractBehavior {
 					}
                     
                 }
-                timeElapsed = 0;	 
+				curretShootDelay = 0;	 
 			}
-			timeElapsed += Time.deltaTime;
+			curretShootDelay += Time.deltaTime;
 		} 
 	}
 

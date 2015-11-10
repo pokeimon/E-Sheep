@@ -7,8 +7,10 @@ public class Health : MonoBehaviour {
 	public int playerStartHP = 2; //player starts at 2 hp?
 	public int currentHP; //publics so it can be seen for testing
 	private int damage;
-	public float maxInvuln = 0f; //disabled on default
-	private float currentInvuln = 0f;
+	public float maxMeleeInvuln = 0.4f; //prevents same melee from hitting twice
+	public float maxBulletInvuln = 0f; //disabled on default
+	public float currentMeleeInvuln = 0f;
+	public float currentBulletInvuln = 0f;
 
 	
 	void OnEnable () {
@@ -20,22 +22,12 @@ public class Health : MonoBehaviour {
 		}
 	}
 	
-	void OnCollisionEnter2D(Collision2D target) {
-		if (this.tag == "Player") {
-			if((target.gameObject.tag == "Enemy") && (currentInvuln >= maxInvuln)){
-				currentHP -= 1; //player always takes 1 damage.
-				currentInvuln = 0; //make player unable to take damage for a time;
-			}
-			if (currentHP < 1) {
-				gameObject.SetActive (false);
-			}
-		} 
-		else { // This is an enemy 
-			if ((target.gameObject.tag == "PlayerBullet") && (currentInvuln >= maxInvuln)) {
+	void OnCollisionEnter2D(Collision2D target) { 
+		if (this.tag == "Enemy") { 
+			if ((target.gameObject.tag == "PlayerBullet") && (currentBulletInvuln >= maxBulletInvuln)) {
 				//damage = target.PlayerBullet.damage; //variable bullet damage
 				damage = 1; //temp damage amount
 				currentHP -= damage;
-
 			}
 			if (currentHP < 1) {
 				gameObject.SetActive (false);
@@ -43,9 +35,36 @@ public class Health : MonoBehaviour {
 		}
 	}
 
-	void Update() {
-		if ((maxInvuln > 0f) && (currentInvuln < maxInvuln)) {
-			currentInvuln+= Time.deltaTime;
+	void OnTriggerEnter2D(Collider2D target) {
+		if (this.tag == "Player") {
+			if((target.gameObject.tag == "Enemy") && (currentMeleeInvuln >= maxMeleeInvuln)){
+				currentHP -= 1; //player always takes 1 damage.
+				currentMeleeInvuln = 0f; //make player unable to take damage for a time;
+			}
+			if (currentHP < 1) {
+				gameObject.SetActive (false);
+			}
+		}
+		else if (this.tag == "Enemy") {
+			if ((target.gameObject.tag == "PlayerSword") && (currentMeleeInvuln >= maxMeleeInvuln)) {
+				//damage = target.PlayerSword.damage; //variable bullet damage
+				damage = 5; //temp damage amount
+				currentHP -= damage;
+				currentMeleeInvuln = 0f;
+			}
+			if (currentHP < 1) {
+				gameObject.SetActive (false);
+			}
+		}
+	}
+
+
+	void FixedUpdate() {
+		if ((maxBulletInvuln > 0f) && (currentBulletInvuln < maxBulletInvuln)) {
+			currentBulletInvuln+= Time.deltaTime;
+		}
+		if ((maxMeleeInvuln > 0f) && (currentMeleeInvuln < maxMeleeInvuln)) {
+			currentMeleeInvuln+= Time.deltaTime;
 		}
 	}
 }

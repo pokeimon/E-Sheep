@@ -5,7 +5,7 @@ public class Chocolate : AbstractEnemy {
 
 	// Use this for initialization
 
-		new void Start (){
+	void Start (){
 			speed = 3f;
 		} //target the player
 
