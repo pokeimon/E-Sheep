@@ -20,7 +20,34 @@ public class Health : MonoBehaviour {
 			currentHP = maxHP;
 		}
 	}
-	
+
+
+
+	public int WeaponPickup(int weaponID){
+		int returnWeapon = 0;
+		if (this.tag == "Player") {
+			int current = GetComponent<PickUp>().currentItem;
+			switch(weaponID){
+			case 1:
+				currentHP ++;
+				break;
+			case 2:
+				currentHP += 2;
+				break;
+			case 3:
+				currentHP += 3;
+				break;
+			default:
+				break;
+			}
+			if(currentHP > maxHP){
+				currentHP = maxHP;
+			}
+			returnWeapon = currentHP;
+		} 
+		return returnWeapon;
+	}
+
 	void OnCollisionEnter2D(Collision2D target) { 
 		if (this.tag == "Enemy") { 
 			if ((target.gameObject.tag == "PlayerBullet") && (currentBulletInvuln >= maxBulletInvuln)) {

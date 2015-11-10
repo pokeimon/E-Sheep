@@ -11,8 +11,11 @@ public class PickUp : AbstractBehavior {
 			return _currentItem;
 		}
 		set{ 
+			GetComponent<Health>().WeaponPickup(value);
+			//_currentItem = GetComponent<Health>().WeaponPickup(value);
 			_currentItem = value;
 			animator.SetInteger("EquippedItem",_currentItem);
+
 		}
 	}
 
