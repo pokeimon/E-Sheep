@@ -18,13 +18,7 @@ public class PlayerManager : MonoBehaviour {
 		shootBehavior = GetComponent<Shoot> ();
 	}
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Character animation
-
 	void Update () {
 
 		int caseSwitch = 0;
@@ -47,8 +41,7 @@ public class PlayerManager : MonoBehaviour {
 			caseSwitch = 4;
 		}
 
-		switch (caseSwitch)
-		{
+		switch (caseSwitch){
 		case 1:
 			ChangeAnimationState (1); //walking
 			break;

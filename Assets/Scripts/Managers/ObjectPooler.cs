@@ -2,46 +2,36 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ObjectPooler : MonoBehaviour
-{
-
+public class ObjectPooler : MonoBehaviour {
 	public static ObjectPooler current;
 	public GameObject pooledObject;
 	public int pooledAmount = 20;
 	public bool willGrow = true;
 
-
 	List<GameObject> pooledObjects;
 
-	void Awake() 
-	{
+	void Awake(){
 		current = this;
 	}
 
-	void Start ()
-	{
+	void Start (){
 		pooledObjects = new List<GameObject> (); 
 
-		for(int i = 0; i < pooledAmount; i++)
-		{
+		for(int i = 0; i < pooledAmount; i++){
 			GameObject obj = (GameObject)Instantiate (pooledObject);
 			obj.SetActive(false);
 			pooledObjects.Add (obj);
 		}
 	}
 
-	public GameObject getPooledObject()
-	{
-		for (int i = 0; i < pooledObjects.Count; i++)
-		{
-			if(!pooledObjects[i].activeInHierarchy)
-			{
+	public GameObject getPooledObject() {
+		for (int i = 0; i < pooledObjects.Count; i++){
+			if(!pooledObjects[i].activeInHierarchy){
 				return pooledObjects[i];
 			}	
 		}
 
-		if(willGrow)
-		{
+		if(willGrow){
 			GameObject obj = (GameObject)Instantiate(pooledObject);
 			pooledObjects.Add (obj);
 		}

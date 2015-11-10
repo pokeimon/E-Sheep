@@ -7,7 +7,9 @@ public class PickUp : AbstractBehavior {
 	private Animator animator;
 
 	public int currentItem{
-		get{ return _currentItem;}
+		get{ 
+			return _currentItem;
+		}
 		set{ 
 			_currentItem = value;
 			animator.SetInteger("EquippedItem",_currentItem);
@@ -19,7 +21,6 @@ public class PickUp : AbstractBehavior {
 		animator = GetComponent<Animator> ();
 	}
 
-	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("Current Item = " + _currentItem);                      // This is all temporary code
 	}

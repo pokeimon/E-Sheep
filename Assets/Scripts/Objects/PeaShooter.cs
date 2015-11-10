@@ -13,7 +13,7 @@ public class PeaShooter : Collectable {
 
 		if(pickUpBehavior != null) {
 			pickUpBehavior.currentItem = itemID;
-			} 	
+		} 	
 
         if(shootBehavior != null) {
             shootBehavior.projectilePrefab = projectilePrefab;

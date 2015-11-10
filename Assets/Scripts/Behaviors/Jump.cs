@@ -8,7 +8,6 @@ public class Jump : AbstractBehavior {
 	public int currentJump;
 	private bool canJump;
 
-	
 	void Start() {
 		currentJump = 0;
 		canJump = true;
@@ -24,7 +23,6 @@ public class Jump : AbstractBehavior {
 
 		if (collisionState.standing || collisionState.climbing) {
 			currentJump = 0;
-
 			if (jumpButton && canJump) {
 				OnJump ();
 				canJump = false;

@@ -6,10 +6,8 @@ public class PlayerBullet : MonoBehaviour {
     public Vector2 bulletSpeed = new Vector2(100, 0);
 	public float bulletLifeTime = 2.1f;
 	public int damage = 1;
-
-
+	
     private Rigidbody2D body2d;
-
 	private GameObject player;
 	private GameObject objPool;
 	private Vector2 playerSpeed;
@@ -20,7 +18,6 @@ public class PlayerBullet : MonoBehaviour {
 		objPool = GameObject.Find("PlayerBulletObjectPool");
 
 		this.transform.SetParent(objPool.transform);
-
     }
 
     void OnEnable() {

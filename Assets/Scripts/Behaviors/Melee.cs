@@ -9,8 +9,6 @@ public class Melee : AbstractBehavior {
 	private float currentMeleeDelay = 0f;
 
 	void Update () {
-
-
 		var meleeButton = inputState.GetButtonValue (inputButtons [0]);
 
 		if (meleeButton) { //melee animation
@@ -28,7 +26,5 @@ public class Melee : AbstractBehavior {
 			currentMeleeDelay = 0;
 		}
 		currentMeleeDelay += Time.deltaTime;
-
 	}
-
 }

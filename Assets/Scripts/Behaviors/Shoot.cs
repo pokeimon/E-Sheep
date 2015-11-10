@@ -13,7 +13,6 @@ public class Shoot : AbstractBehavior {
     private float curretShootDelay = 0f;
 	
 	void Update () {
-
         if (projectilePrefab != null) {
 
 			var shootButton = inputState.GetButtonValue (inputButtons [0]);
@@ -32,9 +31,7 @@ public class Shoot : AbstractBehavior {
                 GameObject obj = ObjectPooler.current.getPooledObject();
 
 
-                if (obj != null)
-                {
-
+                if (obj != null){			
                     obj.transform.position = CalculateFirePosition();
                     obj.transform.rotation = transform.rotation;
                     obj.transform.localScale = transform.localScale * .2f;

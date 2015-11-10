@@ -11,7 +11,6 @@ public class Health : MonoBehaviour {
 	public float maxBulletInvuln = 0f; //disabled on default
 	public float currentMeleeInvuln = 0f;
 	public float currentBulletInvuln = 0f;
-
 	
 	void OnEnable () {
 		if (this.tag == "Player") {

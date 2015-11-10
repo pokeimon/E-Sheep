@@ -23,13 +23,9 @@ public class PlayerSword : MonoBehaviour {
 		transform.localPosition = new Vector3 (0.75f, 0.25f, 0f);
 		transform.localScale = new Vector3 (1f, length / 2f, 1f);
 		transform.localEulerAngles = new Vector3 (0f, 0f, 30f);
-
-
 	}
 
 	void FixedUpdate () { 
-
-
 		if (!((transform.localEulerAngles.z < 221) && (transform.localEulerAngles.z > 31))) {
 			transform.Rotate (0, 0, -1f * swingSpeed);
 		} 
@@ -37,5 +33,4 @@ public class PlayerSword : MonoBehaviour {
 			gameObject.SetActive(false);
 		}
 	}
-
 }
