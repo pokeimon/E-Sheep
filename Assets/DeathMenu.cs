@@ -9,11 +9,12 @@ public class DeathMenu : MonoBehaviour {
 	public Button replay;
 	public Button mainMenu;
 
-	GameObject player = GameObject.Find("Player");
+	GameObject player;
 
 	int health; 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find("Player");
 		deathMenu = this.gameObject.GetComponent<Canvas>();
 		deathMenu.enabled = false;
 		mainMenu = mainMenu.GetComponent<Button> ();
@@ -24,10 +25,10 @@ public class DeathMenu : MonoBehaviour {
 
 		health = player.GetComponent<Health>().currentHP;
 
-		if (health == 3) {
+		if (health == 0) {
 			deathMenu.enabled = true;
-		}
-		deathMenu.enabled = true;
+		} else
+			deathMenu.enabled = false;
 	}
 
 	public void playerDeath(){
