@@ -11,6 +11,9 @@ public class Health : MonoBehaviour {
 	public float maxBulletInvuln = 0f; //disabled on default
 	public float currentMeleeInvuln = 0f;
 	public float currentBulletInvuln = 0f;
+
+	//temp to get deathmenu to work
+	public GameObject deathCanvas;
 	
 	void OnEnable () {
 		if (this.tag == "Player") {
@@ -68,6 +71,8 @@ public class Health : MonoBehaviour {
 				currentMeleeInvuln = 0f; //make player unable to take damage for a time;
 			}
 			if (currentHP < 1) {
+				DeathMenu menu = (DeathMenu) deathCanvas.GetComponent("DeathMenu");
+				menu.playerDeath();
 				gameObject.SetActive (false);
 			}
 		}
