@@ -2,43 +2,47 @@
 using System.Collections;
 
 public class Chocolate : AbstractEnemy {
+	public bool moveRight;
+	public Transform wallCheck;
+	public float wallCheckRadius;
+	public LayerMask whatIsWall;
+	private bool hittingWall;
+	private bool notAtEdge;
+	public Transform edgeCheck;
+
 
 	// Use this for initialization
-
 	void Start (){
-			speed = 3f;
+		speed = 3;
+		jumpSpeed = 0;
+
 		} //target the player
 
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		var tmpSpeed = speed;
-		var velX = tmpSpeed * (float)direction;
-		
-		body2d.velocity = new Vector2(velX, body2d.velocity.y);
-		
-		if ((Time.time % 4) == 0 && direction == enemyDirections.Right) {
-			//Debug.Log("Mallow direction changed: Left");
-			direction = enemyDirections.Left;
+		//var tmpSpeed = speed;
+	//	var velX = tmpSpeed * (float)direction;
+
+		hittingWall = Physics2D.OverlapCircle (wallCheck.position, wallCheckRadius, whatIsWall);
+		notAtEdge = Physics2D.OverlapCircle (edgeCheck.position, wallCheckRadius, whatIsWall);
+		if (hittingWall || !notAtEdge) {
+			moveRight = !moveRight;
 		}
-		
-		if((Time.time % 8) == 0 && direction == enemyDirections.Left){
-			//Debug.Log("Mallow direction changed: Right");
-			direction = enemyDirections.Right;
+
+		//body2d.velocity = new Vector2 (velX, body2d.velocity.y);
+		if (moveRight) {
+			transform.localScale = new Vector3(-7f,7f,1f);
+			body2d.velocity = new Vector2 (speed, body2d.velocity.y);
+		} else {
+			transform.localScale = new Vector3(7f,7f,1f);
+			body2d.velocity = new Vector2 (-speed, body2d.velocity.y);
 		}
+
+
 	}
-	
-	protected virtual void OnTriggerEnter2D(Collider2D target) {
-		if (target.gameObject.tag == "Player") {
-			speed = 15f;
-		}
-	}
-	protected virtual void OnTriggerExit2D(Collider2D target) {
-		if (target.gameObject.tag == "Player") {
-			speed = 3f;
-		}
-	}
-	
+
+
 
 	
 }
