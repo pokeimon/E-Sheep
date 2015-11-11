@@ -4,20 +4,14 @@ using System.Collections;
 public class Warp : MonoBehaviour {
 
 	public Transform warpTarget;
-
 	public Camera theCamera;
-
 	public Vector3 playerPosition;
 
 	IEnumerator OnTriggerEnter2D (Collider2D other) {
 
-		ScreenFader sf = GameObject.FindGameObjectWithTag ("Fader").GetComponent<ScreenFader> ();
-
-		Debug.Log ("PRE FADE OUT");
+		ScreenFader sf = GameObject.FindGameObjectWithTag ("Fader").GetComponent<ScreenFader> (); //find game object with fader tag
 
 		yield return StartCoroutine (sf.FadeToBlack ());
-
-		Debug.Log ("UPDATE PLAYER POS");
 
 		if (other.name == "Player") {
 			other.gameObject.transform.position = warpTarget.position; //changes position of player
@@ -28,9 +22,5 @@ public class Warp : MonoBehaviour {
 		}
 
 		yield return StartCoroutine (sf.FadeToClear ());
-
-		Debug.Log ("FADE IN COMPLETE");
-
 	}
-
 }

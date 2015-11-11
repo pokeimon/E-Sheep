@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ScreenFader : MonoBehaviour {
 
-	Animator anim;
-	bool isFading = false; // used for determining how long to yeild for
+	private Animator anim;
+	public bool isFading = false; // used for determining how long to yeild for
 
 	// Use this for initialization
 	void Start () {
