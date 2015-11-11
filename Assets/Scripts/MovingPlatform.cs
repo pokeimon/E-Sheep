@@ -18,7 +18,8 @@ public class MovingPlatform : MonoBehaviour {
 	}
 
 	void Update(){
-		platform.transform.position = Vector3.MoveTowards(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
+		platform.transform.position = Vector3.MoveTowards
+			(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
 
 		if(platform.transform.position == currentPoint.position){
 			pointSelection++;
