@@ -54,9 +54,9 @@ public class MainMenu : MonoBehaviour {
 	
 	//go back to main menu
 	public void MenuPress() {
-		
-		Application.LoadLevel(1);
-		
+
+		creditMenu.enabled = false;
+
 	}
 	
 	//press start game button
