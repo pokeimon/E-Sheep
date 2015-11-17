@@ -9,18 +9,16 @@ public class Warp : MonoBehaviour {
 
 	IEnumerator OnTriggerEnter2D (Collider2D other) {
 
-		ScreenFader sf = GameObject.FindGameObjectWithTag ("Fader").GetComponent<ScreenFader> (); //find game object with fader tag
-
-		yield return StartCoroutine (sf.FadeToBlack ());
 
 		if (other.name == "Player") {
-			other.gameObject.transform.position = warpTarget.position; //changes position of player
-			//Camera.main.transform.position = warpTarget.position; //changes position of camera //might not need this line
-			playerPosition = other.gameObject.transform.position;
-			playerPosition.z = -2;
-			theCamera.transform.position = playerPosition;
-		}
+			float fadeTime = GameObject.Find("GM").GetComponent<Transitions>().FadeOut();	//fades out when player exits
+			yield return new WaitForSeconds (fadeTime);										//waits till fading out is finished
+			other.gameObject.transform.position = warpTarget.position;						//changes position of player
+			playerPosition = other.gameObject.transform.position;							//moves player position
+			playerPosition.z = -2;												
+			theCamera.transform.position = playerPosition;									//moves camera
+			GameObject.Find("GM").GetComponent<Transitions>().FadeIn();						//fades in
 
-		yield return StartCoroutine (sf.FadeToClear ());
+		}
 	}
 }
