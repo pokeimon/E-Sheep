@@ -1,55 +1,51 @@
 fileFormatVersion: 2
-guid: 29853ac8989cf8041b6581162b2d2223
-timeCreated: 1447917686
+guid: 48ad8ab75690229469e22c2e5fd00aa1
+timeCreated: 1447917823
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SpriteSprite_0
-    21300002: SpriteSprite_1
-    21300004: SpriteSprite_2
-    21300006: SpriteSprite_3
-    21300008: SpriteSprite_4
-    21300010: SpriteSprite_5
-    21300012: SpriteSprite_6
-    21300014: SpriteSprite_7
-    21300016: SpriteSprite_8
-    21300018: SpriteSprite_9
-    21300020: SpriteSprite_10
-    21300022: SpriteSprite_11
-    21300024: SpriteSprite_12
-    21300026: SpriteSprite_13
-    21300028: SpriteSprite_14
-    21300030: SpriteSprite_15
-    21300032: SpriteSprite_16
-    21300034: SpriteSprite_17
-    21300036: SpriteSprite_18
-    21300038: SpriteSprite_19
-    21300040: SpriteSprite_20
-    21300042: SpriteSprite_21
-    21300044: SpriteSprite_22
-    21300046: SpriteSprite_23
-    21300048: SpriteSprite_24
-    21300050: SpriteSprite_25
-    21300052: SpriteSprite_26
-    21300054: SpriteSprite_27
-    21300056: SpriteSprite_28
-    21300058: SpriteSprite_29
-    21300060: SpriteSprite_30
-    21300062: SpriteSprite_31
-    21300064: SpriteSprite_32
-    21300066: SpriteSprite_33
-    21300068: SpriteSprite_34
-    21300070: SpriteSprite_35
-    21300072: SpriteSprite_36
-    21300074: SpriteSprite_37
-    21300076: SpriteSprite_38
-    21300078: SpriteSprite_39
-    21300080: SpriteSprite_40
-    21300082: SpriteSprite_41
-    21300084: SpriteSprite_42
-    21300086: SpriteSprite_43
-    21300088: SpriteSprite_44
-    21300090: SpriteSprite_45
+    21300000: damageSpriteSheet_0
+    21300002: damageSpriteSheet_1
+    21300004: damageSpriteSheet_2
+    21300006: damageSpriteSheet_3
+    21300008: damageSpriteSheet_4
+    21300010: damageSpriteSheet_5
+    21300012: damageSpriteSheet_6
+    21300014: damageSpriteSheet_7
+    21300016: damageSpriteSheet_8
+    21300018: damageSpriteSheet_9
+    21300020: damageSpriteSheet_10
+    21300022: damageSpriteSheet_11
+    21300024: damageSpriteSheet_12
+    21300026: damageSpriteSheet_13
+    21300028: damageSpriteSheet_14
+    21300030: damageSpriteSheet_15
+    21300032: damageSpriteSheet_16
+    21300034: damageSpriteSheet_17
+    21300036: damageSpriteSheet_18
+    21300038: damageSpriteSheet_19
+    21300040: damageSpriteSheet_20
+    21300042: damageSpriteSheet_21
+    21300044: damageSpriteSheet_22
+    21300046: damageSpriteSheet_23
+    21300048: damageSpriteSheet_24
+    21300050: damageSpriteSheet_25
+    21300052: damageSpriteSheet_26
+    21300054: damageSpriteSheet_27
+    21300056: damageSpriteSheet_28
+    21300058: damageSpriteSheet_29
+    21300060: damageSpriteSheet_30
+    21300062: damageSpriteSheet_31
+    21300064: damageSpriteSheet_32
+    21300066: damageSpriteSheet_33
+    21300068: damageSpriteSheet_34
+    21300070: damageSpriteSheet_35
+    21300072: damageSpriteSheet_36
+    21300074: damageSpriteSheet_37
+    21300076: damageSpriteSheet_38
+    21300078: damageSpriteSheet_39
+    21300080: damageSpriteSheet_40
+    21300082: damageSpriteSheet_41
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -96,7 +92,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: SpriteSprite_0
+    - name: damageSpriteSheet_0
       rect:
         serializedVersion: 2
         x: 5
@@ -106,17 +102,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_1
+    - name: damageSpriteSheet_1
       rect:
         serializedVersion: 2
         x: 37
         y: 268
         width: 24
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_2
+    - name: damageSpriteSheet_2
       rect:
         serializedVersion: 2
         x: 69
@@ -126,17 +122,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_3
+    - name: damageSpriteSheet_3
       rect:
         serializedVersion: 2
         x: 101
         y: 268
         width: 24
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_4
+    - name: damageSpriteSheet_4
       rect:
         serializedVersion: 2
         x: 133
@@ -146,17 +142,17 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_5
+    - name: damageSpriteSheet_5
       rect:
         serializedVersion: 2
         x: 165
         y: 268
         width: 24
-        height: 32
+        height: 31
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_6
+    - name: damageSpriteSheet_6
       rect:
         serializedVersion: 2
         x: 5
@@ -166,7 +162,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_7
+    - name: damageSpriteSheet_7
       rect:
         serializedVersion: 2
         x: 37
@@ -176,7 +172,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_8
+    - name: damageSpriteSheet_8
       rect:
         serializedVersion: 2
         x: 69
@@ -186,7 +182,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_9
+    - name: damageSpriteSheet_9
       rect:
         serializedVersion: 2
         x: 101
@@ -196,7 +192,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_10
+    - name: damageSpriteSheet_10
       rect:
         serializedVersion: 2
         x: 133
@@ -206,7 +202,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_11
+    - name: damageSpriteSheet_11
       rect:
         serializedVersion: 2
         x: 165
@@ -216,7 +212,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_12
+    - name: damageSpriteSheet_12
       rect:
         serializedVersion: 2
         x: 9
@@ -226,7 +222,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_13
+    - name: damageSpriteSheet_13
       rect:
         serializedVersion: 2
         x: 41
@@ -234,9 +230,9 @@ TextureImporter:
         width: 26
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_14
+    - name: damageSpriteSheet_14
       rect:
         serializedVersion: 2
         x: 73
@@ -244,9 +240,9 @@ TextureImporter:
         width: 26
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_15
+    - name: damageSpriteSheet_15
       rect:
         serializedVersion: 2
         x: 105
@@ -254,19 +250,9 @@ TextureImporter:
         width: 26
         height: 32
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_16
-      rect:
-        serializedVersion: 2
-        x: 149
-        y: 199
-        width: 13
-        height: 10
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_17
+    - name: damageSpriteSheet_16
       rect:
         serializedVersion: 2
         x: 10
@@ -276,7 +262,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_18
+    - name: damageSpriteSheet_17
       rect:
         serializedVersion: 2
         x: 42
@@ -286,7 +272,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_19
+    - name: damageSpriteSheet_18
       rect:
         serializedVersion: 2
         x: 74
@@ -296,7 +282,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_20
+    - name: damageSpriteSheet_19
       rect:
         serializedVersion: 2
         x: 106
@@ -306,7 +292,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_21
+    - name: damageSpriteSheet_20
       rect:
         serializedVersion: 2
         x: 138
@@ -316,7 +302,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_22
+    - name: damageSpriteSheet_21
       rect:
         serializedVersion: 2
         x: 170
@@ -326,7 +312,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_23
+    - name: damageSpriteSheet_22
       rect:
         serializedVersion: 2
         x: 9
@@ -336,7 +322,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_24
+    - name: damageSpriteSheet_23
       rect:
         serializedVersion: 2
         x: 41
@@ -346,7 +332,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_25
+    - name: damageSpriteSheet_24
       rect:
         serializedVersion: 2
         x: 73
@@ -356,7 +342,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_26
+    - name: damageSpriteSheet_25
       rect:
         serializedVersion: 2
         x: 105
@@ -366,7 +352,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_27
+    - name: damageSpriteSheet_26
       rect:
         serializedVersion: 2
         x: 137
@@ -376,7 +362,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_28
+    - name: damageSpriteSheet_27
       rect:
         serializedVersion: 2
         x: 169
@@ -386,7 +372,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_29
+    - name: damageSpriteSheet_28
       rect:
         serializedVersion: 2
         x: 10
@@ -396,7 +382,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_30
+    - name: damageSpriteSheet_29
       rect:
         serializedVersion: 2
         x: 42
@@ -406,7 +392,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_31
+    - name: damageSpriteSheet_30
       rect:
         serializedVersion: 2
         x: 74
@@ -416,7 +402,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_32
+    - name: damageSpriteSheet_31
       rect:
         serializedVersion: 2
         x: 106
@@ -426,7 +412,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_33
+    - name: damageSpriteSheet_32
       rect:
         serializedVersion: 2
         x: 138
@@ -436,7 +422,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_34
+    - name: damageSpriteSheet_33
       rect:
         serializedVersion: 2
         x: 170
@@ -446,7 +432,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_35
+    - name: damageSpriteSheet_34
       rect:
         serializedVersion: 2
         x: 7
@@ -456,7 +442,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_36
+    - name: damageSpriteSheet_35
       rect:
         serializedVersion: 2
         x: 52
@@ -466,7 +452,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_40
+    - name: damageSpriteSheet_36
       rect:
         serializedVersion: 2
         x: 10
@@ -476,7 +462,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_41
+    - name: damageSpriteSheet_37
       rect:
         serializedVersion: 2
         x: 42
@@ -486,7 +472,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_42
+    - name: damageSpriteSheet_38
       rect:
         serializedVersion: 2
         x: 74
@@ -496,7 +482,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_43
+    - name: damageSpriteSheet_39
       rect:
         serializedVersion: 2
         x: 106
@@ -506,7 +492,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_44
+    - name: damageSpriteSheet_40
       rect:
         serializedVersion: 2
         x: 138
@@ -516,7 +502,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SpriteSprite_45
+    - name: damageSpriteSheet_41
       rect:
         serializedVersion: 2
         x: 170
