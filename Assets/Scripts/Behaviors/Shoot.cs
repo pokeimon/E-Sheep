@@ -30,7 +30,6 @@ public class Shoot : AbstractBehavior {
 			if (shootButton && curretShootDelay > shootDelay) {
                 GameObject obj = ObjectPooler.current.getPooledObject();
 
-
                 if (obj != null){			
                     obj.transform.position = CalculateFirePosition();
                     obj.transform.rotation = transform.rotation;
