@@ -60,7 +60,7 @@ public class CameraSeek : MonoBehaviour {
 	}
 
 	public void SwitchStageCamera(float cameraZoneY){
-		SetStageCamera (stageminX, stagemaxX, cameraZoneY, cameraZoneY+10, stageminZ, stagemaxZ);
+		SetStageCamera (stageminX, stagemaxX, cameraZoneY-10, cameraZoneY+10, stageminZ, stagemaxZ);
 		newCameraY = cameraZoneY;
 //		Debug.Log ("Did Camera Switch?");
 	}

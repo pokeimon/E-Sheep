@@ -51,7 +51,7 @@ public class CameraFollow : MonoBehaviour {
         focus = GameObject.FindGameObjectWithTag ("Player");
     }
 
-	void FixedUpdate(){
+	void Update(){
         dampenCameraShift(focus.transform.position.x, focus.transform.position.y);
         if (reset) {
             dampenCameraShift(focus.transform.position.x, stageminY);
@@ -110,4 +110,11 @@ public class CameraFollow : MonoBehaviour {
         transform.position = new Vector3(posX, posY, transform.position.z);
 
     }
+
+	public void ChangeYBounds(float newFloorBound, float newCeilingBound){
+		stageminY = newFloorBound;
+		stagemaxY = newCeilingBound;
+		Debug.Log ("Changing floor");
+
+	}
 }
