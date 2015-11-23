@@ -3,20 +3,21 @@ using System.Collections;
 
 public class Collectable : MonoBehaviour {
 
-	public string targetTag = "Player";
+	public int energy = 1;
 
 	void OnTriggerEnter2D(Collider2D target){
-		if (target.gameObject.tag == targetTag) {
+		if (target.gameObject.tag == "Player") {
 			OnCollect(target.gameObject);
 			OnDestroy();
 		}
 	}
 
-	protected virtual void OnCollect(GameObject target){
-		
+	void OnCollect(GameObject target){
+			Health health = target.GetComponent<Health>();
+			health.EnergyPickUp(energy);
 	}
 
-	protected virtual void OnDestroy(){
+	void OnDestroy(){
 		Destroy (gameObject);
 	}
 	

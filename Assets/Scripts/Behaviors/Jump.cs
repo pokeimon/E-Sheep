@@ -15,7 +15,6 @@ public class Jump : AbstractBehavior {
 
 	void Update () {
 		var jumpButton = inputState.GetButtonValue (inputButtons [0]);
-        var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
 
 		if (!jumpButton) {
 			canJump = true;

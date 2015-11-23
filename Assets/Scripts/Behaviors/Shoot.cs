@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shoot : AbstractBehavior {
 
-    public float shootDelay = .1f;
+    public float shootDelay;
     public GameObject projectilePrefab;
     public Vector2 firePosition = Vector2.zero;
     public Color debugColor = Color.yellow;
@@ -11,9 +11,18 @@ public class Shoot : AbstractBehavior {
 	public bool shooting = false;
 
     private float curretShootDelay = 0f;
+
 	
 	void Update () {
-        if (projectilePrefab != null) {
+
+        if (health.currentHP > 1) {
+			if(health.currentHP < 3){
+				shootDelay = .3f;
+			}
+			else {
+				shootDelay = .2f; //double fire speed for energy 3+
+			}
+
 
 			var shootButton = inputState.GetButtonValue (inputButtons [0]);
 			var up = inputState.GetButtonValue (inputButtons [1]);
