@@ -3,24 +3,33 @@ using System.Collections;
 
 public class Mallow : AbstractEnemy {
 	
-	public Rigidbody2D mallow;
+	public Transform mallow;
 	public Transform target;
+	public LayerMask chaseLayer;
+	public float collisionRadius = 10f;
 	public bool chase = false;
+	public Vector2 mallowCenter = Vector2.zero;
+	public Color debugCollisionColor = Color.red;
 
 	void Start (){
 		speed = 3f;
 		jumpSpeed = 8f;
-		mallow = GetComponent<Rigidbody2D> ();
+		mallow = GetComponent<Rigidbody2D> ().transform;
 	}
 
 	void FixedUpdate (){  //Handles movement and jumps
 
+		var pos = mallowCenter;
+		pos.x += transform.position.x;
+		pos.y += transform.position.y;
+
+		chase = Physics2D.OverlapCircle (pos, collisionRadius, chaseLayer);
+
 		if (chase) {
 			Debug.Log ("Entered");
-			mallow.transform.position = Vector3.MoveTowards (mallow.transform.position, target.transform.position, Time.deltaTime * speed);
-		}
-		
-
+			speed = 7;
+			mallow.transform.position = Vector3.MoveTowards (mallow.position, target.transform.position, Time.deltaTime * speed);
+		} else { speed = 3;}
 		
 		if ((Time.time % 2) == 0 && collisionState.standing) {
 			OnJump ();
@@ -43,7 +52,8 @@ public class Mallow : AbstractEnemy {
 			}
 		}
 	}
-	protected virtual void OnTriggerEnter2D(Collider2D target) {
+
+	/*protected virtual void OnTriggerEnter2D(Collider2D target) {
 		if (target.gameObject.tag == "Player") {
 			chase = true;
 			speed = 6f;
@@ -55,6 +65,16 @@ public class Mallow : AbstractEnemy {
 			speed = 3f;
 			Debug.Log("Exited");
 		}
+	}*/
+
+	void OnDrawGizmos(){
+		Gizmos.color = debugCollisionColor;
+		
+		var pos = mallowCenter;
+		pos.x += transform.position.x;
+		pos.y += transform.position.y;
+		
+		Gizmos.DrawWireSphere (pos, collisionRadius);
 	}
 
 	protected virtual void OnJump(){
