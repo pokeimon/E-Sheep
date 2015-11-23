@@ -20,7 +20,6 @@ public class Warp : MonoBehaviour {
 			playerPosition.z = -2;												
 			theCamera.transform.position = playerPosition;									//moves camera
 			GameObject.Find("GM").GetComponent<Transitions>().FadeIn();						//fades in
-			GameObject.Find ("Player").GetComponent<Jump>().warp = false;
 			coll.attachedRigidbody.isKinematic = false;
 		}
 	}
