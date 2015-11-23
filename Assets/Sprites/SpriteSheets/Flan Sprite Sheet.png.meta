@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 9ad77f352480e8b4888d579c8698efe1
-timeCreated: 1445544750
+timeCreated: 1448306404
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Flan Sprite Sheet_0
     21300002: Flan Sprite Sheet_1
     21300004: Flan Sprite Sheet_2
+    21300006: Flan Sprite Sheet_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,32 +58,42 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 27
-        y: 422
-        width: 143
+        y: 421
+        width: 142
         height: 135
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 0, z: 0, w: 0}
     - name: Flan Sprite Sheet_1
       rect:
         serializedVersion: 2
-        x: 219
-        y: 425
-        width: 143
-        height: 133
+        x: 233
+        y: 418
+        width: 144
+        height: 147
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 1, y: 0, z: 0, w: 0}
     - name: Flan Sprite Sheet_2
       rect:
         serializedVersion: 2
-        x: 420
-        y: 423
+        x: 427
+        y: 425
         width: 146
-        height: 145
+        height: 135
       alignment: 0
       pivot: {x: .5, y: .5}
-      border: {x: 2, y: 0, z: 1, w: 0}
+      border: {x: 2, y: 0, z: 0, w: 0}
+    - name: Flan Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 424
+        width: 146
+        height: 132
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
