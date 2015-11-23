@@ -10,11 +10,13 @@ public class Chocolate : AbstractEnemy {
 	private bool notAtEdge;
 	public Transform edgeCheck;
 
-
+	private float ySize;
+	//private float xSize;
 	// Use this for initialization
 	void Start (){
 		speed = 3;
 		jumpSpeed = 0;
+		ySize = transform.localScale.y;
 
 		} //target the player
 
@@ -32,10 +34,10 @@ public class Chocolate : AbstractEnemy {
 
 		//body2d.velocity = new Vector2 (velX, body2d.velocity.y);
 		if (moveRight) {
-			transform.localScale = new Vector3(-7f,7f,1f);
+			transform.localScale = new Vector3(-ySize,transform.localScale.y,transform.localScale.z);
 			body2d.velocity = new Vector2 (speed, body2d.velocity.y);
 		} else {
-			transform.localScale = new Vector3(7f,7f,1f);
+			transform.localScale = new Vector3(ySize,transform.localScale.y,transform.localScale.z);
 			body2d.velocity = new Vector2 (-speed, body2d.velocity.y);
 		}
 
