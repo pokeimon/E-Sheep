@@ -24,7 +24,7 @@ public class BossHealthMananger : MonoBehaviour {
 				clone2.transform.localScale = new Vector3(transform.localScale.x *.5f, transform.localScale.y *.5f, transform.localScale.z);
 				clone2.GetComponent<BossHealthMananger>().enemyHealth =10;
 			}
-				//Destroy(GameObject);
+				Destroy(gameObject);
 			}
 		}
 	}
