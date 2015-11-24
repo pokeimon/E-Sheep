@@ -7,10 +7,30 @@ public class Transitions : MonoBehaviour
     public Texture2D fadeTexture;   //The texture that will overlay the screen.  
     public float fadeSpeed = 0.8f;	
 
+	private GameObject player;
     private int drawDepth = -1000;
     private float alpha = 0.0f; 	
     private int fadeDirection = -1; //-1 fadeIn or 1 fadeOut
 
+	void Start(){
+		player = GameObject.Find("Player");
+	}
+
+	//used to disable or enable player input while/after transitioning
+	void disableInput(bool disable){
+		if(disable){										//disables player input
+			player.GetComponent<Jump>().enabled = false;
+			player.GetComponent<Walk>().enabled = false;
+			player.GetComponent<Shoot>().enabled = false;
+			player.GetComponent<Melee>().enabled = false;
+		}
+		else{												//enables player input
+			player.GetComponent<Jump>().enabled = true;
+			player.GetComponent<Walk>().enabled = true;
+			player.GetComponent<Shoot>().enabled = true;
+			player.GetComponent<Melee>().enabled = true;
+		}
+	}
 
     void OnGUI(){
         alpha += fadeDirection * fadeSpeed * Time.deltaTime;
@@ -23,6 +43,7 @@ public class Transitions : MonoBehaviour
 	/*used to fadIn the scene (typcally used at the start of a scene)
 	fadeSpeed is returned to use to time the transition of scenes*/
     public float FadeIn(){
+		disableInput(false);
 		alpha = 1.0f;
         fadeDirection = -1;
         return fadeSpeed;
@@ -31,6 +52,7 @@ public class Transitions : MonoBehaviour
 	/*used to fadeOut the scene (typcally used at the end of a scene)
 	fadeSpeed is returned to use to time the transition of scenes*/
     public float FadeOut(){
+		disableInput(true);
 		alpha = 0.0f;
         fadeDirection = 1;
         return fadeSpeed;
