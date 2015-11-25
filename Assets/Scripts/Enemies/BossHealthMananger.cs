@@ -19,7 +19,7 @@ public class BossHealthMananger : MonoBehaviour {
 		HP = health.currentHP;
 		maxHP = health.maxHP;
 	if ( HP<=5) {
-			rb = GetComponent<Rigidbody2D> ();
+			//rb = GetComponent<Rigidbody2D> ();
 			Instantiate(deathEffect, transform.position, transform.rotation);
 			if(transform.localScale.y > minsize){
 			GameObject clone1 = Instantiate(bossPrefab, new Vector3 (transform.position.x + 1.5f, 
@@ -30,9 +30,9 @@ public class BossHealthMananger : MonoBehaviour {
 				                transform.position.y, transform.position.z),transform.rotation)as GameObject;
 				rb = clone2.GetComponent<Rigidbody2D> ();
 				rb.isKinematic= false;
-				clone1.transform.localScale = new Vector3(transform.localScale.x *.5f, transform.localScale.y *.5f, transform.localScale.z);
+				clone1.transform.localScale = new Vector3(transform.localScale.x *.75f, transform.localScale.y *.5f, transform.localScale.z);
 				clone1.GetComponent<BossHealthMananger>().HP =20;
-				clone2.transform.localScale = new Vector3(transform.localScale.x *.5f, transform.localScale.y *.5f, transform.localScale.z);
+				clone2.transform.localScale = new Vector3(transform.localScale.x *.75f, transform.localScale.y *.5f, transform.localScale.z);
 				clone2.GetComponent<BossHealthMananger>().HP=20;
 			}
 				Destroy(gameObject);
