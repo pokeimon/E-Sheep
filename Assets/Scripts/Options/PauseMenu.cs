@@ -17,6 +17,9 @@ public class PauseMenu : MonoBehaviour {
 		
 		if (Input.GetButtonDown ("Pause")) {
 			paused = !paused;
+			if(GameObject.Find ("Player").GetComponent<Health>().currentHP == 0){
+				paused = false;
+			}
 		}
 		
 		if (paused) {
@@ -43,8 +46,9 @@ public class PauseMenu : MonoBehaviour {
 
 	public void MainMenu(){
 		paused = false;
-		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));//0 should correspond to Main Menu Scene as designated on Build Settings
-
+//		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));//0 should correspond to Main Menu Scene as designated on Build Settings
+//		Application.LoadLevel (1);
+		Resume ();
 	}
 
 	public void Quit(){
