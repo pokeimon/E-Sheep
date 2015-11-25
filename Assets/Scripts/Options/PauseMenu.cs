@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void Restart(){
+		paused = false;
 		Application.LoadLevel (Application.loadedLevel);//reload's the current level
 	}
 
