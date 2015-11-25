@@ -13,7 +13,7 @@ public class BossHealthMananger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	if (enemyHealth <= 0) {
-			//Instantiate(deathEffect.transform.position, transform.rotation);
+			Instantiate(deathEffect, transform.position, transform.rotation);
 			if(transform.localScale.y > minsize){
 			GameObject clone1 = Instantiate(bossPrefab, new Vector3 (transform.position.x +.05f, 
 				               transform.position.y, transform.position.z),transform.rotation)as GameObject;
@@ -27,5 +27,10 @@ public class BossHealthMananger : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
+	public void giveDamage(int damageToGive){
+		enemyHealth -= damageToGive;
+	}
+
+
 	}
 
