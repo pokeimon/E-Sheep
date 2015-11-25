@@ -18,18 +18,22 @@ public class Transitions : MonoBehaviour
 
 	//used to disable or enable player input while/after transitioning
 	void disableInput(bool disable){
-		if(disable){										//disables player input
-			player.GetComponent<Jump>().enabled = false;
-			player.GetComponent<Walk>().enabled = false;
-			player.GetComponent<Shoot>().enabled = false;
-			player.GetComponent<Melee>().enabled = false;
+		int current = Application.loadedLevel;
+		if(current != 1){										//prevents running on main menu
+			if(disable){										//disables player input
+				player.GetComponent<Jump>().enabled = false;
+				player.GetComponent<Walk>().enabled = false;
+				player.GetComponent<Shoot>().enabled = false;
+				player.GetComponent<Melee>().enabled = false;
+			}
+			else{												//enables player input
+				player.GetComponent<Jump>().enabled = true;
+				player.GetComponent<Walk>().enabled = true;
+				player.GetComponent<Shoot>().enabled = true;
+				player.GetComponent<Melee>().enabled = true;
+			}
 		}
-		else{												//enables player input
-			player.GetComponent<Jump>().enabled = true;
-			player.GetComponent<Walk>().enabled = true;
-			player.GetComponent<Shoot>().enabled = true;
-			player.GetComponent<Melee>().enabled = true;
-		}
+
 	}
 
     void OnGUI(){
