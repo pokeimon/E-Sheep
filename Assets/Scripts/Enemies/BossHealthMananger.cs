@@ -19,7 +19,7 @@ public class BossHealthMananger : MonoBehaviour {
 		HP = health.currentHP;
 		maxHP = health.maxHP;
 	if ( HP<=5) {
-			//rb = GetComponent<Rigidbody2D> ();
+			rb = GetComponent<Rigidbody2D> ();
 			Instantiate(deathEffect, transform.position, transform.rotation);
 			if(transform.localScale.y > minsize){
 			GameObject clone1 = Instantiate(bossPrefab, new Vector3 (transform.position.x + 1.5f, 
