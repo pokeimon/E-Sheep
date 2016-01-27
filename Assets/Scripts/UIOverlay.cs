@@ -5,7 +5,8 @@ using System.Collections;
 public class UIOverlay : MonoBehaviour {
 	private GameObject player;
 	private int currentHP;
-	public GameObject[] hp;
+	//public GameObject[] hp;
+	public Canvas[] hp;
 
 	//public Vector3 screenPos;
 
@@ -36,38 +37,38 @@ public class UIOverlay : MonoBehaviour {
 		switch (hpVal) {
 		//No Health
 		case 0: 
-			hp[0].GetComponent<SpriteRenderer>().enabled = false;
-			hp[1].GetComponent<SpriteRenderer>().enabled = false;
-			hp[2].GetComponent<SpriteRenderer>().enabled = false;
-			hp[3].GetComponent<SpriteRenderer>().enabled = false;
+			hp [0].enabled = false;
+			hp [1].enabled = false;
+			hp [2].enabled = false;
+			hp [3].enabled = false;
 			break;
 		//One Health
 		case 1:
-			hp[0].GetComponent<SpriteRenderer>().enabled = true;
-			hp[1].GetComponent<SpriteRenderer>().enabled = false;
-			hp[2].GetComponent<SpriteRenderer>().enabled = false;
-			hp[3].GetComponent<SpriteRenderer>().enabled = false;
+			hp [0].enabled = true;
+			hp [1].enabled = false;
+			hp [2].enabled = false;
+			hp [3].enabled = false;
 			break;
 		//Two Health
 		case 2:
-			hp[0].GetComponent<SpriteRenderer>().enabled = true;
-			hp[1].GetComponent<SpriteRenderer>().enabled = true;
-			hp[2].GetComponent<SpriteRenderer>().enabled = false;
-			hp[3].GetComponent<SpriteRenderer>().enabled = false;
+			hp [0].enabled = true;
+			hp [1].enabled = true;
+			hp [2].enabled = false;
+			hp [3].enabled = false;
 			break;
 		//Three Health
 		case 3:
-			hp[0].GetComponent<SpriteRenderer>().enabled = true;
-			hp[1].GetComponent<SpriteRenderer>().enabled = true;
-			hp[2].GetComponent<SpriteRenderer>().enabled = true;
-			hp[3].GetComponent<SpriteRenderer>().enabled = false;
+			hp [0].enabled = true;
+			hp [1].enabled = true;
+			hp [2].enabled = true;
+			hp [3].enabled = false;
 			break;
 		//Max Health
 		case 4:
-			hp[0].GetComponent<SpriteRenderer>().enabled = true;
-			hp[1].GetComponent<SpriteRenderer>().enabled = true;
-			hp[2].GetComponent<SpriteRenderer>().enabled = true;
-			hp[3].GetComponent<SpriteRenderer>().enabled = true;
+			hp [0].enabled = true;
+			hp [1].enabled = true;
+			hp [2].enabled = true;
+			hp [3].enabled = true;
 			break;
 		default:
 			break;
