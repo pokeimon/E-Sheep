@@ -11,7 +11,7 @@ public class MovingPlatformOnTouch : MonoBehaviour {
 	private Transform currentPoint;		//current point the platform will head too
 	private int pointSelection;			
 
-	private bool autostart;
+	public bool autostart;
 	
 	void Start(){
 		currentPoint = points[startPoint];
@@ -21,7 +21,8 @@ public class MovingPlatformOnTouch : MonoBehaviour {
 	
 	void Update(){
 		if (autostart == true) {
-			platform.transform.position = Vector3.MoveTowards (platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
+			platform.transform.position = Vector3.MoveTowards 
+				(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
 		
 			if (platform.transform.position == currentPoint.position) {
 				pointSelection++;
