@@ -3,45 +3,51 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour {
 	
-	public GameObject PauseUI;
+	public GameObject myPauseMenu;
+	public GameObject deathMenu;
 	
 	private bool paused = false;
 	
-	void Start(){
-		
-		PauseUI.SetActive (false);
+	void Awake(){
+		myPauseMenu = GameObject.Find ("PauseMenu");
+		myPauseMenu.SetActive (false);
+		deathMenu = GameObject.Find ("DeathMenu");
 		
 	}
 	
 	void Update(){
 		
 		if (Input.GetButtonDown ("Pause")) {
-			paused = !paused;
-			if(GameObject.Find ("Player").GetComponent<Health>().currentHP == 0){
-				paused = false;
+//			Debug.Log ("Pause menu activated.");
+			if (deathMenu.activeSelf) {
+				paused = !paused;
+				if (paused) {
+					Pause ();
+				} else {
+					Resume ();
+				}
+
+			} else {
+				Pause ();
 			}
-		}
-		
-		if (paused) {
-			PauseUI.SetActive (true);
-			Time.timeScale = 0; //sets time to 0, so nothing happens.
-		}
-		
-		if (!paused) {
-			PauseUI.SetActive (false);
-			Time.timeScale = 1;//if this is set to 0.3, it can create a slow motion effect.
-			
-		}
-		
+		}		
 	}
 
+	public void Pause(){
+		myPauseMenu.SetActive (true);
+		Time.timeScale = 0; //sets time to 0, so nothing happens.
+	}
+
+
 	public void Resume(){
-		paused = false;
+		myPauseMenu.SetActive (false);
+		Time.timeScale = 1;//if this is set to 0.3, it can create a slow motion effect.
 	}
 
 	public void Restart(){
 		paused = false;
-		Application.LoadLevel (Application.loadedLevel);//reload's the current level
+//		Application.LoadLevel (Application.loadedLevel);//reload's the current level
+		Resume();
 	}
 
 	public void MainMenu(){

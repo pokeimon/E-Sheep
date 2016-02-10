@@ -13,7 +13,7 @@ public class FallingObject : MonoBehaviour {
 	
 	}
 
-	void  OnTriggerEnter2D(Collider other){
+	void  OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player") {
 			GameObject.FindWithTag ("Ceilling").GetComponent<Rigidbody2D> ().isKinematic = false;
 		}
