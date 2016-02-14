@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class FallingObject : MonoBehaviour {
-
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D> ().isKinematic = true;
@@ -15,7 +14,7 @@ public class FallingObject : MonoBehaviour {
 
 	void  OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "Player") {
-			GameObject.FindWithTag ("Ceilling").GetComponent<Rigidbody2D> ().isKinematic = false;
+			this.GetComponent<Rigidbody2D> ().isKinematic = false;
 		}
 	}
 }
