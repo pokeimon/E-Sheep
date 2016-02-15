@@ -27,7 +27,7 @@ public class BossGate : MonoBehaviour {
 			if (platform.transform.position == currentPoint.position) {
 				pointSelection++;
 				if (pointSelection == points.Length) {				//once at the last array it resets the pointSelection to 0
-					pointSelection = 0;								//this starts the loop over again
+					autostart = false;								//this starts the loop over again
 				}
 				currentPoint = points [pointSelection];
 			}
