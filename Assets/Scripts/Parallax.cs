@@ -11,7 +11,8 @@ public class Parallax : MonoBehaviour {
 	private Vector3 previousCamPos;
 
 	void Awake(){
-		cam = Camera.main.transform;
+//		cam = Camera.main.transform;//GAA - This is giving me errors 12:13AM 15FEB2016: It's saying that main does not exist
+		cam = GameObject.Find("Main Camera").transform;
 	}
 
 	// Use this for initialization

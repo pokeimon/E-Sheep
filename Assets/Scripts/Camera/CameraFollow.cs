@@ -36,12 +36,12 @@ public class CameraFollow : MonoBehaviour {
     public float stagemaxZ;
 
     //Used to manipulate camera (use specific stage limits as defaults)
-    private float minX;
-    private float maxX;
-    private float minY;
-    private float maxY;
-    private float minZ;
-    private float maxZ;
+    public float minX;
+	public float maxX;
+	public float minY;
+	public float maxY;
+	public float minZ;
+	public float maxZ;
 
 	void Start () {
         if (bounds)
