@@ -2,6 +2,10 @@
 using System.Collections;
 
 public class FallingObject : MonoBehaviour {
+	public float despawnTime = 5.0f;
+	public bool hitPlatform = true;
+	public bool despawn = true;
+
 	// Use this for initialization
 	void Start () {
 		GetComponent<Rigidbody2D> ().isKinematic = true;
