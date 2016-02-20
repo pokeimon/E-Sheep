@@ -37,8 +37,8 @@ public class CameraScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		smoothTimeX = 0.4f;
-		smoothTimeY = 0.3f;
+		smoothTimeX = 0.5f;
+		smoothTimeY = 0.4f;
 		focus = GameObject.FindGameObjectWithTag ("Player");
 
 		debugCamera = false;

@@ -23,4 +23,5 @@ public class CameraTransitionScript : MonoBehaviour {
 			mainCameraScript.SetClamps (transform);//sets the camera limits to this gameobject's transform.
 		}
 	}
+
 }
