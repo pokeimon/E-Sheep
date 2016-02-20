@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FallingObject : MonoBehaviour {
 	public float despawnTime = 5.0f;
-	public bool hitPlatform = true;
 	public bool despawn = true;
 
 	// Use this for initialization
@@ -13,7 +12,11 @@ public class FallingObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (GetComponent<Rigidbody2D> ().isKinematic == false) {
+			if (despawn) {
+				Destroy (this.gameObject, despawnTime); 
+			}
+		}
 	}
 
 	void  OnTriggerEnter2D(Collider2D other){
