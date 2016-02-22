@@ -3,27 +3,20 @@ using System.Collections;
 
 public class GhostBlocks : MonoBehaviour {
 
-	public float fadeTime = 3.0f;
-	public float respawnTime = 4.0f;
-	private bool onBlock = false;
-
-	void Start () {
-		
+	public Renderer rend;
+	
+	void Start () {  
+		rend = GetComponent<Renderer> ();
+		StartCoroutine("HideUnhide");
 	}
 
-	void Update () {
-		
-	}
 
-	void OnTriggerEnter2D (Collider2D other) {
-		if (other.tag == "Player") {
-			fadeOut ();	
+	IEnumerator HideUnhide () {
+		while (true) {
+			yield return (new WaitForSeconds(2));
+			rend.enabled = true;
+			yield return (new WaitForSeconds(2));
+			rend.enabled = false;
 		}
 	}
-
-	IEnumerator fadeOut () {
-		yield return new WaitForSeconds (fadeTime);
-		this.tag = "None";
-	}
-
 }
