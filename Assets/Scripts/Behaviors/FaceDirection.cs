@@ -7,10 +7,10 @@ public class FaceDirection : AbstractBehavior {
 		var right = inputState.GetButtonValue (inputButtons [0]);
 		var left = inputState.GetButtonValue (inputButtons [1]);
 
-		if (right) {
+		if (right && !collisionState.stunned) {
 			inputState.direction = Directions.Right;
 		} 
-		else if (left) {
+		else if (left && !collisionState.stunned) {
 			inputState.direction = Directions.Left;
 		}
 		transform.localScale = new Vector3 ((float)inputState.direction, 1, 1); // I dont understand how to not change the sprites size here.

@@ -15,7 +15,7 @@ public class Shoot : AbstractBehavior {
 	
 	void Update () {
 
-        if (health.currentHP > 1) {
+		if (health.currentHP > 1) {
 			if(health.currentHP < 3){
 				shootDelay = .3f;
 			}
@@ -36,7 +36,7 @@ public class Shoot : AbstractBehavior {
 			}
 
 
-			if (shootButton && curretShootDelay > shootDelay) {
+			if (shootButton && (curretShootDelay > shootDelay) && !collisionState.stunned) {
                 GameObject obj = ObjectPooler.current.getPooledObject();
 
                 if (obj != null){			

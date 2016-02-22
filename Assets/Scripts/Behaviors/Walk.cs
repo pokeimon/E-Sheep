@@ -3,24 +3,38 @@ using System.Collections;
 
 public class Walk : AbstractBehavior {
 
-	public float speed = 7f;
+	public float maxSpeed = 7f;
+	public float acceleration = 2f;
 	public float runMultiplyer = 2f;
+
+	private float velX;
 
 	void Update () {
 		var right = inputState.GetButtonValue (inputButtons [0]);
 		var left = inputState.GetButtonValue (inputButtons [1]);
 		var X = inputState.GetButtonValue (inputButtons [2]);
-		
-        if (right || left){
-            var tmpSpeed = speed;
 
-			if (X && runMultiplyer > 0 && !collisionState.climbing){
-				tmpSpeed *= runMultiplyer;
+		if ((right || left) && !collisionState.stunned){
+			float tempAccel = acceleration;
+
+			if (X && runMultiplyer > 0 && !collisionState.climbing) {
+				tempAccel = tempAccel * runMultiplyer * (float)inputState.direction;
+				velX = tempAccel + body2d.velocity.x;
+				if (Mathf.Abs(velX) > maxSpeed * runMultiplyer) { //limit speed
+					velX = maxSpeed * runMultiplyer * (float)inputState.direction;
+				}
 			}
-            var velX = tmpSpeed * (float)inputState.direction;
-            body2d.velocity = new Vector2(velX, body2d.velocity.y);
+			else {
+				tempAccel = tempAccel * runMultiplyer * (float)inputState.direction;
+				velX = tempAccel + body2d.velocity.x;
+				if (Mathf.Abs(velX) > maxSpeed) { //limit speed
+					velX = maxSpeed * (float)inputState.direction;
+				}
+			}
+
+			body2d.velocity = new Vector2(velX, body2d.velocity.y);
         }
-        else{
+		else if (!collisionState.stunned){
         	body2d.velocity = new Vector2(0f, body2d.velocity.y); //stops character from moving when no buttons pressed
         }
 

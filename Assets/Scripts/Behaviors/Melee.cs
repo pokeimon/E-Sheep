@@ -11,15 +11,11 @@ public class Melee : AbstractBehavior {
 	void Update () {
 		var meleeButton = inputState.GetButtonValue (inputButtons [0]);
 
-		if (meleeButton) { //melee animation
-			melee = true;
-		} 
-		else {
+		if (!meleeButton) { //melee animation
 			canMelee = true; //must let go of button to melee again
-			melee = false;
 		}
 
-		if (meleeButton && canMelee && (currentMeleeDelay > meleeDelay)) {
+		if (meleeButton && canMelee && (currentMeleeDelay > meleeDelay) && !collisionState.stunned) {
 			GameObject sword = transform.GetChild(0).gameObject;
 			sword.SetActive(true); //swing sword and reset for delay
 			canMelee = false;
