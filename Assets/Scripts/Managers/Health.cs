@@ -17,7 +17,6 @@ public class Health : MonoBehaviour {
 	public float currentMeleeInvuln = 100f;
 	public float currentBulletInvuln = 100f;
 	public GameObject deathCanvas; //temp to get deathmenu to work
-
 	void OnEnable () {
 		if (this.tag == "Player") {
 			currentHP = playerStartHP; 
@@ -113,4 +112,5 @@ public class Health : MonoBehaviour {
 			currentMeleeInvuln+= Time.deltaTime;
 		}
 	}
+
 }
