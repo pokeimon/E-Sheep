@@ -10,7 +10,7 @@ public enum Buttons{
 	B,
 	X,
 	Y,
-
+	Start,
 }
 
 public enum Condition{

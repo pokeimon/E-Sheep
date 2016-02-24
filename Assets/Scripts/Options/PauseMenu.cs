@@ -1,36 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseMenu : MonoBehaviour {
-	
+public class PauseMenu : AbstractBehavior {
+
 	public GameObject myPauseMenu;
 	public GameObject deathMenu;
-	
-	private bool paused = false;
-	
-	void Awake(){
+
+	public bool paused = false;
+
+	void OnEnable(){
 		myPauseMenu = GameObject.Find ("PauseMenu");
 		myPauseMenu.SetActive (false);
 		deathMenu = GameObject.Find ("DeathMenu");
-		
-	}
-	
-	void Update(){
-		
-		if (Input.GetButtonDown ("Pause")) {
-//			Debug.Log ("Pause menu activated.");
-			if (deathMenu.activeSelf) {
-				paused = !paused;
-				if (paused) {
-					Pause ();
-				} else {
-					Resume ();
-				}
 
-			} else {
-				Pause ();
+	}
+
+	void Update(){
+
+		var pauseButton = inputState.GetButtonValue (inputButtons [0]);
+		if (pauseButton) {
+			//			Debug.Log(inputState.GetButtonHoldTime(inputButtons[0]) <.01f);
+			if(inputState.GetButtonHoldTime(inputButtons[0]) <.01f){//keeps flickering to a minimum
+				if (deathMenu.activeSelf) {
+					paused = !paused;
+					if (paused) {
+						Debug.Log ("Paused.");
+						Pause ();
+					} else {
+						Debug.Log ("Resume.");
+						Resume ();
+					}
+
+				} else {
+					//Do nothing
+				}
 			}
-		}		
+		}
+		//		Debug.Log(inputState.GetButtonValue(inputButtons[0]));
+		//		Debug.Log(inputButtons[0]);
 	}
 
 	public void Pause(){
@@ -41,19 +48,20 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Resume(){
 		myPauseMenu.SetActive (false);
+		paused = false;
 		Time.timeScale = 1;//if this is set to 0.3, it can create a slow motion effect.
 	}
 
 	public void Restart(){
 		paused = false;
-//		Application.LoadLevel (Application.loadedLevel);//reload's the current level
+		//		Application.LoadLevel (Application.loadedLevel);//reload's the current level
 		Resume();
 	}
 
 	public void MainMenu(){
 		paused = false;
-//		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));//0 should correspond to Main Menu Scene as designated on Build Settings
-//		Application.LoadLevel (1);
+		//		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));//0 should correspond to Main Menu Scene as designated on Build Settings
+		//		Application.LoadLevel (1);
 		Resume ();
 	}
 
@@ -61,5 +69,5 @@ public class PauseMenu : MonoBehaviour {
 
 		Application.Quit ();
 	}
-	
+
 }
