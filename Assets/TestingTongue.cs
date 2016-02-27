@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FrogTongue : MonoBehaviour {
+public class TestingTongue : MonoBehaviour {
 
 	public GameObject platform;
 	public float moveSpeed;				
@@ -13,10 +13,13 @@ public class FrogTongue : MonoBehaviour {
 
 	public bool autostart;
 
+	public Transform startingPoint;
+
 	void Start(){
+		platform.transform.position = startingPoint.position;
 		currentPoint = points[startPoint];
 		pointSelection = startPoint;
-		autostart = true;
+		autostart = false;
 	}
 
 	void Update(){
@@ -28,17 +31,22 @@ public class FrogTongue : MonoBehaviour {
 				pointSelection++;
 				if (pointSelection == points.Length) {				//once at the last array it resets the pointSelection to 0
 					autostart = false;								//this starts the loop over again
+					Debug.Log ("autostart = f");
 				}
-				currentPoint = points [pointSelection];
+
+				currentPoint = points [2];
+				autostart = false;	
 			}
 		}
 	}
-	void OnTriggerEnter2D(Collider2D col){
-		if(col.tag == "Player" && col.gameObject.tag.Equals ("PlayerSword")){
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.tag == "Player" ){
 			Debug.Log ("Gate touched.");
 			autostart = true;
+			Debug.Log ("autostart = true");
 		}
-	}
-}
 
+	}
+
+}
 
