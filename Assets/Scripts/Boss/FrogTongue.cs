@@ -4,22 +4,30 @@ using System.Collections;
 public class FrogTongue : MonoBehaviour {
 
 	public GameObject platform;
-	public float moveSpeed;				
+	public float moveSpeed;
 	public int startPoint;
-	public Transform[] points;			//creates an array of points that the platform will cycle through
+	public Transform[] points;
+
+	//creates an array of points that the platform will cycle through
 
 	private Transform currentPoint;		//current point the platform will head too
-	private int pointSelection;			
+	private int pointSelection;	
+	private RangeAngle rangeScript;
 
 	public bool autostart;
 
 	void Start(){
+		rangeScript = GetComponentInChildren<RangeAngle>();
 		currentPoint = points[startPoint];
 		pointSelection = startPoint;
-		autostart = true;
+		autostart = false;
 	}
 
 	void Update(){
+
+		//platform.transform.Rotate(0,0,rangeScript.shotAngle);
+		platform.transform.rotation = new Quaternion (transform.x, transform.y,RangeAngle.shotAngle,transform.rotation.w);
+
 		if (autostart == true) {
 			platform.transform.position = Vector3.MoveTowards 
 				(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
@@ -33,6 +41,7 @@ public class FrogTongue : MonoBehaviour {
 			}
 		}
 	}
+
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.tag == "Player" && col.gameObject.tag.Equals ("PlayerSword")){
 			Debug.Log ("Gate touched.");
