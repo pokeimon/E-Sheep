@@ -41,17 +41,36 @@ public class PlayerSave : MonoBehaviour {
 		PlayerPrefs.SetInt ("PersonalBestHL1" + saveNum, null);
 	}
 
-	public void EndLevel (int level) {
-		int playerNum = PlayerPrefs.GetInt ("SelectedPlayer");
-		string playerPref = ChooseLevel ("PersonalBest", level);
+	public void UpdateScore (int level) {
+		int saveNum = PlayerPrefs.GetInt ("SelectedPlayer");
+		string personalBest = ChooseLevel ("PersonalBest", level) + saveNum;
+		string highScore = ChooseLevel ("HighScore", level); 
 		int score = PlayerPrefs.GetInt ("Score");
-		if (score > PlayerPrefs.GetInt (playerPref)) {
-			PlayerPrefs.SetInt (playerPref, score);
+		if (score > PlayerPrefs.GetInt (personalBest)) {
+			PlayerPrefs.SetInt (personalBest, score);
 		}
-		//Check highscore stuff here too 
+		//if (score > PlayerPrefs.GetInt (highScore + 2)) {
+		HighScoreAdd(PlayerPrefs.GetString ("Name" + saveNum), score, level);
+		//}
 	}
 
-	private string ChooseLevel (string saveNum, int level){
+	private void HighScoreAdd(string name, int score, int level){
+		string highScore = ChooseLevel ("HighScore", level);
+		for (int i = 2; i <= 0; i--) {
+			if (score > PlayerPrefs.GetInt (highScore + i)) {
+				if (i != 2) {
+					int num = i + 1;
+					PlayerPrefs.SetInt (highScore + num, PlayerPrefs.GetInt (highScore + i));
+					PlayerPrefs.SetString (highScore + "Name" + num, PlayerPrefs.GetInt (highScore + "Name" + i));
+				}
+				PlayerPrefs.SetInt (highScore + i, score);
+				PlayerPrefs.SetString (highScore + "Name" + i, name);
+			} else
+				break;
+		}
+	}
+
+	private string ChooseLevel (string sPref, int level){
 		string sLevel;
 		switch (level) {
 		case 0:
@@ -66,8 +85,7 @@ public class PlayerSave : MonoBehaviour {
 		default:
 			break;
 		}
-
-		return sLevel;
+		return (sPref + sLevel);
 	}
 
 
