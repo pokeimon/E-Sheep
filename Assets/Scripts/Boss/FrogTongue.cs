@@ -4,8 +4,9 @@ using System.Collections;
 public class FrogTongue : MonoBehaviour {
 
 	public GameObject platform;
+	public GameObject Boss;
 	public float moveSpeed;
-	public int startPoint;
+	public int startPoint=0;
 	public Transform[] points;
 
 	//creates an array of points that the platform will cycle through
@@ -25,18 +26,23 @@ public class FrogTongue : MonoBehaviour {
 
 	void Update(){
 
-		//platform.transform.Rotate(0,0,rangeScript.shotAngle);
-		platform.transform.rotation = new Quaternion (transform.x, transform.y,RangeAngle.shotAngle,transform.rotation.w);
+		//Boss.transform.Rotate(0,0,rangeScript.shotAngle);
+		autostart = rangeScript.fire;
 
 		if (autostart == true) {
 			platform.transform.position = Vector3.MoveTowards 
 				(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
 
 			if (platform.transform.position == currentPoint.position) {
-				pointSelection++;
-				if (pointSelection == points.Length) {				//once at the last array it resets the pointSelection to 0
-					autostart = false;								//this starts the loop over again
+				if (pointSelection == 0) {
+					rangeScript.fire = false;
+					autostart = false;  
 				}
+				if (pointSelection == points.Length) {				//once at the last array it resets the pointSelection to 0
+					pointSelection = 0;
+				}
+				pointSelection++;
+				Debug.Log ("PointSelection: " + pointSelection);
 				currentPoint = points [pointSelection];
 			}
 		}
@@ -44,8 +50,7 @@ public class FrogTongue : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.tag == "Player" && col.gameObject.tag.Equals ("PlayerSword")){
-			Debug.Log ("Gate touched.");
-			autostart = true;
+			Debug.Log ("Set boss to damage state.");
 		}
 	}
 }
