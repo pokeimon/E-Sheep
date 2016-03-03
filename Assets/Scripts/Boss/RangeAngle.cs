@@ -29,6 +29,7 @@ public class RangeAngle : MonoBehaviour {
 			shotAngle = 57.296f * Mathf.Atan2((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
 			playerOnEnter.position = new Vector2 (player.position.x, player.position.y);
 			c.enabled = false;
+			tongue.eulerAngles = new Vector3 (0, 0, shotAngle+90);
 			fire = true;
 		}
 	}
