@@ -8,20 +8,19 @@ public class RangeAngle : MonoBehaviour {
 	public Transform playerOnEnter;
 	public Transform tongue;
 	public Collider2D c;
-	public GameObject Boss;
 	public float shotAngle;
 	public bool fire = false;
 
 	// Use this for initialization
 	void Start () {
 		c = gameObject.GetComponent<Collider2D>();
-		//c.enabled = true;
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(fire == false)
+		if (fire == false) {
 			c.enabled = true;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){

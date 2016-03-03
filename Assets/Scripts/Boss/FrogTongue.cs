@@ -4,9 +4,8 @@ using System.Collections;
 public class FrogTongue : MonoBehaviour {
 
 	public GameObject platform;
-	public GameObject Boss;
 	public float moveSpeed;
-	public int startPoint=1;
+	public int startPoint;
 	public Transform[] points;
 
 	//creates an array of points that the platform will cycle through
@@ -26,7 +25,6 @@ public class FrogTongue : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
 		//Boss.transform.Rotate(Vector3.zero,rangeScript.shotAngle,Space.Self);
 		autostart = rangeScript.fire;
 
