@@ -10,7 +10,6 @@ public class RangeAngle : MonoBehaviour {
 	public Collider2D c;
 	public GameObject Boss;
 	public float shotAngle;
-
 	public bool fire = false;
 
 	// Use this for initialization
@@ -20,7 +19,7 @@ public class RangeAngle : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if(fire == false)
 			c.enabled = true;
 	}

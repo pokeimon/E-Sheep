@@ -19,7 +19,7 @@ public class MovingPlatformOnTouch : MonoBehaviour {
 		autostart = false;
 	}
 	
-	void Update(){
+	void FixedUpdate(){
 		if (autostart == true) {
 			platform.transform.position = Vector3.MoveTowards 
 				(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);

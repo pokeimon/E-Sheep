@@ -6,7 +6,7 @@ public class FrogTongue : MonoBehaviour {
 	public GameObject platform;
 	public GameObject Boss;
 	public float moveSpeed;
-	public int startPoint=0;
+	public int startPoint=1;
 	public Transform[] points;
 
 	//creates an array of points that the platform will cycle through
@@ -22,11 +22,12 @@ public class FrogTongue : MonoBehaviour {
 		currentPoint = points[startPoint];
 		pointSelection = startPoint;
 		autostart = false;
+		//FireTongue ();
 	}
 
-	void Update(){
+	void FixedUpdate(){
 
-		//Boss.transform.Rotate(0,0,rangeScript.shotAngle);
+		//Boss.transform.Rotate(Vector3.zero,rangeScript.shotAngle,Space.Self);
 		autostart = rangeScript.fire;
 
 		if (autostart == true) {
@@ -35,13 +36,11 @@ public class FrogTongue : MonoBehaviour {
 
 			if (platform.transform.position == currentPoint.position) {
 				if (pointSelection == 0) {
+					pointSelection = 1;
 					rangeScript.fire = false;
-					autostart = false;  
-				}
-				if (pointSelection == points.Length) {				//once at the last array it resets the pointSelection to 0
+				}else if (pointSelection == 1) {				
 					pointSelection = 0;
 				}
-				pointSelection++;
 				Debug.Log ("PointSelection: " + pointSelection);
 				currentPoint = points [pointSelection];
 			}
