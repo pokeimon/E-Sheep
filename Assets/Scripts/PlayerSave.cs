@@ -88,6 +88,23 @@ public class PlayerSave : MonoBehaviour {
 		return scores;
 	}
 
+	public string[,] ReturnNames (){
+		string[,] names = new string[3, 4];
+		string temp;
+		for (int i = 0; i < 4; i++) {
+			for (int rank = 0; rank < 3; rank++){
+				if (rank != 3) {
+					temp = ChooseLevel ("HighScoreName", i);
+					names [rank, i] = PlayerPrefs.GetString (temp + rank); 
+				} 
+				else {
+					names [rank, i] = "Personal Best";
+				}
+			}
+		}
+		return names;
+	}
+
 	private string ChooseLevel (string sPref, int level){
 		string sLevel;
 		switch (level) {
