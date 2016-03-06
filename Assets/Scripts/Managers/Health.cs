@@ -104,7 +104,7 @@ public class Health : MonoBehaviour {
 
 			//GAA 5 MAR 2016 Note 1: added an if statement for nested enemy structures (e.g. Flying Enemy sprite with multiple colliders)
 			if (currentHP < 1) {
-				if (gameObject.transform.parent.CompareTag ("Enemy")) {
+				if (gameObject.transform.parent != null && gameObject.transform.parent.CompareTag ("Enemy")) {
 					gameObject.transform.parent.gameObject.SetActive (false);
 				} else {
 					gameObject.SetActive (false);
