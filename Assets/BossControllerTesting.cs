@@ -45,18 +45,18 @@ public class BossControllerTesting : MonoBehaviour {
 	void Update(){
 
 		
-//		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
-//			wave++;
-//			theBox.enabled = true;
-//		}
-//		else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
-//			wave++;
-//			theBox.enabled = true;
-//		}
-//		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
-//			wave++;
-//			theBox.enabled = true;
-//		}
+		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
+			wave++;
+			theBox.enabled = true;
+		}
+		else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
+			wave++;
+			theBox.enabled = true;
+		}
+		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
+			wave++;
+			theBox.enabled = true;
+		}
 
 	}
 
@@ -101,41 +101,41 @@ public class BossControllerTesting : MonoBehaviour {
 	}
 
 
-//	void OnTriggerEnter2D(Collider2D other)
-//	{
-//
-//
-//		//Debug.Log("Player Entered");
-//		if (other.name == "Player" && wave == 0)
-//		{
-//			Debug.Log ("player enter.");
-//			playerPosition = other.transform;
-//
-//			playerEnter = true;
-//			wave++;//wave == 1
-//
-//			theBox.enabled = false;
-//		}
-//		else if(actualSummon1.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
-//			actualSummon1.GetComponent<Health> ().currentHP = -1;
-//			theBox.enabled = false;
-//			wave = 2;
-//			playerEnter = true;
-//
-//		}
-//		else if(actualSummon2.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
-//			actualSummon2.GetComponent<Health> ().currentHP = -1;
-//			theBox.enabled = false;
-//			wave = 3;
-//			playerEnter = true;
-//
-//		}
-//		else if(actualSummon3.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
-//			actualSummon3.GetComponent<Health> ().currentHP = -1;
-//			theBox.enabled = false;
-//			wave = 4;
-//			playerEnter = true;
-//		}
-//
-//	}
+	void OnTriggerEnter2D(Collider2D other)
+	{
+
+
+		//Debug.Log("Player Entered");
+		if (other.name == "Player" && wave == 0)
+		{
+			Debug.Log ("player enter.");
+			playerPosition = other.transform;
+
+			playerEnter = true;
+			wave++;//wave == 1
+
+			theBox.enabled = false;
+		}
+		else if(actualSummon1.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+			actualSummon1.GetComponent<Health> ().currentHP = -1;
+			theBox.enabled = false;
+			wave = 2;
+			playerEnter = true;
+
+		}
+		else if(actualSummon2.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+			actualSummon2.GetComponent<Health> ().currentHP = -1;
+			theBox.enabled = false;
+			wave = 3;
+			playerEnter = true;
+
+		}
+		else if(actualSummon3.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+			actualSummon3.GetComponent<Health> ().currentHP = -1;
+			theBox.enabled = false;
+			wave = 4;
+			playerEnter = true;
+		}
+
+	}
 }
