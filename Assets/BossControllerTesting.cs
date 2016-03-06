@@ -9,10 +9,15 @@ public class BossControllerTesting : MonoBehaviour {
 
 	public GameObject someEnemy;
 
+	public GameObject bossTongue;
+
 	GameObject actualSummon1;
 	GameObject actualSummon2;
 	GameObject actualSummon3;
+	GameObject bossSummon;
 
+
+	public Transform summonBoss;
 	public Transform summonArea;
 
 	public Collider2D theBox;
@@ -21,6 +26,7 @@ public class BossControllerTesting : MonoBehaviour {
 	public bool playerEnter;
 
 	int wave;
+
 
 
 	void Start(){
@@ -37,6 +43,7 @@ public class BossControllerTesting : MonoBehaviour {
 	}
 
 	void Update(){
+
 		
 		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
 			wave++;
@@ -46,14 +53,10 @@ public class BossControllerTesting : MonoBehaviour {
 			wave++;
 			theBox.enabled = true;
 		}
-		/*
-		 * Boss Tongue will go here
-		 * 
 		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
 			wave++;
 			theBox.enabled = true;
 		}
-		*/
 
 	}
 
@@ -62,8 +65,7 @@ public class BossControllerTesting : MonoBehaviour {
 	void FixedUpdate(){
 
 		if (playerEnter) {
-			BossEnemies (wave);
-			//Debug.Log ("MyScipt Update Entered");  
+			BossEnemies (wave); 
 		}
 
 			
@@ -74,30 +76,27 @@ public class BossControllerTesting : MonoBehaviour {
 			actualSummon1 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
 			actualSummon1.GetComponent<Mallow> ().target = playerPosition;
 			actualSummon1.GetComponent<SpriteRenderer> ().color = Color.green;
-
 			playerEnter = false;
 		}		
 		else if (n == 2) {
 			actualSummon2 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
 			actualSummon2.GetComponent<Mallow> ().target = playerPosition;
 			actualSummon2.GetComponent<SpriteRenderer> ().color = Color.magenta;
-
 			playerEnter = false;
 		}	
 		else if (n == 3) {
 			actualSummon3 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
 			actualSummon3.GetComponent<Mallow> ().target = playerPosition;
 			actualSummon3.GetComponent<SpriteRenderer> ().color = Color.red;
-
 			playerEnter = false;
 		}	
-		/*
 		else if (n == 4) {
 
-			//BOSS TONGUE HERE
+			bossSummon = (GameObject)Instantiate (bossTongue, summonBoss.position, summonBoss.rotation);
+			bossSummon.SetActive (true);
+			bossSummon.transform.position = summonBoss.position;
 			playerEnter = false;
 		}
-		*/
 
 	}
 
@@ -131,15 +130,12 @@ public class BossControllerTesting : MonoBehaviour {
 			playerEnter = true;
 
 		}
-
-		/* BOSS TONGUE
 		else if(actualSummon3.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
 			actualSummon3.GetComponent<Health> ().currentHP = -1;
 			theBox.enabled = false;
 			wave = 4;
 			playerEnter = true;
 		}
-		*/
 
 	}
 }
