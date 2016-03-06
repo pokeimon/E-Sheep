@@ -29,7 +29,7 @@ public class FallingObject : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D target) { 
 		if (despawnOnImpact) {
 			if ((target.gameObject.layer == 8) || (target.gameObject.layer == 9)) { //layer 8 is solid | layer 9 is player
-				Destroy (this.gameObject); 
+				Destroy (this.gameObject,.2f); 
 			}
 		}
 	}

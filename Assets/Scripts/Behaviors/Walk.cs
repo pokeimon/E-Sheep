@@ -6,6 +6,9 @@ public class Walk : AbstractBehavior {
 	public float maxSpeed = 7f;
 	public float acceleration = 2f;
 	public float runMultiplyer = 2f;
+	public bool onPlatform = false;
+	private float platformSpeed;
+	private Rigidbody2D platformBody;
 
 	private float velX;
 
@@ -17,25 +20,32 @@ public class Walk : AbstractBehavior {
 		if ((right || left) && !collisionState.stunned){
 			float tempAccel = acceleration;
 
-			if (X && runMultiplyer > 0 && !collisionState.climbing) {
+			if (X && runMultiplyer > 0 && !collisionState.climbing) {//sprinting and not climbing
 				tempAccel = tempAccel * runMultiplyer * (float)inputState.direction;
-				velX = tempAccel + body2d.velocity.x;
+				velX = tempAccel + body2d.velocity.x; //accelerates
 				if (Mathf.Abs(velX) > maxSpeed * runMultiplyer) { //limit speed
 					velX = maxSpeed * runMultiplyer * (float)inputState.direction;
 				}
 			}
-			else {
-				tempAccel = tempAccel * runMultiplyer * (float)inputState.direction;
-				velX = tempAccel + body2d.velocity.x;
+			else { //Not Sprinting
+				tempAccel = tempAccel * runMultiplyer * (float)inputState.direction; 
+				velX = tempAccel + body2d.velocity.x; //accelerates
 				if (Mathf.Abs(velX) > maxSpeed) { //limit speed
 					velX = maxSpeed * (float)inputState.direction;
 				}
+			}
+			if (onPlatform) {
+				velX = velX + platformSpeed; //adds platform speed to own
 			}
 
 			body2d.velocity = new Vector2(velX, body2d.velocity.y);
         }
 		else if (!collisionState.stunned){
-        	body2d.velocity = new Vector2(0f, body2d.velocity.y); //stops character from moving when no buttons pressed
+			velX = 0f; //decelerates if not moving
+			if (onPlatform) {
+				velX = velX + platformSpeed; //adds platform speed to own
+			}
+        	body2d.velocity = new Vector2(velX, body2d.velocity.y); //stops character from moving when no buttons pressed
         }
 
 	}
@@ -46,6 +56,9 @@ public class Walk : AbstractBehavior {
 	void OnCollisionEnter2D(Collision2D other){
 		if(other.transform.tag == "Moving Platform"){
 			transform.parent = other.transform;
+			onPlatform = true;
+			platformBody = other.gameObject.GetComponent<Rigidbody2D> ();
+			platformSpeed = platformBody.velocity.x;
 		}
 	}
 
@@ -55,6 +68,7 @@ public class Walk : AbstractBehavior {
 	void OnCollisionExit2D(Collision2D other){
 		if(other.transform.tag == "Moving Platform"){
 			transform.parent = null;
+			onPlatform = false;
 		}
 	}
 }
