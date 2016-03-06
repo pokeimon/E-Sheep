@@ -17,19 +17,22 @@ public class Health : MonoBehaviour {
 	public float currentMeleeInvuln = 100f;
 	public float currentBulletInvuln = 100f;
 	public GameObject deathCanvas; //temp to get deathmenu to work
-	void OnEnable () {
+
+	void Awake() {
+		Debug.Log ("Awake called.");
 		if (this.tag == "Player") {
+			Debug.Log ("Awake called.");
 			currentHP = playerStartHP; 
 			animator = GetComponent<Animator> ();
 			animator.SetInteger("EquippedItem",1);
 			body2d = GetComponent<Rigidbody2D> ();
 			collisionState = GetComponent<CollisionState> ();
-		} 
+		}
 		else { //enemies start at max HP
 			currentHP = maxHP;
 		}
 	}
-	
+
 	public void EnergyPickUp(int energy){
 		int energyState;
 
@@ -45,6 +48,7 @@ public class Health : MonoBehaviour {
 			animator.SetInteger("EquippedItem",energyState);
 		} 
 	}
+
 
 	void OnCollisionEnter2D(Collision2D target) { 
 		if (this.tag == "Enemy") { 
@@ -85,9 +89,9 @@ public class Health : MonoBehaviour {
 				currentMeleeInvuln = 0f; //make player unable to take damage for a time;
 			}
 			if (currentHP < 1) {
+				gameObject.SetActive (false);
 				DeathMenu menu = (DeathMenu) deathCanvas.GetComponent("DeathMenu");
 				menu.playerDeath();
-				gameObject.SetActive (false);
 			}
 		}
 		else if (this.tag == "Enemy") {
@@ -112,5 +116,5 @@ public class Health : MonoBehaviour {
 			currentMeleeInvuln+= Time.deltaTime;
 		}
 	}
-
 }
+

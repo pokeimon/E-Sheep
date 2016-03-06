@@ -35,7 +35,7 @@ public class MovingPlatformOnTouch : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.name.Equals ("Player")){
-			Debug.Log ("Graham touched.");
+			Debug.Log ("Moving Platform Touched.");
 			autostart = true;
 		}
 	}
