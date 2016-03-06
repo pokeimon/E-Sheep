@@ -101,9 +101,20 @@ public class Health : MonoBehaviour {
 				currentHP -= damage;
 				currentMeleeInvuln = 0f;
 			}
+
+			//GAA 5 MAR 2016 Note 1: added an if statement for nested enemy structures (e.g. Flying Enemy sprite with multiple colliders)
 			if (currentHP < 1) {
-				gameObject.SetActive (false);
+				if (gameObject.transform.parent.CompareTag ("Enemy")) {
+					gameObject.transform.parent.gameObject.SetActive (false);
+				} else {
+					gameObject.SetActive (false);
+				}
 			}
+
+//			//GAA 5 MAR 2016 Note 2: Previous implementation of deactivating enemy gameobjects 
+//			if(currentHP < 1){
+//				gameObject.SetActive (false);
+//			}
 		}
 	}
 

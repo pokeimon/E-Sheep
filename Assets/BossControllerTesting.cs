@@ -45,18 +45,18 @@ public class BossControllerTesting : MonoBehaviour {
 	void Update(){
 
 		
-		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
-			wave++;
-			theBox.enabled = true;
-		}
-		else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
-			wave++;
-			theBox.enabled = true;
-		}
-		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
-			wave++;
-			theBox.enabled = true;
-		}
+//		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
+//			wave++;
+//			theBox.enabled = true;
+//		}
+//		else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
+//			wave++;
+//			theBox.enabled = true;
+//		}
+//		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
+//			wave++;
+//			theBox.enabled = true;
+//		}
 
 	}
 

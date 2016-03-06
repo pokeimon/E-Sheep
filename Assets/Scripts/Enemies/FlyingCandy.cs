@@ -2,7 +2,7 @@
 using System.Collections;
 
 //this is a temporary class. will have to readjust it to use AbstractEnemy
-public class FlyingCandy : MonoBehaviour {
+public class FlyingCandy : AbstractEnemy {
 
 	Rigidbody2D myrigidbody;
 	int layerToCollideWith;
