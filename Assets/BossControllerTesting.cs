@@ -1,65 +1,145 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
+//NOTE: I had to change the Mallow FixedUpdate() to Update() for it to work
+
 public class BossControllerTesting : MonoBehaviour {
 
-	public GameObject someEnemy1;
-	public GameObject someEnemy2;
-	public GameObject someEnemy3;
+	public GameObject someEnemy;
 
-	GameObject actualSummon;
+	GameObject actualSummon1;
+	GameObject actualSummon2;
+	GameObject actualSummon3;
+
 	public Transform summonArea;
 
-	public Collider2D player;
+	public Collider2D theBox;
 
 	public Transform playerPosition;
 	public bool playerEnter;
 
+	int wave;
+
+
 	void Start(){
+
+		//what enemy to spawn
+		wave = 0;
+
+		//tells us if player enters
 		playerEnter = false;
 
-		//testing purposes
-		someEnemy1.GetComponent<Health> ().currentHP = 2;
-		someEnemy2.GetComponent<Health>().currentHP = 2;
-		someEnemy3.GetComponent<Health>().currentHP = 2;
-
+		//Once player enters arena, spawn first enemy, delete collider.
+		theBox = gameObject.GetComponent<Collider2D>();
 
 	}
 
 	void Update(){
-		if (playerEnter) {
-			BossEnemies ();
+		
+		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
+			wave++;
+			theBox.enabled = true;
 		}
+		else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
+			wave++;
+			theBox.enabled = true;
+		}
+		/*
+		 * Boss Tongue will go here
+		 * 
+		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
+			wave++;
+			theBox.enabled = true;
+		}
+		*/
+
 	}
 
-	void BossEnemies(){
-		
-		actualSummon = (GameObject)Instantiate(someEnemy1, summonArea.position, summonArea.rotation);
-		actualSummon.GetComponent<Mallow>().target = playerPosition;
-		actualSummon.GetComponent<SpriteRenderer> ().color = Color.green;
 
 
-//		if(someEnemy1.GetComponent<Health>().currentHP == 0){
-//			actualSummon = (GameObject)Instantiate(someEnemy2, summonArea.position, summonArea.rotation);
-//			actualSummon.GetComponent<Mallow>().target = playerPosition;
-//			actualSummon.GetComponent<SpriteRenderer> ().color = Color.magenta;
-//		}
+	void FixedUpdate(){
+
+		if (playerEnter) {
+			BossEnemies (wave);
+			//Debug.Log ("MyScipt Update Entered");  
+		}
+
+			
+	}
+
+	void BossEnemies(int n){
+		if (n == 1) {
+			actualSummon1 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+			actualSummon1.GetComponent<Mallow> ().target = playerPosition;
+			actualSummon1.GetComponent<SpriteRenderer> ().color = Color.green;
+
+			playerEnter = false;
+		}		
+		else if (n == 2) {
+			actualSummon2 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+			actualSummon2.GetComponent<Mallow> ().target = playerPosition;
+			actualSummon2.GetComponent<SpriteRenderer> ().color = Color.magenta;
+
+			playerEnter = false;
+		}	
+		else if (n == 3) {
+			actualSummon3 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+			actualSummon3.GetComponent<Mallow> ().target = playerPosition;
+			actualSummon3.GetComponent<SpriteRenderer> ().color = Color.red;
+
+			playerEnter = false;
+		}	
+		/*
+		else if (n == 4) {
+
+			//BOSS TONGUE HERE
+			playerEnter = false;
+		}
+		*/
 
 	}
 
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+
+
 		//Debug.Log("Player Entered");
-		if (other.name == "Player")
+		if (other.name == "Player" && wave == 0)
 		{
 			Debug.Log ("player enter.");
-			player = other;
 			playerPosition = other.transform;
+
 			playerEnter = true;
-			Update ();//was having issues here, but calling Update fixed it.
-			gameObject.SetActive (false);
+			wave++;//wave == 1
+
+			theBox.enabled = false;
+		}
+		else if(actualSummon1.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+			actualSummon1.GetComponent<Health> ().currentHP = -1;
+			theBox.enabled = false;
+			wave = 2;
+			playerEnter = true;
 
 		}
+		else if(actualSummon2.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+			actualSummon2.GetComponent<Health> ().currentHP = -1;
+			theBox.enabled = false;
+			wave = 3;
+			playerEnter = true;
+
+		}
+
+		/* BOSS TONGUE
+		else if(actualSummon3.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+			actualSummon3.GetComponent<Health> ().currentHP = -1;
+			theBox.enabled = false;
+			wave = 4;
+			playerEnter = true;
+		}
+		*/
+
 	}
 }
