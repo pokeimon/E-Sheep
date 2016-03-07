@@ -25,13 +25,13 @@ public class FrogTongue : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		//Boss.transform.Rotate(Vector3.zero,rangeScript.shotAngle,Space.Self);
+		if(rangeScript.c.enabled == false)
+		rangeScript.tongue.eulerAngles = new Vector3 (0, 0, rangeScript.shotAngle+90);
+
 		autostart = rangeScript.fire;
 
 		if (autostart == true) {
-			platform.transform.position = Vector3.MoveTowards 
-				(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
-
+			platform.transform.position = Vector3.MoveTowards (platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
 			if (platform.transform.position == currentPoint.position) {
 				if (pointSelection == 0) {
 					pointSelection = 1;

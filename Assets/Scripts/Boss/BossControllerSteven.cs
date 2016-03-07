@@ -5,33 +5,27 @@ using System.Collections;
 
 //NOTE: I had to change the Mallow FixedUpdate() to Update() for it to work
 
-public class BossControllerTesting : MonoBehaviour {
+public class BossControllerSteven : MonoBehaviour {
 
 	public GameObject someEnemy;
-
-	public GameObject bossTongue;
 
 	GameObject actualSummon1;
 	GameObject actualSummon2;
 	GameObject actualSummon3;
-	GameObject bossSummon;
 
-
-	public Transform summonBoss;
+	//public Transform summonBoss;
 	public Transform summonArea;
 
 	public Collider2D theBox;
 
 	public Transform playerPosition;
 
+	public bool fire; //Added by Steven
 	public bool playerEnter;
 
 	int wave;
 
-
-
 	void Start(){
-
 		//what enemy to spawn
 		wave = 0;
 
@@ -40,36 +34,29 @@ public class BossControllerTesting : MonoBehaviour {
 
 		//Once player enters arena, spawn first enemy, delete collider.
 		theBox = gameObject.GetComponent<Collider2D>();
-
 	}
 
 	void Update(){
-
-		
-		if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
-			wave++;
-			theBox.enabled = true;
+		if (wave > 0) {
+			if (actualSummon1.GetComponent<Health> ().currentHP == 0) {
+				wave++;
+				theBox.enabled = true;
+			} else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
+				wave++;
+				theBox.enabled = true;
+			} else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
+				wave++;
+				theBox.enabled = true;
+			}
 		}
-		else if (actualSummon2.GetComponent<Health> ().currentHP == 0) {
-			wave++;
-			theBox.enabled = true;
-		}
-		else if (actualSummon3.GetComponent<Health> ().currentHP == 0) {
-			wave++;
-			theBox.enabled = true;
-		}
-
 	}
 
 
 
 	void FixedUpdate(){
-
 		if (playerEnter) {
-			BossEnemies (wave); 
+			BossEnemies (wave);
 		}
-
-			
 	}
 
 	void BossEnemies(int n){
@@ -92,50 +79,40 @@ public class BossControllerTesting : MonoBehaviour {
 			playerEnter = false;
 		}	
 		else if (n == 4) {
-			bossSummon = (GameObject)Instantiate (bossTongue, summonBoss.position, summonBoss.rotation);
-			bossSummon.SetActive (true);
-			bossSummon.transform.position = summonBoss.position;
+			fire = true; // Added by Steven
 			playerEnter = false;
 		}
-
 	}
 
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-
-
+	void OnTriggerEnter2D(Collider2D other){
+		
 		//Debug.Log("Player Entered");
-		if (other.name == "Player" && wave == 0)
-		{
+		if (other.name == "Player" && wave == 0) {
 			Debug.Log ("player enter.");
 			playerPosition = other.transform;
 
 			playerEnter = true;
-			wave++;//wave == 1
+			wave = 1;//wave == 1
 
 			theBox.enabled = false;
-		}
-		else if(actualSummon1.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+		} else if (actualSummon1.GetComponent<Health> ().currentHP == 0 && other.name == "Player") {
 			actualSummon1.GetComponent<Health> ().currentHP = -1;
 			theBox.enabled = false;
 			wave = 2;
 			playerEnter = true;
 
-		}
-		else if(actualSummon2.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+		} else if (actualSummon2.GetComponent<Health> ().currentHP == 0 && other.name == "Player") {
 			actualSummon2.GetComponent<Health> ().currentHP = -1;
 			theBox.enabled = false;
 			wave = 3;
 			playerEnter = true;
 
-		}
-		else if(actualSummon3.GetComponent<Health> ().currentHP == 0 && other.name == "Player" ){
+		} else if (actualSummon3.GetComponent<Health> ().currentHP == 0 && other.name == "Player") {
 			actualSummon3.GetComponent<Health> ().currentHP = -1;
 			theBox.enabled = false;
 			wave = 4;
 			playerEnter = true;
 		}
-
 	}
 }
