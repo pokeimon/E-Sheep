@@ -39,7 +39,7 @@ public class DeathMenu : MonoBehaviour {
 		Application.LoadLevel(1);
 	}
 	public void replayPress(){
-		Application.LoadLevel(3);
+		Application.LoadLevel(Application.loadedLevel);
 	}
 
 }
