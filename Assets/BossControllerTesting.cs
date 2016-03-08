@@ -32,6 +32,19 @@ public class BossControllerTesting : MonoBehaviour {
 
 	void Start(){
 
+		//Temp solution to null pointer exceptions 
+		actualSummon1 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+		actualSummon1.SetActive (false);
+
+		actualSummon2 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+		actualSummon2.SetActive (false);
+
+		actualSummon3 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+		actualSummon3.SetActive (false);
+
+		bossSummon = (GameObject)Instantiate (bossTongue, summonBoss.position, summonBoss.rotation);
+		bossSummon.SetActive (false);
+
 		//what enemy to spawn
 		wave = 0;
 
@@ -74,25 +87,25 @@ public class BossControllerTesting : MonoBehaviour {
 
 	void BossEnemies(int n){
 		if (n == 1) {
-			actualSummon1 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+			actualSummon1.SetActive (true);
 			actualSummon1.GetComponent<Mallow> ().target = playerPosition;
 			actualSummon1.GetComponent<SpriteRenderer> ().color = Color.green;
 			playerEnter = false;
 		}		
 		else if (n == 2) {
-			actualSummon2 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+			actualSummon2.SetActive (true);
 			actualSummon2.GetComponent<Mallow> ().target = playerPosition;
 			actualSummon2.GetComponent<SpriteRenderer> ().color = Color.magenta;
 			playerEnter = false;
 		}	
 		else if (n == 3) {
-			actualSummon3 = (GameObject)Instantiate (someEnemy, summonArea.position, summonArea.rotation);
+			actualSummon3.SetActive (true);
 			actualSummon3.GetComponent<Mallow> ().target = playerPosition;
 			actualSummon3.GetComponent<SpriteRenderer> ().color = Color.red;
 			playerEnter = false;
 		}	
 		else if (n == 4) {
-			bossSummon = (GameObject)Instantiate (bossTongue, summonBoss.position, summonBoss.rotation);
+			
 			bossSummon.SetActive (true);
 			bossSummon.transform.position = summonBoss.position;
 			playerEnter = false;
