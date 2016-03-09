@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerSave : MonoBehaviour {
 
+	//SelectedPlayer
+
 	//"Name"+saveNum
 	//"Level"+saveNum
 	//"Score"+saveNum
@@ -23,6 +25,17 @@ public class PlayerSave : MonoBehaviour {
 	//Level 1 = CL
 	//Level 2 = HL1
 
+	/// <summary>
+	/// Runs when loaded to verify that there is a selected player
+	/// If missing sets to default load of 0
+	/// </summary>
+	void Start(){
+		int selected = PlayerPrefs.GetInt ("SelectedPlayer");
+		if (selected != 0 || selected != 1 || selected != 2) {
+			PlayerPrefs.SetInt ("SelectedPlayer", 0);
+		}
+	}
+
 	public void NewSave(int saveNum, string name){
 		PlayerPrefs.SetString ("Name"+saveNum, name);
 		PlayerPrefs.SetInt ("Level"+saveNum, 0);
@@ -41,7 +54,7 @@ public class PlayerSave : MonoBehaviour {
 		PlayerPrefs.SetInt ("PersonalBestHL1" + saveNum, 0);
 	}
 
-	public void UpdateScore (int level) {
+	public void UpdateSave (int level) {
 		int saveNum = PlayerPrefs.GetInt ("SelectedPlayer");
 		string personalBest = ChooseLevel ("PersonalBest", level) + saveNum;
 		string highScore = ChooseLevel ("HighScore", level); 
@@ -52,6 +65,9 @@ public class PlayerSave : MonoBehaviour {
 		//if (score > PlayerPrefs.GetInt (highScore + 2)) {
 		HighScoreAdd(PlayerPrefs.GetString ("Name" + saveNum), score, level);
 		//}
+		if (PlayerPrefs.GetInt ("Level" + saveNum) < level) {
+			PlayerPrefs.SetInt ("Level" + saveNum, level);
+		}
 	}
 
 	private void HighScoreAdd(string name, int score, int level){
@@ -82,7 +98,7 @@ public class PlayerSave : MonoBehaviour {
 				else {
 					string personalBest = ChooseLevel ("PersonalBest", i) + PlayerPrefs.GetInt("SelectedPlayer");	
 					scores [rank, i] = PlayerPrefs.GetInt (personalBest);
-				}
+				}	
 			}
 		}
 		return scores;
@@ -123,5 +139,6 @@ public class PlayerSave : MonoBehaviour {
 		}
 		return (sPref + sLevel);
 	}
+
 		
 }
