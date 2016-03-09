@@ -10,11 +10,13 @@ public class RangeAngle : MonoBehaviour {
 	public Collider2D c;
 	public float shotAngle;
 	public bool fire = false;
-	private BossControllerSteven bossController;
+	//private BossControllerSteven bossController;
+	private BossControllerGerard bossController;
 
 	// Use this for initialization
 	void Start () {
-		bossController = GetComponentInParent<BossControllerSteven> ();
+//		bossController = GameObject.Find<Testcontroller> ();
+		bossController = GameObject.Find("Test controller").GetComponent<BossControllerGerard>();
 		c = gameObject.GetComponent<Collider2D>();
 	}
 

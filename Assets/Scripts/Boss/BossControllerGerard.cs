@@ -11,6 +11,7 @@ public class BossControllerGerard : MonoBehaviour {
 	public int mobLimit;
 	public int waveLimit;
 
+	public bool fire; //added by steven
 	bool waitForWipe;
 	int wave;
 	int activeMonsterCount;
@@ -28,6 +29,7 @@ public class BossControllerGerard : MonoBehaviour {
 		colorSelection.Add (Color.blue);
 		colorSelection.Add (Color.cyan);
 		colorSelection.Add (Color.magenta);
+		fire = false;
 	}
 	
 	// Update is called once per frame
@@ -39,6 +41,9 @@ public class BossControllerGerard : MonoBehaviour {
 			}
 		}
 		if (activeMonsterCount == 0 && wave<waveLimit) {//this is if there are either zero objects in the list, or if they have been deactivated. Also, limits wave
+			if(wave > 0){
+				fire = true; //added by steven
+			}
 			Debug.Log ("Spawn.");
 			for (int i = 0; i < mobLimit; i++) {
 				list.Add ((GameObject)Instantiate (someEnemy, transform.position, transform.rotation));
