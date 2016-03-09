@@ -43,6 +43,9 @@ public class BossControllerGerard : MonoBehaviour {
 		if (activeMonsterCount == 0 && wave<waveLimit) {//this is if there are either zero objects in the list, or if they have been deactivated. Also, limits wave
 			if(wave > 0){
 				fire = true; //added by steven
+				if (fire = false){
+					
+				}
 			}
 			Debug.Log ("Spawn.");
 			for (int i = 0; i < mobLimit; i++) {
