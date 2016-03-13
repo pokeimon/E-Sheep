@@ -10,13 +10,13 @@ public class RangeAngle : MonoBehaviour {
 	public Collider2D c;
 	public float shotAngle;
 	public bool fire = false;
-	//private BossControllerSteven bossController;
-	private BossControllerGerard bossController;
+
+	private BossController bossController;
 
 	// Use this for initialization
 	void Start () {
 //		bossController = GameObject.Find<Testcontroller> ();
-		bossController = GameObject.Find("Test controller").GetComponent<BossControllerGerard>();
+		bossController = GameObject.Find("Boss controller").GetComponent<BossController>();
 		c = gameObject.GetComponent<Collider2D>();
 	}
 
@@ -35,8 +35,10 @@ public class RangeAngle : MonoBehaviour {
 			playerOnEnter.position = new Vector2 (player.position.x, player.position.y);
 			c.enabled = false;
 			//tongue.eulerAngles = new Vector3 (0, 0, shotAngle+90);
-			if(bossController.fire){
+			if (bossController.fire) {
 				fire = true;
+			} else {
+				fire = false;
 			}
 		}
 	}

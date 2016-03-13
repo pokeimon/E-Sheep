@@ -15,6 +15,7 @@ public class FrogTongue : MonoBehaviour {
 	private RangeAngle rangeScript;
 
 	public bool autostart;
+	public bool atOrigin = true;
 
 	void Start(){
 		rangeScript = GetComponentInChildren<RangeAngle>();
@@ -25,17 +26,18 @@ public class FrogTongue : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if(rangeScript.c.enabled == false)
-		rangeScript.tongue.eulerAngles = new Vector3 (0, 0, rangeScript.shotAngle+90);
-
+		if (rangeScript.c.enabled == false) {
+			rangeScript.tongue.eulerAngles = new Vector3 (0, 0, rangeScript.shotAngle + 90);
+		}
+			
 		autostart = rangeScript.fire;
 
 		if (autostart == true) {
-			platform.transform.position = Vector3.MoveTowards (platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
-			if (platform.transform.position == currentPoint.position) {
-				if (pointSelection == 0) {
+			platform.transform.position = Vector3.MoveTowards (platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed); // Tongue moves to next point
+			if (platform.transform.position == currentPoint.position) { // If tongue reaches a point...
+				if (pointSelection == 0) { // ... if that point is the oragin
 					pointSelection = 1;
-					rangeScript.fire = false;
+					rangeScript.fire = false; // stop the tongue
 				}else if (pointSelection == 1) {				
 					pointSelection = 0;
 				}
