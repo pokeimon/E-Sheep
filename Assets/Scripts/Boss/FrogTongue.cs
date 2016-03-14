@@ -8,6 +8,8 @@ public class FrogTongue : MonoBehaviour {
 	public int startPoint;
 	public Transform[] points;
 
+	private BossController bossController;
+
 	//creates an array of points that the platform will cycle through
 
 	private Transform currentPoint;		//current point the platform will head too
@@ -18,6 +20,7 @@ public class FrogTongue : MonoBehaviour {
 	public bool atOrigin = true;
 
 	void Start(){
+		bossController = GameObject.Find("Boss controller").GetComponent<BossController>();
 		rangeScript = GetComponentInChildren<RangeAngle>();
 		currentPoint = points[startPoint];
 		pointSelection = startPoint;
@@ -37,7 +40,9 @@ public class FrogTongue : MonoBehaviour {
 			if (platform.transform.position == currentPoint.position) { // If tongue reaches a point...
 				if (pointSelection == 0) { // ... if that point is the oragin
 					pointSelection = 1;
-					rangeScript.fire = false; // stop the tongue
+					if (bossController.fire){
+						rangeScript.fire = false; // stop the tongue
+					}
 				}else if (pointSelection == 1) {				
 					pointSelection = 0;
 				}

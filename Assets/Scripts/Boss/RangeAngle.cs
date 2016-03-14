@@ -15,7 +15,6 @@ public class RangeAngle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-//		bossController = GameObject.Find<Testcontroller> ();
 		bossController = GameObject.Find("Boss controller").GetComponent<BossController>();
 		c = gameObject.GetComponent<Collider2D>();
 	}
