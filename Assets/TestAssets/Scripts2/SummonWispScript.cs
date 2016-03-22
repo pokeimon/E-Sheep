@@ -17,7 +17,7 @@ public class SummonWispScript : AbstractBehavior {
 		var triggerButton = inputState.GetButtonValue (inputButtons [0]);
 		if (triggerButton) {
 			if (inputState.GetButtonHoldTime (inputButtons [0]) < .01f) {//keeps flickering to a minimum
-				Instantiate(wisp);
+				WispPoolScript.current.getPooledObject().SetActive(true);
 			}
 		}
 	}

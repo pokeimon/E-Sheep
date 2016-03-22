@@ -12,16 +12,17 @@ public class WispScript : MonoBehaviour {
 	GameObject target;
 	GameObject player;
 
-	float lifeDuration;
+	public float lifeDuration;
 
 	// Use this for initialization
-	void Awake () {
+	void OnEnable () {
 		player = GameObject.Find ("Player");
 		rangeList = player.GetComponent<ScannerScript> ().rangeList;
 		//reset origination to player
 		transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, player.transform.position.z);
-		lifeDuration = 5f;
-		StartCoroutine (SetLifeDuration (lifeDuration));
+		Debug.Log ("Wisp woke up.");
+		lifeDuration = .02f;//will be replaced later if an enemy is found
+		StartCoroutine (WaitForScan ());
 	}
 	
 	// Update is called once per frame
@@ -34,12 +35,23 @@ public class WispScript : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Waits for scan. Initially, lifeDuration is only .6f seconds. 
+	/// Within .5f seconds, if the OnTriggerEnter2D does not change the lifeDuration to 10f
+	/// Then the Wisp is disabled
+	/// </summary>
+	/// <returns>The for scan.</returns>
+	IEnumerator WaitForScan(){
+		yield return new WaitForSeconds (.01f);
+		StartCoroutine (SetLifeDuration (lifeDuration));
+	}
+
 	void OnTriggerEnter2D(Collider2D other){
-		
 		if (target == null) {
 			if (other.CompareTag ("Enemy")) {
 				Debug.Log ("Enemy Found");
 				if (!rangeList.Contains (other.gameObject)) {
+					lifeDuration = 10f;
 //					Debug.Log ("Not in rangeList yet.");
 					target = other.gameObject;//sets target
 //				transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime);
@@ -58,6 +70,7 @@ public class WispScript : MonoBehaviour {
 	void OnDisable(){
 		try{
 			rangeList.RemoveAt (rangeList.IndexOf(target));//find the target in the rangelist and remove it
+			target=null;//resets this wisps target
 		}catch(Exception e){//if monster has died
 			//do nothing
 		}
