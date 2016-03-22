@@ -11,6 +11,7 @@ public enum Buttons{
 	X,
 	Y,
 	Start,
+	Trigger,
 }
 
 public enum Condition{

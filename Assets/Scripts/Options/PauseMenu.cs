@@ -19,7 +19,7 @@ public class PauseMenu : AbstractBehavior {
 
 		var pauseButton = inputState.GetButtonValue (inputButtons [0]);
 		if (pauseButton) {
-			//			Debug.Log(inputState.GetButtonHoldTime(inputButtons[0]) <.01f);
+//						Debug.Log(inputState.GetButtonHoldTime(inputButtons[0]) <.01f);
 			if(inputState.GetButtonHoldTime(inputButtons[0]) <.01f){//keeps flickering to a minimum
 				if (deathMenu.activeSelf) {
 					paused = !paused;
