@@ -5,25 +5,32 @@ public class Boss_Rotation_Testing : MonoBehaviour {
 
 	public Transform player;
 	public Transform bossHead;
-	public Collider2D c;
 	public float headAngle;
+	public GameObject tongueRange;
+	public GameObject theTongue;
+
+
+	private Animator animator;
 
 
 	// Use this for initialization
 	void Start () {
-		c = gameObject.GetComponent<Collider2D>();
+		animator = GetComponent<Animator> ();
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		headAngle = 57.296f * Mathf.Atan2((player.position.y - bossHead.position.y), (player.position.x - bossHead.position.x));
+		//headAngle = 57.296f * Mathf.Atan2((player.position.y - bossHead.position.y), (player.position.x - bossHead.position.x));
+		headAngle = tongueRange.GetComponent<RangeAngle>().shotAngle;
+		bossHead.eulerAngles = new Vector3 (0,0, headAngle + 145);
 
-	}
-
-	void OnTriggerStay2D(Collider2D col){
-		if(col.gameObject.tag.Equals ("Player")){
-			bossHead.eulerAngles = new Vector3 (0, 0, headAngle + 145);
+		if (theTongue.GetComponent<FrogTongue> ().autostart) {
+			animator.SetBool("bossFireReady", true);
+		} else {
+			animator.SetBool("bossFireReady", false);
 		}
+
 	}
+
 }
 
