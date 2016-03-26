@@ -23,11 +23,11 @@ public class Boss_Rotation_Testing : MonoBehaviour {
 		//This is to check if the player is within the circle collider
 		//Using this method to clean up the way the boss head interaction looks in game 
 		if (tongueRange.GetComponent<RangeAngle> ().fire) {
-			headAngle = tongueRange.GetComponent<RangeAngle> ().shotAngle;
-			bossHead.eulerAngles = new Vector3 (0, 0, headAngle + 180);
 			if (theTongue.GetComponent<FrogTongue> ().autostart) {
 				animator.SetBool ("bossFireReady", true);
 			} else {
+				bossHead.eulerAngles = new Vector3 (0, 0, headAngle + 180);
+				headAngle = tongueRange.GetComponent<RangeAngle> ().shotAngle;
 				animator.SetBool ("bossFireReady", false);
 			}
 		} else {//outside circle collider, boss head doesn't move, mouth is closed
