@@ -106,7 +106,7 @@ public class Health : MonoBehaviour {
 		}
 		else if (this.tag == "Enemy") {
 			if ((target.gameObject.tag == "PlayerSword") && (currentMeleeInvuln >= maxMeleeInvuln)) {
-				PlayerSword sword = target.gameObject.transform.parent.gameObject.GetComponent<PlayerSword>();
+				Sword sword = target.gameObject.transform.parent.gameObject.GetComponent<Sword>();
 				damage = sword.damage; //get damage amount from sword
 				currentHP -= damage;
 				currentMeleeInvuln = 0f;

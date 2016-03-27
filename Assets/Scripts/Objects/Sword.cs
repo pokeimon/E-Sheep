@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerSword : MonoBehaviour {
+public class Sword : MonoBehaviour {
 
 	private GameObject sword;
 	private GameObject player;
 	private Health health;
-	public int damage;
-	public float length;
+	public int damage = 1;
+	public float length = 4;
 	public float swingSpeed = 10;
 
 	void Awake() {
@@ -17,18 +17,20 @@ public class PlayerSword : MonoBehaviour {
 	}
 	
 	void OnEnable() {
-		if (health.currentHP == 1) {
-			damage = 5;
-			length = 2f;
-		} else if (health.currentHP == 2) {
-			damage = 10;
-			length = 2f;
-		} else if (health.currentHP == 3) {
-			damage = 15;
-			length = 2f;
-		} else { //currentHP = 4
-			damage = 15;
-			length = 4f; //double length at 4 hp
+		if (this.transform.parent.tag == "Player") {
+			if (health.currentHP == 1) {
+				damage = 5;
+				length = 2f;
+			} else if (health.currentHP == 2) {
+				damage = 10;
+				length = 2f;
+			} else if (health.currentHP == 3) {
+				damage = 15;
+				length = 2f;
+			} else { //currentHP = 4
+				damage = 15;
+				length = 4f; //double length at 4 hp
+			}
 		}
 		sword.transform.localPosition = new Vector3 (0f, 1.2f, 0f); //put sword and rotator in swing start position
 		sword.transform.localScale = new Vector3 (0.2f, length, 1f);
