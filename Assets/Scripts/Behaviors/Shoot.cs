@@ -4,7 +4,6 @@ using System.Collections;
 public class Shoot : AbstractBehavior {
 
     public float shootDelay;
-    public GameObject projectilePrefab;
     public Vector2 firePosition = Vector2.zero;
     public Color debugColor = Color.yellow;
     public float debugRadius = 3.5f;
@@ -37,7 +36,7 @@ public class Shoot : AbstractBehavior {
 
 
 			if (shootButton && (curretShootDelay > shootDelay) && !collisionState.stunned) {
-                GameObject obj = ObjectPooler.current.getPooledObject();
+                GameObject obj = objectPooler.getPooledObject();
 
                 if (obj != null){			
                     obj.transform.position = CalculateFirePosition();

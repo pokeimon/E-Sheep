@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class BoneController : MonoBehaviour {
+	public float bulletLifeTime = 7f;
 	public float speed;
 	public int damage;
 	public PlayerManager player;
@@ -9,34 +10,40 @@ public class BoneController : MonoBehaviour {
 	public GameObject impactEffect;
 	public float rotationSpeed;
 	private Rigidbody2D myRigidbody2D;
+	private GameObject objPool;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		player= FindObjectOfType<PlayerManager> ();
-		health = GetComponent<Health> ();
 		myRigidbody2D = GetComponent<Rigidbody2D> ();
 		if (player.transform.position.x < transform.position.x) {
 			speed = -speed;
 			rotationSpeed = -rotationSpeed;
 		}
+		objPool = GameObject.Find("SkeletonBoneObjectPool");
+		this.transform.SetParent(objPool.transform);
 	
 	}
-	
-	// Update is called once per frame
+	void OnEnable() {
+		Invoke("Destroy", bulletLifeTime); //destroy after set time if it doesn't collide
+	}
+		
 	void Update () {
 		myRigidbody2D.velocity = new Vector2 (speed, myRigidbody2D.velocity.y);
 		myRigidbody2D.angularVelocity = rotationSpeed;
 		//GetComponent<Rigidbody2D>().velocity = new Vector2 (speed, GetComponent<Rigidbody2D>().velocity.y);
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Player") {
-		health.currentHP -= damage;
-				
-		}
+	void OnCollisionEnter2D(Collision2D target) { 
+		//Instantiate (impactEffect, transform.position, transform.rotation);
+		Destroy();
+	}
 
-		Instantiate (impactEffect, transform.position, transform.rotation);
-			Destroy (gameObject);
+	void Destroy() {
+		gameObject.SetActive(false);
+	}
+
+	void OnDisable() {
+		CancelInvoke();
 	}
 }

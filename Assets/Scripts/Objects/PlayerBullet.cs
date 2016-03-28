@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerBullet : MonoBehaviour {
 
     public Vector2 bulletSpeed = new Vector2(100, 0);
-	public float bulletLifeTime = 2.1f;
+	public float bulletLifeTime = 3f;
 	public int damage;
 	
     private Rigidbody2D body2d;
