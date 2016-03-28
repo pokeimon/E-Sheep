@@ -9,7 +9,7 @@ public class Shoot : AbstractBehavior {
     public float debugRadius = 3.5f;
 	public bool shooting = false;
 
-    private float curretShootDelay = 0f;
+    private float currentShootDelay = 0f;
 
 	
 	void Update () {
@@ -35,7 +35,7 @@ public class Shoot : AbstractBehavior {
 			}
 
 
-			if (shootButton && (curretShootDelay > shootDelay) && !collisionState.stunned) {
+			if (shootButton && (currentShootDelay > shootDelay) && !collisionState.stunned) {
                 GameObject obj = objectPooler.getPooledObject();
 
                 if (obj != null){			
@@ -52,9 +52,9 @@ public class Shoot : AbstractBehavior {
 					}
                     
                 }
-				curretShootDelay = 0;	 
+				currentShootDelay = 0;	 
 			}
-			curretShootDelay += Time.deltaTime;
+			currentShootDelay += Time.deltaTime;
 		} 
 	}
 

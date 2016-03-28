@@ -12,7 +12,12 @@ public class Sword : MonoBehaviour {
 
 	void Awake() {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		sword = GameObject.FindGameObjectWithTag ("Sword");
+		if(this.transform.parent.tag == "Player"){
+			sword = GameObject.FindGameObjectWithTag ("PlayerSword");
+		}
+		else {
+			sword = GameObject.FindGameObjectWithTag ("EnemySword");
+		}
 		health = player.GetComponent<Health> ();
 	}
 	

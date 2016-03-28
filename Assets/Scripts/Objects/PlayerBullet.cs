@@ -16,7 +16,7 @@ public class PlayerBullet : MonoBehaviour {
     void Awake() {
         body2d = GetComponent<Rigidbody2D>();
 		player = GameObject.FindGameObjectWithTag ("Player");
-		health = player.GetComponent<Health> ();
+		health = player.GetComponent<Health>();
 		objPool = GameObject.Find("PlayerBulletObjectPool");
 		this.transform.SetParent(objPool.transform);
     }

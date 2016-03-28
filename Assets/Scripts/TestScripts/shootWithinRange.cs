@@ -8,7 +8,7 @@ public class shootWithinRange : MonoBehaviour {
 	public Transform firePoint;
 	public float waitBTWShoot;
 	private float shotCounter;
-	public ObjectPooler objectPooler;
+	private ObjectPooler objectPooler;
 
 	void Awake () {
 		player = FindObjectOfType<PlayerManager> ();
