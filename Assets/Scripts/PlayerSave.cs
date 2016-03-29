@@ -90,7 +90,11 @@ public class PlayerSave : MonoBehaviour {
 				break;
 		}
 	}
-
+	/// <summary>
+	/// Returns the scores.
+	/// [Rank, Level]
+	/// </summary>
+	/// <returns>The scores.</returns>
 	public int[,] ReturnScores (){
 		int[,] scores = new int[3, 4];
 		string temp;
@@ -109,6 +113,11 @@ public class PlayerSave : MonoBehaviour {
 		return scores;
 	}
 
+	/// <summary>
+	/// Returns the names.
+	/// [Ramk, level]
+	/// </summary>
+	/// <returns>The names.</returns>
 	public string[,] ReturnNames (){
 		string[,] names = new string[3, 4];
 		string temp;
