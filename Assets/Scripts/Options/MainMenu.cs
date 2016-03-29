@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour {
 	public Button startText;
 	public Button exitText;
 	public Button mainMenuText;
+	public Button newGameText;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour {
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
 		mainMenuText = mainMenuText.GetComponent<Button> ();
+		newGameText = newGameText.GetComponent<Button> ();
 
 		exitMenu.enabled = false; //exit menu is disabled
 		creditMenu.enabled = false; //credit menu is disabled
@@ -32,6 +34,7 @@ public class MainMenu : MonoBehaviour {
 		exitMenu.enabled = true; //enable exit menu
 		startText.enabled = false; //disable start button
 		exitText.enabled = false; //disable
+		newGameText.enabled = false; //disable
 		
 	}
 	
@@ -41,6 +44,7 @@ public class MainMenu : MonoBehaviour {
 		exitMenu.enabled = false;
 		startText.enabled = true;
 		exitText.enabled = true;
+		newGameText.enabled = true;
 
 	}
 	
@@ -69,6 +73,12 @@ public class MainMenu : MonoBehaviour {
 	public void ExitGame() {
 
 		Application.Quit (); //quits game
+
+	}
+
+	//go to character selection scene
+	public void NewGamePress() {
+		Application.LoadLevel (5);
 
 	}
 
