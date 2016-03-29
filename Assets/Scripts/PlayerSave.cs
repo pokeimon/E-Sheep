@@ -5,6 +5,10 @@ public class PlayerSave : MonoBehaviour {
 
 	//SelectedPlayer
 
+	//int0
+	//int1
+	//int2
+
 	//"Name"+saveNum
 	//"Level"+saveNum
 	//"Score"+saveNum
@@ -46,12 +50,13 @@ public class PlayerSave : MonoBehaviour {
 	}
 		
 	public void EraseSave(int saveNum){
-		PlayerPrefs.SetString ("Name", null);
+		PlayerPrefs.SetString ("Name" + saveNum, null);
 		PlayerPrefs.SetInt ("Level" + saveNum, 0);
 		PlayerPrefs.SetInt ("Score" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestCL1" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestCL2" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestHL1" + saveNum, 0);
+		Debug.Log ("erase" + saveNum);
 	}
 
 	public void UpdateSave (int level) {
