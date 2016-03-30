@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 //using UnityEngine.UI;
+using System;
 
 public class UIOverlay : MonoBehaviour {
 	private GameObject player;
@@ -18,14 +19,20 @@ public class UIOverlay : MonoBehaviour {
 	void Start () {
 		player = GameObject.Find ("Player");
 		currentHP = player.GetComponent<Health> ().currentHP;
+		try{
 		scoreScript = GameObject.Find ("ScoreVal").GetComponent<ScoreTrackerScript> ();
+		}catch(Exception e){
+			Debug.Log ("UIOverlay.cs: In the scene, is there a Score Prefab with a ScoreVal child?");
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//screenPos = Camera.main.WorldToScreenPoint (transform.position);
 		//screenPos.y = Screen.height - screenPos.y;
-		currentScore = scoreScript.score;
+		if (currentScore != null) {
+			currentScore = scoreScript.score;
+		}
 		currentHP = player.GetComponent<Health> ().currentHP;
 		updateHP (currentHP);
 	}
