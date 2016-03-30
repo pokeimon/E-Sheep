@@ -40,6 +40,9 @@ public class PlayerManager : MonoBehaviour {
 		if(collisionState.climbing){ //climbing
 			caseSwitch = 4;
 		}
+		if (collisionState.stunned) {//got hit
+			caseSwitch = 5;
+		}
 
 		switch (caseSwitch){
 		case 1:
@@ -52,7 +55,10 @@ public class PlayerManager : MonoBehaviour {
 			ChangeAnimationState (3); // shooting
 			break;
 		case 4:
-			ChangeAnimationState (4); // shooting
+			ChangeAnimationState (4); // climbing
+			break;
+		case 5:
+			ChangeAnimationState (5); // got hit
 			break;
 		default:
 			ChangeAnimationState (0); // idle

@@ -8,20 +8,20 @@ public class PlayerBullet : MonoBehaviour {
 	public int damage;
 	
     private Rigidbody2D body2d;
-	private GameObject player;
-	private GameObject objPool;
-	private Health health;
+	public GameObject player;
+	public GameObject objPool;
+	public Health health;
 	private Vector2 playerSpeed;
 
     void Awake() {
         body2d = GetComponent<Rigidbody2D>();
-		player = GameObject.FindGameObjectWithTag ("Player");
 		health = player.GetComponent<Health>();
 		objPool = GameObject.Find("PlayerBulletObjectPool");
 		this.transform.SetParent(objPool.transform);
     }
 
     void OnEnable() {
+		
 		if (health.currentHP <= 3) {
 			damage = 1; 
 		}
