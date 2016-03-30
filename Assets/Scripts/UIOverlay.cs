@@ -5,6 +5,10 @@ using System.Collections;
 public class UIOverlay : MonoBehaviour {
 	private GameObject player;
 	private int currentHP;
+	private ScoreTrackerScript scoreScript;
+
+	public int currentScore;
+
 	//public GameObject[] hp;
 	public Canvas[] hp;
 
@@ -14,13 +18,14 @@ public class UIOverlay : MonoBehaviour {
 	void Start () {
 		player = GameObject.Find ("Player");
 		currentHP = player.GetComponent<Health> ().currentHP;
+		scoreScript = GameObject.Find ("ScoreVal").GetComponent<ScoreTrackerScript> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//screenPos = Camera.main.WorldToScreenPoint (transform.position);
 		//screenPos.y = Screen.height - screenPos.y;
-
+		currentScore = scoreScript.score;
 		currentHP = player.GetComponent<Health> ().currentHP;
 		updateHP (currentHP);
 	}

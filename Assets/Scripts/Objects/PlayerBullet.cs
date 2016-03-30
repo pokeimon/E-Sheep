@@ -15,13 +15,13 @@ public class PlayerBullet : MonoBehaviour {
 
     void Awake() {
         body2d = GetComponent<Rigidbody2D>();
+		player = GameObject.Find ("Player");
 		health = player.GetComponent<Health>();
 		objPool = GameObject.Find("PlayerBulletObjectPool");
 		this.transform.SetParent(objPool.transform);
     }
 
     void OnEnable() {
-		
 		if (health.currentHP <= 3) {
 			damage = 1; 
 		}

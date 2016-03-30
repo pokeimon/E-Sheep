@@ -6,7 +6,7 @@ public class ScoreTrackerScript : MonoBehaviour {
 
 //	GameObject scoreObj;
 	Text scoreVal;
-	int score;
+	public int score;
 
 	// Use this for initialization
 	void Awake () {
