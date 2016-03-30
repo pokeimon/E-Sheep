@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: 8e7e04651561e344f8bd5c3eb84ed528
+timeCreated: 1459302402
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HorrorBoss_0
+    21300002: HorrorBoss_1
+    21300004: HorrorBoss_2
+    21300006: HorrorBoss_3
+    21300008: HorrorBoss_4
+    21300010: HorrorBoss_5
+    21300012: HorrorBoss_6
+    21300014: HorrorBoss_7
+    21300016: HorrorBoss_8
+    21300018: HorrorBoss_9
+    21300020: HorrorBoss_10
+    21300022: HorrorBoss_11
+    21300024: HorrorBoss_12
+    21300026: HorrorBoss_13
+    21300028: HorrorBoss_14
+    21300030: HorrorBoss_15
+    21300032: HorrorBoss_16
+    21300034: HorrorBoss_17
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: HorrorBoss_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 238
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 238
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 238
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 238
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 238
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_5
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 238
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 198
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 198
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_8
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 198
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_9
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 198
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_10
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 198
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_11
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 198
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_12
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 158
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 158
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_14
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 158
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_15
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 158
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_16
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 158
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: HorrorBoss_17
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 158
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
