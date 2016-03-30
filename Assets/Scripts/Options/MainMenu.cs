@@ -108,7 +108,7 @@ public class MainMenu : MonoBehaviour {
 
 	}
 	public void ScorePress () {
-		scoreFillTest ();
+		//scoreFillTest ();
 		string[,] names = gm.GetComponent<PlayerSave>().ReturnNames();
 		int[,] scores = gm.GetComponent<PlayerSave>().ReturnScores();
 		scoreMenu.enabled = true;
