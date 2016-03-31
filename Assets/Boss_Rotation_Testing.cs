@@ -20,6 +20,7 @@ public class Boss_Rotation_Testing : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+		bossHead.GetComponent<SpriteRenderer> ().color = Color.white;
 		//This is to check if the player is within the circle collider
 		//Using this method to clean up the way the boss head interaction looks in game 
 		if (tongueRange.GetComponent<RangeAngle> ().fire) {

@@ -132,6 +132,8 @@ public class Health : MonoBehaviour {
 				//damage = sword.damage; //get damage amount from sword
 				damage = 1;
 				currentHP -= damage;
+				StartCoroutine ("damageAnimation");
+
 				currentMeleeInvuln = 0f;
 			}
 			if (currentHP < 1) {
@@ -142,6 +144,28 @@ public class Health : MonoBehaviour {
 					gameObject.transform.parent.gameObject.SetActive (false);//disables head and tongue
 				}
 			}
+		}
+	}
+
+	public IEnumerator damageAnimation()// for Candy Land boss
+	{
+		for (int i=0; i<25; i++) 
+		{
+			gameObject.transform.parent.FindChild ("sample_boss_head").GetComponent<SpriteRenderer> ().color = Color.Lerp(Color.red, Color.magenta, (float)(i/(25f)));
+			yield return new WaitForSeconds (0.01f);
+		}
+		gameObject.transform.parent.FindChild ("sample_boss_head").GetComponent<SpriteRenderer> ().color = Color.magenta;
+		//yield return new WaitForSeconds (1f);
+		for (int j=0; j<25; j++) 
+		{
+			gameObject.transform.parent.FindChild ("sample_boss_head").GetComponent<SpriteRenderer> ().color = Color.Lerp(Color.magenta, Color.red, (float)(j/(25f)));
+			yield return new WaitForSeconds (0.01f);
+		}
+		gameObject.transform.parent.FindChild ("sample_boss_head").GetComponent<SpriteRenderer> ().color = Color.red;
+		for (int k=0; k<25; k++) 
+		{
+			gameObject.transform.parent.FindChild ("sample_boss_head").GetComponent<SpriteRenderer> ().color = Color.Lerp(Color.red, Color.white, (float)(k/(25f)));
+			yield return new WaitForSeconds (0.01f);
 		}
 	}
 
