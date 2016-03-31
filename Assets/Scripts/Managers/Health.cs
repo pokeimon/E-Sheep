@@ -126,6 +126,23 @@ public class Health : MonoBehaviour {
 //				gameObject.SetActive (false);
 //			}
 		}
+		else if(this.tag == "CL2Boss"){ //added by ivan on 03/31/2016 for boss Testing
+			if ((target.gameObject.tag == "PlayerSword") && (currentMeleeInvuln >= maxMeleeInvuln) && this.gameObject.GetComponent<FrogTongue>().autostart == true) {
+				Sword sword = target.gameObject.transform.parent.gameObject.GetComponent<Sword>();
+				//damage = sword.damage; //get damage amount from sword
+				damage = 1;
+				currentHP -= damage;
+				currentMeleeInvuln = 0f;
+			}
+			if (currentHP < 1) {
+				if (gameObject.transform.parent != null && gameObject.transform.parent.CompareTag ("CL2Boss")) {
+					gameObject.transform.parent.gameObject.SetActive (false);
+				} else {
+					//gameObject.SetActive (false);//disables just tongue
+					gameObject.transform.parent.gameObject.SetActive (false);//disables head and tongue
+				}
+			}
+		}
 	}
 
 
