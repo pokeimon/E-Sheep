@@ -132,21 +132,32 @@ public class Health : MonoBehaviour {
 				//damage = sword.damage; //get damage amount from sword
 				damage = 1;
 				currentHP -= damage;
-				StartCoroutine ("damageAnimation");
+				//StartCoroutine ("damageAnimation");
+				//StartCoroutine("damageAnim", this.gameObject.transform.parent);
+				//damageAnimHandler(this.gameObject.transform.parent.FindChild("sample_boss_head"), "clBoss");
+				object[] parameters = new object[3]{this.gameObject.transform.parent.FindChild("sample_boss_head"), Color.red, Color.magenta};
+				StartCoroutine ("damageAnim", parameters);
 
 				currentMeleeInvuln = 0f;
 			}
 			if (currentHP < 1) {
+				
+				object[] parameters = new object[4]{this.gameObject.transform.parent.FindChild("sample_boss_head"), Color.white, Color.clear, "death"};
+				StartCoroutine ("damageAnim", parameters);
+				/*
 				if (gameObject.transform.parent != null && gameObject.transform.parent.CompareTag ("CL2Boss")) {
 					gameObject.transform.parent.gameObject.SetActive (false);
 				} else {
 					//gameObject.SetActive (false);//disables just tongue
 					gameObject.transform.parent.gameObject.SetActive (false);//disables head and tongue
 				}
+				*/
 			}
 		}
 	}
+		
 
+/*
 	public IEnumerator damageAnimation()// for Candy Land boss
 	{
 		for (int i=0; i<25; i++) 
@@ -167,6 +178,39 @@ public class Health : MonoBehaviour {
 			gameObject.transform.parent.FindChild ("sample_boss_head").GetComponent<SpriteRenderer> ().color = Color.Lerp(Color.red, Color.white, (float)(k/(25f)));
 			yield return new WaitForSeconds (0.01f);
 		}
+	}
+*/
+	public IEnumerator damageAnim(object[] p)// for Candy Land boss
+	{
+		Transform anObject = (Transform)p [0];
+		Color a = (Color)p [1];
+		Color b = (Color)p [2];
+
+		float t = 15;
+
+		for (int i=0; i< t; i++) 
+		{
+			anObject.GetComponent<SpriteRenderer> ().color = Color.Lerp(a, b, (float)(i/(t)));
+			yield return new WaitForSeconds (0.01f);
+		}
+		anObject.GetComponent<SpriteRenderer> ().color = Color.magenta;
+		//yield return new WaitForSeconds (1f);
+		for (int j=0; j<25; j++) 
+		{
+			anObject.GetComponent<SpriteRenderer> ().color = Color.Lerp(a, b, (float)(j/(t)));
+			yield return new WaitForSeconds (0.01f);
+		}
+		anObject.GetComponent<SpriteRenderer> ().color = Color.red;
+		for (int k=0; k<25; k++) 
+		{
+			anObject.GetComponent<SpriteRenderer> ().color = Color.Lerp(a, b, (float)(k/(t)));
+			yield return new WaitForSeconds (0.01f);
+		}
+		yield return new WaitForSeconds (1f);
+		if(p.Length == 4 && ((string)p[3]).Equals("death")){
+			anObject.parent.gameObject.SetActive (false);
+		}
+
 	}
 
 
