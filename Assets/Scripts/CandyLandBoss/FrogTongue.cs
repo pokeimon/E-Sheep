@@ -7,8 +7,11 @@ public class FrogTongue : MonoBehaviour {
 	public float moveSpeed;
 	public int startPoint;
 	public Transform[] points; //creates an array of points that the platform will cycle through
+	public bool hit = false;
+
 	private Transform currentPoint;		//current point the platform will head too
 	private int pointSelection;	
+
 
 	private RangeAngle rangeScript;
 	private BossController bossController;

@@ -25,18 +25,18 @@ public class RangeAngle : MonoBehaviour {
 		if (fire == false) {
 			c.enabled = true;
 		} else {
-			//tempAngle = 90 + 57.296f * Mathf.Atan2 ((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
-			//if ((tempAngle > -79 && tempAngle < 100) || (tempAngle > 250 && tempAngle < 280)) {
-			//	shotAngle = tempAngle;
-			//}
-			shotAngle = 90 + 57.296f * Mathf.Atan2 ((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
+			tempAngle = 57.296f * Mathf.Atan2 ((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
+			if ((tempAngle < -160 && tempAngle > -180) || (tempAngle > 160 && tempAngle < 180)) {
+				shotAngle = tempAngle;
+			}
+			//shotAngle = 90 + 57.296f * Mathf.Atan2 ((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D col){
 		if(col.gameObject.tag.Equals ("Player")){
 			fire = true;
-			tongue.eulerAngles = new Vector3 (0, 0, shotAngle);
+			tongue.eulerAngles = new Vector3 (0, 0, shotAngle+90);
 			playerOnEnter.position = new Vector2 (player.position.x, player.position.y);
 			if (frogTongue.autostart == true) {
 				c.enabled = false;

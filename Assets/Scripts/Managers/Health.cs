@@ -131,6 +131,7 @@ public class Health : MonoBehaviour {
 				Sword sword = target.gameObject.transform.parent.gameObject.GetComponent<Sword>();
 				//damage = sword.damage; //get damage amount from sword
 				damage = 1;
+				this.gameObject.GetComponent<FrogTongue> ().hit = true;
 				currentHP -= damage;
 				//StartCoroutine ("damageAnimation");
 				//StartCoroutine("damageAnim", this.gameObject.transform.parent);
