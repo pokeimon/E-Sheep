@@ -28,9 +28,6 @@ public class FrogTongue : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (autostart == false) {
-			//rangeScript.tongue.eulerAngles = new Vector3 (0, 0, rangeScript.shotAngle + 90);
-		}
 
 		if(bossController.fire && rangeScript.fire){
 			autostart = true;

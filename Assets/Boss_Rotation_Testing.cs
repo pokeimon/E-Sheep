@@ -14,7 +14,7 @@ public class Boss_Rotation_Testing : MonoBehaviour {
 	private Animator animator;
 	// Use this for initialization
 	void Start () {
-		bossHead.eulerAngles = new Vector3 (0,0,0);
+		//bossHead.eulerAngles = new Vector3 (0,0,0);
 		animator = GetComponent<Animator> ();
 	}
 
@@ -27,13 +27,13 @@ public class Boss_Rotation_Testing : MonoBehaviour {
 			if (theTongue.GetComponent<FrogTongue> ().autostart) {
 				animator.SetBool ("bossFireReady", true);
 			} else {
-				bossHead.eulerAngles = new Vector3 (0, 0, headAngle + 180);
-				headAngle = tongueRange.GetComponent<RangeAngle> ().shotAngle;
+				//bossHead.eulerAngles = new Vector3 (0, 0, headAngle + 180);
+				//headAngle = tongueRange.GetComponent<RangeAngle> ().shotAngle;
 				animator.SetBool ("bossFireReady", false);
 			}
 		} else {//outside circle collider, boss head doesn't move, mouth is closed
 			animator.SetBool ("bossFireReady", false);
-			bossHead.eulerAngles = new Vector3 (0,0,0);
+			//bossHead.eulerAngles = new Vector3 (0,0,0);
 		}
 	}
 

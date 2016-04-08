@@ -17,10 +17,12 @@ public class BossController: MonoBehaviour {
 	int activeMonsterCount;
 
 	private RangeAngle rangeAngle;
+	private FrogTongue frogTongue;
 
 	// Use this for initialization
 	void Awake () {
 		rangeAngle = GameObject.Find("Range").GetComponent<RangeAngle>();
+		frogTongue = GameObject.Find("Tongue").GetComponent<FrogTongue>();
 		wave = 0;
 		activeMonsterCount = 0;
 
@@ -40,13 +42,16 @@ public class BossController: MonoBehaviour {
 				activeMonsterCount--;	
 			}
 		}
-		if (activeMonsterCount == 0 && wave<=waveLimit) {//this is if there are either zero objects in the list, or if they have been deactivated. Also, limits wave
+
+		Debug.Log (frogTongue.hit);
+
+		if (activeMonsterCount == 0 && wave<=waveLimit && !frogTongue.hit) {//this is if there are either zero objects in the list, or if they have been deactivated. Also, limits wave
 			
 			if(wave > 0 && k < 1){
 				fire = true; //added by steven
 				k++;
 			}
-			if(fire == false && wave<waveLimit){
+			if(!fire && wave<waveLimit){
 				for (int i = 0; i < mobLimit; i++) {
 					list.Add ((GameObject)Instantiate (someEnemy, transform.position, transform.rotation));
 					//access the recently added item
