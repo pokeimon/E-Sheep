@@ -11,14 +11,15 @@ public class Sword : MonoBehaviour {
 	public float swingSpeed = 10;
 
 	void Awake() {
-		player = GameObject.FindGameObjectWithTag ("Player");
+		
 		if(this.transform.parent.tag == "Player"){
 			sword = GameObject.FindGameObjectWithTag ("PlayerSword");
+			player = GameObject.FindGameObjectWithTag ("Player");
+			health = player.GetComponent<Health> ();
 		}
 		else {
 			sword = GameObject.FindGameObjectWithTag ("EnemySword");
 		}
-		health = player.GetComponent<Health> ();
 	}
 	
 	void OnEnable() {
