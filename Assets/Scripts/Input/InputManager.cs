@@ -11,7 +11,6 @@ public enum Buttons{
 	X,
 	Y,
 	Start,
-	Trigger,
 }
 
 public enum Condition{
@@ -48,6 +47,10 @@ public class InputManager : MonoBehaviour {
 
 	public InputAxisState[] inputs;
 	public InputState inputState;
+
+	void Awake(){
+		inputState = GameObject.Find ("Player").GetComponent<InputState> ();
+	}
 
 	void Update () {
 		foreach (var input in inputs) {
