@@ -30,11 +30,11 @@ public class UIOverlay : MonoBehaviour {
 	void Update () {
 		//screenPos = Camera.main.WorldToScreenPoint (transform.position);
 		//screenPos.y = Screen.height - screenPos.y;
+		currentHP = player.GetComponent<Health> ().currentHP;
+		updateHP (currentHP);
 		if (currentScore != null) {
 			currentScore = scoreScript.score;
 		}
-		currentHP = player.GetComponent<Health> ().currentHP;
-		updateHP (currentHP);
 	}
 	/*
 	void OnGUI () {
