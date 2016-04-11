@@ -33,7 +33,10 @@ public class FrogTongue : MonoBehaviour {
 			autostart = true;
 		}
 
-		if (autostart == true) {
+		if (autostart) {
+			if(hit){
+				currentPoint = points [0];
+			}
 			platform.transform.position = Vector3.MoveTowards (platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed); // Tongue moves to next point
 			if (platform.transform.position == currentPoint.position) { // If tongue reaches a point...
 				if (pointSelection == 0) { // ... if that point is the oragin

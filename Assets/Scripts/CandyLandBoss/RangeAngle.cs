@@ -25,11 +25,10 @@ public class RangeAngle : MonoBehaviour {
 	void FixedUpdate () {
 		if (frogTongue.hit) {
 			c.enabled = false;
-			bossHead.eulerAngles = new Vector3 (0,0,22.1f);
-			tongue.eulerAngles = new Vector3 (0,0,112.1f);
-			tongue.position = new Vector3 (-73.9f, -100f, 1f);
-		} else {
-			if (fire == false) {
+			StartCoroutine(damageState ());
+			fire = true;
+		} //else {
+			if (!fire) {
 				c.enabled = true;
 			} else {
 				tempAngle = 57.296f * Mathf.Atan2 ((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
@@ -38,7 +37,16 @@ public class RangeAngle : MonoBehaviour {
 				}
 				//shotAngle = 90 + 57.296f * Mathf.Atan2 ((player.position.y - tongue.position.y), (player.position.x - tongue.position.x));
 			}
-		}
+		//}
+	}
+
+	IEnumerator damageState(){
+		bossHead.eulerAngles = new Vector3 (0,0,22.1f);
+		tongue.eulerAngles = new Vector3 (0,0,112.1f);
+		tongue.position = new Vector3 (-73.9f, -100f, 1f);
+		yield return new WaitForSeconds (4);
+		frogTongue.hit = false;
+		//tongue.position = new Vector3 (-65.49f, -103.8f, 0);
 	}
 
 	void OnTriggerStay2D(Collider2D col){
