@@ -16,7 +16,12 @@ public class Door : MonoBehaviour {
 		if(p.CompareTag("Player")){//Look for player tag
 			if(Input.GetKeyDown("w") || Input.GetKeyDown("up")){
 				if (IsEndofLevel) {
+					//uncomment when set up
+					//int score = GameObject.Find ("ScoreVal").GetComponent<ScoreTrackerScript> ().score;
 					PlayerPrefs.SetInt("Level" + PlayerPrefs.GetInt("SelectedPlayer"), level+1);
+					//uncomment when set up
+					//GameObject.Find ("GM").GetComponent<PlayerSave> ().UpdateSave (level);
+
 				}
 				StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(LevelLoad));
 				//Application.LoadLevel(LevelLoad);//if 'w' or 'up' keys are pressed it loads next level

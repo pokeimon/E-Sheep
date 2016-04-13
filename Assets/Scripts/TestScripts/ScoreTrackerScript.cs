@@ -8,6 +8,7 @@ public class ScoreTrackerScript : MonoBehaviour {
 	Text scoreVal;
 	public int score;
 
+
 	// Use this for initialization
 	void Awake () {
 		scoreVal = GetComponent<Text> ();
@@ -17,6 +18,7 @@ public class ScoreTrackerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		scoreVal.text = "" + score;
+		PlayerPrefs.SetInt ("Score", score);
 	}
 
 	public void IncreaseScoreBy(int val){
