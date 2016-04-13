@@ -9,10 +9,15 @@ public class Door : MonoBehaviour {
 	//this allows for us to use this LevelLoad to call other scenes
 	public int LevelLoad;
 
+	public bool IsEndofLevel = false;
+	public int level; //0,1,2
 	
 	void OnTriggerStay2D(Collider2D p){
 		if(p.CompareTag("Player")){//Look for player tag
 			if(Input.GetKeyDown("w") || Input.GetKeyDown("up")){
+				if (IsEndofLevel) {
+					PlayerPrefs.SetInt("Level" + PlayerPrefs.GetInt("SelectedPlayer"), level+1);
+				}
 				StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(LevelLoad));
 				//Application.LoadLevel(LevelLoad);//if 'w' or 'up' keys are pressed it loads next level
 
