@@ -52,7 +52,7 @@ public class RangeAngle : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D col){
 		if(col.gameObject.tag.Equals ("Player")){
 			fire = true;
-			tongue.eulerAngles = new Vector3 (0, 0, shotAngle+90);
+			tongue.eulerAngles = new Vector3 (0, 0, shotAngle+270);
 			bossHead.eulerAngles = new Vector3 (0, 0, shotAngle+180);
 			playerOnEnter.position = new Vector2 (player.position.x, player.position.y);
 			if (frogTongue.autostart == true) {
