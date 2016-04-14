@@ -142,7 +142,7 @@ public class Health : MonoBehaviour {
 				currentMeleeInvuln = 0f;
 			}
 			if (currentHP < 1) {
-				
+				Debug.Log ("Here");
 				object[] parameters = new object[4]{this.gameObject.transform.parent.FindChild("sample_boss_head"), Color.white, Color.clear, "death"};
 				StartCoroutine ("damageAnim", parameters);
 				/*
@@ -188,6 +188,12 @@ public class Health : MonoBehaviour {
 		Color b = (Color)p [2];
 
 		float t = 15;
+
+		//Temp solution to death state for tongue
+		if(p.Length == 4 && ((string)p[3]).Equals("death")){
+			this.gameObject.transform.FindChild ("Ground").GetComponent<SpriteRenderer> ().color = Color.clear;
+		}
+
 
 		for (int i=0; i< t; i++) 
 		{
