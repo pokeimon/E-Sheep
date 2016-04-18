@@ -9,7 +9,7 @@ public class RangeAngle : MonoBehaviour {
 	public Transform tongue;
 	public Transform bossHead;
 	public Collider2D c;
-	public float shotAngle = 0;
+	public float shotAngle = 90;
 	public float tempAngle;
 	public bool fire = false;
 
