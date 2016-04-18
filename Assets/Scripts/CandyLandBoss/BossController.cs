@@ -56,7 +56,7 @@ public class BossController: MonoBehaviour {
 					list.Add ((GameObject)Instantiate (someEnemy, transform.position, transform.rotation));
 					//access the recently added item
 					list [list.Count - 1].GetComponentInChildren<SpriteRenderer> ().color = colorSelection [Random.Range (0, colorSelection.Count)];
-					list [list.Count - 1].transform.FindChild ("Range Collider").GetComponent<Collider2D> ().transform.localScale = new Vector2 (2f, 2f);
+					list [list.Count - 1].transform.FindChild ("Range Collider").GetComponent<Collider2D> ().transform.localScale = new Vector3 (2f, 2f, 2f);
 				}
 				wave++;
 				k = 0;
