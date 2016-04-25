@@ -23,11 +23,11 @@ public class PlayerBullet : MonoBehaviour {
 
     void OnEnable() {
 		if (health.currentHP <= 3) {
-			damage = 1; 
+			damage = 2; 
 		}
 		else
 		{
-			damage = 2; //double damage at full health
+			damage = 3; //double damage at full health
 		}
 
         var startVelX = bulletSpeed.x * transform.localScale.x;

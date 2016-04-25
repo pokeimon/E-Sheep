@@ -28,14 +28,14 @@ public class Sword : MonoBehaviour {
 				damage = 5;
 				length = 2f;
 			} else if (health.currentHP == 2) {
-				damage = 10;
+				damage = 7;
 				length = 2f;
 			} else if (health.currentHP == 3) {
-				damage = 15;
+				damage = 9;
 				length = 2f;
 			} else { //currentHP = 4
-				damage = 15;
-				length = 4f; //double length at 4 hp
+				damage = 12;
+				length = 2f; //double length at 4 hp
 			}
 		}
 		sword.transform.localPosition = new Vector3 (0f, 1.2f, 0f); //put sword and rotator in swing start position
