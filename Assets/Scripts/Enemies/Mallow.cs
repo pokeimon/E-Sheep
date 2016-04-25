@@ -17,7 +17,7 @@ public class Mallow : AbstractEnemy {
 		mallow = GetComponent<Rigidbody2D> ().transform;
 	}
 
-	void Update (){  //Handles movement and jumps
+	void FixedUpdate (){  //Handles movement and jumps
 
 		var pos = mallowCenter;
 		pos.x += transform.position.x;
