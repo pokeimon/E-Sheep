@@ -7,12 +7,15 @@ public class MainMenu : MonoBehaviour {
 	public Canvas exitMenu;
 	public Canvas creditMenu;
 	public Canvas scoreMenu;
+	public Canvas playMenu;
 
 	public Button startText;
 	public Button exitText;
-	public Button mainMenuText;
+	public Button mainMenuText0;
+	public Button mainMenuText1;
 	public Button newGameText;
 	public Button scoreText;
+	public Button playText;
 
 	public GameObject gm;
 
@@ -29,16 +32,20 @@ public class MainMenu : MonoBehaviour {
 		exitMenu = exitMenu.GetComponent<Canvas> ();
 		creditMenu = creditMenu.GetComponent<Canvas> ();
 		scoreMenu = scoreMenu.GetComponent<Canvas> ();
+		playMenu = playMenu.GetComponent<Canvas> ();
 
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
-		mainMenuText = mainMenuText.GetComponent<Button> ();
+		mainMenuText0 = mainMenuText0.GetComponent<Button> ();
+		mainMenuText1 = mainMenuText1.GetComponent<Button> ();
 		newGameText = newGameText.GetComponent<Button> ();
 		scoreText = scoreText.GetComponent<Button> ();
+		playText = playText.GetComponent<Button> ();
 
 		exitMenu.enabled = false; //exit menu is disabled
 		creditMenu.enabled = false; //credit menu is disabled
-		scoreMenu.enabled = false;
+		scoreMenu.enabled = false; //score menu is disabled
+		playMenu.enabled = false; //how to play menu is disabled
 
 	}
 	
@@ -66,14 +73,23 @@ public class MainMenu : MonoBehaviour {
 	public void CreditPress() {
 
 		creditMenu.enabled = true;
-		mainMenuText.enabled = true;
+		mainMenuText0.enabled = true;
 		
 	}
+
+	public void PlayPress() {
+	
+		playMenu.enabled = true;
+		mainMenuText1.enabled = true;
+
+	}
+
 	
 	//go back to main menu
 	public void MenuPress() {
 
 		creditMenu.enabled = false;
+		playMenu.enabled = false;
 
 	}
 	
