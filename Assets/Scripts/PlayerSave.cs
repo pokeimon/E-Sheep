@@ -100,13 +100,14 @@ public class PlayerSave : MonoBehaviour {
 		string temp;
 		for (int i = 0; i < 4; i++) {
 			for (int rank = 0; rank < 3; rank++){
-				if (rank != 3) {
+				if (i != 3) {
 					temp = ChooseLevel ("HighScore", i);
-					scores [rank, i] = PlayerPrefs.GetInt (temp + rank); 
+					scores [rank, i] = PlayerPrefs.GetInt (temp + rank, 0); 
 				} 
 				else {
-					string personalBest = ChooseLevel ("PersonalBest", i) + PlayerPrefs.GetInt("SelectedPlayer");	
-					scores [rank, i] = PlayerPrefs.GetInt (personalBest);
+					string personalBest = ChooseLevel ("PersonalBest", rank) + PlayerPrefs.GetInt("SelectedPlayer");	
+					scores [rank, i] = PlayerPrefs.GetInt (personalBest, 0);
+					Debug.Log("TEST");
 				}	
 			}
 		}
@@ -125,7 +126,7 @@ public class PlayerSave : MonoBehaviour {
 			for (int rank = 0; rank < 3; rank++){
 				if (rank != 3) {
 					temp = ChooseLevel ("HighScoreName", i);
-					names [rank, i] = PlayerPrefs.GetString (temp + rank); 
+					names [rank, i] = PlayerPrefs.GetString (temp + rank, "Empty"); 
 				} 
 				else {
 					names [rank, i] = "Personal Best";

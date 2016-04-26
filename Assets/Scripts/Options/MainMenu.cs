@@ -22,7 +22,6 @@ public class MainMenu : MonoBehaviour {
 	public Text score0;
 	public Text score1;
 	public Text score2;
-	public Text score3;
 
 
 	// Use this for initialization
@@ -112,41 +111,59 @@ public class MainMenu : MonoBehaviour {
 
 	}
 	private void scoreFillTest(){
-		PlayerPrefs.SetString ("Name0", "Imon");
-		PlayerPrefs.SetString ("Name1", "Megan");
-		PlayerPrefs.SetString ("Name2", "Ivan");
+		PlayerPrefs.SetString ("HighScoreNameCL10", "Imon");
+		PlayerPrefs.SetString ("HighScoreNameCL11", "Megan");
+		PlayerPrefs.SetString ("HighScoreNameCL12", "Ivan");
 		PlayerPrefs.SetInt ("HighScoreCL10", 123);
 		PlayerPrefs.SetInt ("HighScoreCL11", 111);
 		PlayerPrefs.SetInt ("HighScoreCL12", 10);
-		PlayerPrefs.SetString ("HighscoreNameCL10", "Imon");
-		PlayerPrefs.SetString ("HighscoreNameCL11", "Megan");
-		PlayerPrefs.SetString ("HighscoreNameCL12", "Ivan");
 
+		PlayerPrefs.SetInt ("HighScoreCL20", 456);
+		PlayerPrefs.SetInt ("HighScoreCL21", 212);
+		PlayerPrefs.SetInt ("HighScoreCL22", 111);
+
+		PlayerPrefs.SetInt ("HighScoreHL10", 963);
+		PlayerPrefs.SetInt ("HighScoreHL11", 852);
+		PlayerPrefs.SetInt ("HighScoreHL12", 741);
+
+		PlayerPrefs.SetInt ("PersonalBestCL10", 5);
+		PlayerPrefs.SetInt ("PersonalBestCL11", 5);
+		PlayerPrefs.SetInt ("PersonalBestCL12", 5);
+
+		PlayerPrefs.SetInt ("PersonalBestCL20", 3);
+
+		PlayerPrefs.SetInt ("PersonalBestHL10", 1);
 	}
+
 	public void ScorePress () {
 		//scoreFillTest ();
 		string[,] names = gm.GetComponent<PlayerSave>().ReturnNames();
 		int[,] scores = gm.GetComponent<PlayerSave>().ReturnScores();
 		scoreMenu.enabled = true;
-		score0.text = "";
+		score0.text = "Candy Land 1" + "\n";
+		score1.text = "Candy Land 2" + "\n";
+		score2.text = "Horror Land 1" + "\n";
 		for (int level = 0; level < 4; level++) {
 			for (int rank = 0; rank < 3; rank++) {
 				if (level == 0) {
-					score0.text = score0.text.ToString() + names [level, rank] + "\n" + scores [level, rank] + "\n";
-					Debug.Log(scores[level,rank].ToString());
-					Debug.Log(names[level,rank].ToString());
+					score0.text += names [rank, level] + "\n\t" + scores [rank, level] + "\n";
+					Debug.Log (names [rank, level] + "\n\t" + scores [rank, level] + "\n");
 				}
 				else if(level == 1) {
-					score1.text = names [level, rank] + "\n" + scores [level, rank] + "\n";
+					score1.text += names [rank, level] + "\n\t" + scores [rank, level] + "\n";
 				}
 				else if(level == 2) {
-					score2.text = names [level, rank] + "\n" + scores [level, rank] + "\n";
+					score2.text += names [rank, level] + "\n\t" + scores [rank, level] + "\n";
 				}
-				else if(level == 3) {
-					score3.text = names [level, rank] + "\n" + scores [level, rank] + "\n";
+				else{
+					if(rank==0)
+						score0.text += "Personal Best" + "\n\t" + scores [rank, level];
+					else if(rank ==1)
+						score1.text += "Personal Best" + "\n\t" + scores [rank, level];
+					else
+						score2.text += "Personal Best" + "\n\t" + scores [rank, level];
 				}
 			}
 		}
 	}
-
 }
