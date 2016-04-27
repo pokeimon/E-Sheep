@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BitCoinScript : MonoBehaviour {
+public class BitCoinHeavyScript : MonoBehaviour {
 
 	ScoreTrackerScript scoreScript;
 	private AudioSource audio;
@@ -13,20 +13,20 @@ public class BitCoinScript : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		scoreScript = GameObject.Find ("ScoreVal").GetComponent<ScoreTrackerScript> ();
-		audioList = gameObject.transform.parent.GetComponents<AudioSource> ();
+		audioList = gameObject.transform.parent.parent.GetComponents<AudioSource> ();
 		audioCount = audioList.Length;
 		currentAudio = 0;
-//		audio = gameObject.transform.parent.GetComponent<AudioSource> ();
+		//		audio = gameObject.transform.parent.GetComponent<AudioSource> ();
 	}
-	
+
 	void OnTriggerEnter2D(Collider2D other){
 		bool notAllAudioUsed = true;
 		if (other.gameObject.CompareTag ("Player")) {
-			
+
 			audioList [getAvailableAudio()].Play ();
 
 			scoreScript.IncreaseScoreBy (100);
-			gameObject.SetActive (false);
+			gameObject.transform.parent.gameObject.SetActive (false);
 		}
 	}
 
@@ -36,7 +36,7 @@ public class BitCoinScript : MonoBehaviour {
 				Debug.Log ("AudioSource: " + i);
 				return i;
 			}
-				
+
 		}
 		//if all audiosources are playing, stop the first one and replay it.
 		audioList [0].Stop ();
