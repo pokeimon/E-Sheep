@@ -29,6 +29,8 @@ public class PlayerSave : MonoBehaviour {
 	//Level 1 = CL
 	//Level 2 = HL1
 
+	//HP+savenum
+
 	/// <summary>
 	/// Runs when loaded to verify that there is a selected player
 	/// If missing sets to default load of 0
@@ -47,6 +49,7 @@ public class PlayerSave : MonoBehaviour {
 		PlayerPrefs.SetInt ("PersonalBestCL1" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestCL2" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestHL1" + saveNum, 0);
+		PlayerPrefs.SetInt ("HP" + saveNum, 2);
 	}
 		
 	public void EraseSave(int saveNum){
@@ -56,7 +59,7 @@ public class PlayerSave : MonoBehaviour {
 		PlayerPrefs.SetInt ("PersonalBestCL1" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestCL2" + saveNum, 0);
 		PlayerPrefs.SetInt ("PersonalBestHL1" + saveNum, 0);
-		Debug.Log ("erase" + saveNum);
+		PlayerPrefs.SetInt ("HP" + saveNum, 0);
 	}
 
 	public void UpdateSave (int level) {

@@ -22,7 +22,10 @@ public class Health : MonoBehaviour {
 		Debug.Log ("Awake called.");
 		if (this.tag == "Player") {
 			Debug.Log ("Awake called.");
-			currentHP = playerStartHP; 
+			currentHP = PlayerPrefs.GetInt("HP" + PlayerPrefs.GetInt("SelectedPlayer", 0), 2); 
+			if (currentHP == 0) {
+				currentHP = 2;
+			}
 			animator = GetComponent<Animator> ();
 			animator.SetInteger("EquippedItem",1);
 			body2d = GetComponent<Rigidbody2D> ();
@@ -41,6 +44,7 @@ public class Health : MonoBehaviour {
 			if(currentHP > maxHP){
 				currentHP = maxHP;
 			}
+			PlayerPrefs.SetInt("HP" + PlayerPrefs.GetInt("SelectedPlayer", 0), currentHP); 
 			energyState = currentHP -1;
 			if (energyState > 1){ //temp until new animations for 3-4 energy
 				energyState = 1;
@@ -96,12 +100,14 @@ public class Health : MonoBehaviour {
 				collisionState.timeStunned = 0f;
 
 				currentHP -= 1; //player always takes 1 damage.
+				PlayerPrefs.SetInt("HP" + PlayerPrefs.GetInt("SelectedPlayer", 0), currentHP); 
 				currentMeleeInvuln = 0f; //make player unable to take damage for a time;
 			}
 			if (currentHP < 1) {
 				gameObject.SetActive (false);
 				DeathMenu menu = (DeathMenu) deathCanvas.GetComponent("DeathMenu");
 				menu.playerDeath();
+				PlayerPrefs.SetInt("HP" + PlayerPrefs.GetInt("SelectedPlayer", 0), 2); 
 			}
 		}
 		else if (this.tag == "Enemy") {
