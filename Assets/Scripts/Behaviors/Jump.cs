@@ -7,10 +7,12 @@ public class Jump : AbstractBehavior {
 	public int extraJumps = 1;
 	public int currentJump;
 	private bool canJump;
+	private AudioSource jumpSoundEffect;
 
 	void Start() {
 		currentJump = 0;
 		canJump = true;
+		jumpSoundEffect = GetComponent<AudioSource> ();
 	}
 
 	void Update () {
@@ -40,7 +42,7 @@ public class Jump : AbstractBehavior {
 
 	protected virtual void OnJump(){
 		var vel = body2d.velocity;
-
+		jumpSoundEffect.Play ();
 		body2d.velocity = new Vector2 (vel.x, jumpSpeed);
 	}
 }
