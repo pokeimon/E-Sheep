@@ -24,12 +24,21 @@ public class BossGate : MonoBehaviour {
 			platform.transform.position = Vector3.MoveTowards 
 				(platform.transform.position, currentPoint.position, Time.deltaTime * moveSpeed);
 
-			if (platform.transform.position == currentPoint.position) {
-				pointSelection++;
-				if (pointSelection == points.Length) {				//once at the last array it resets the pointSelection to 0
-					autostart = false;								//this starts the loop over again
+//			if (platform.transform.position == currentPoint.position) {
+//				pointSelection++;
+//				}
+//				currentPoint = points [pointSelection];
+//			}
+
+			//when the platform finishes it's movement
+			if(platform.transform.position == currentPoint.position){
+				if (pointSelection == (points.Length - 1)) {//once at the last array it resets the pointSelection to 0
+					autostart = false;						//this starts the loop over again
+				} else {
+					pointSelection++;
+					currentPoint = points [pointSelection];
 				}
-				currentPoint = points [pointSelection];
+
 			}
 		}
 	}

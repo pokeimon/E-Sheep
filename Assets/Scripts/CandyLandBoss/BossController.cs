@@ -43,7 +43,7 @@ public class BossController: MonoBehaviour {
 			}
 		}
 
-		Debug.Log (frogTongue.hit);
+//		Debug.Log (frogTongue.hit);
 
 		if (activeMonsterCount == 0 && wave<=waveLimit && !frogTongue.hit) {//this is if there are either zero objects in the list, or if they have been deactivated. Also, limits wave
 			
