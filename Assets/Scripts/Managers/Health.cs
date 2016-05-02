@@ -30,6 +30,7 @@ public class Health : MonoBehaviour {
 			animator.SetInteger("EquippedItem",1);
 			body2d = GetComponent<Rigidbody2D> ();
 			collisionState = GetComponent<CollisionState> ();
+			deathCanvas = GameObject.Find ("DeathMenu");
 		}
 		else { //enemies start at max HP
 			currentHP = maxHP;
