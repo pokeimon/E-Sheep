@@ -12,7 +12,7 @@ public class Transitions : MonoBehaviour
     private float alpha = 0.0f; 	
     private int fadeDirection = -1; //-1 fadeIn or 1 fadeOut
 
-	void Start(){
+	void OnEnable(){
 		player = GameObject.Find("Player");
 	}
 
