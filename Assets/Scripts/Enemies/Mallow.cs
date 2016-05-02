@@ -15,6 +15,7 @@ public class Mallow : AbstractEnemy {
 		speed = 3f;
 		jumpSpeed = 8f;
 		mallow = GetComponent<Rigidbody2D> ().transform;
+		target = GameObject.Find ("Player").transform;//added so that target doesn't have to be manually added onto editor.
 	}
 
 	void FixedUpdate (){  //Handles movement and jumps
@@ -26,7 +27,7 @@ public class Mallow : AbstractEnemy {
 		chase = Physics2D.OverlapCircle (pos, collisionRadius, chaseLayer);
 
 		if (chase) {
-			Debug.Log ("Mallow.cs FixedUpdate Entered");
+//			Debug.Log ("Mallow.cs FixedUpdate Entered");
 			speed = 7;
 			mallow.transform.position = Vector3.MoveTowards (mallow.position, target.transform.position, Time.deltaTime * speed);
 		} else { speed = 3;}
