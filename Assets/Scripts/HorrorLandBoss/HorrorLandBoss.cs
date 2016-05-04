@@ -121,8 +121,8 @@ public class HorrorLandBoss : MonoBehaviour {
 	}
 
 	void OnDisable(){
-		Debug.Log ("I....AM.......SAGIJIM!!!!!!!!!!!!!!");
-		Time.timeScale = 0.5f;
+//		Debug.Log ("I....AM.......SAGIJIM!!!!!!!!!!!!!!");
+//		Time.timeScale = 0.5f;
 //		GameObject.Find ("Main Camera").GetComponent<ShakeCamera> ().DoShake ();
 	}
 }
