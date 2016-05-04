@@ -18,7 +18,7 @@ public class Health : MonoBehaviour {
 	public float currentBulletInvuln = 100f;
 	public GameObject deathCanvas; //temp to get deathmenu to work
 
-	void Awake() {
+	void OnEnable() {
 //		Debug.Log ("Awake called.");
 		if (this.tag == "Player") {
 //			Debug.Log ("Awake called.");
