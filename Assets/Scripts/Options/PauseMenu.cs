@@ -47,21 +47,24 @@ public class PauseMenu : AbstractBehavior {
 
 
 	public void Resume(){
+//		Debug.Log ("Resume()");
+		Time.timeScale = 1;//if this is set to 0.3, it can create a slow motion effect.
 		myPauseMenu.SetActive (false);
 		paused = false;
-		Time.timeScale = 1;//if this is set to 0.3, it can create a slow motion effect.
+
 	}
 
 	public void Restart(){
+//		Debug.Log ("Restart()");
 		paused = false;
-		//		Application.LoadLevel (Application.loadedLevel);//reload's the current level
+		Application.LoadLevel (Application.loadedLevel);//reload's the current level
 		Resume();
 	}
 
 	public void MainMenu(){
 		paused = false;
 		//		StartCoroutine(GameObject.Find("GM").GetComponent<Transitions>().FadeStartLevel(1));//0 should correspond to Main Menu Scene as designated on Build Settings
-		//		Application.LoadLevel (1);
+		Application.LoadLevel (1);
 		Resume ();
 	}
 
