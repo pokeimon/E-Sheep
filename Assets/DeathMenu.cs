@@ -41,7 +41,12 @@ public class DeathMenu : MonoBehaviour {
 		Application.LoadLevel(1);
 	}
 	public void replayPress(){
+		PlayerPrefs.SetFloat ("RespawnX", 0f);
+		PlayerPrefs.SetFloat ("RespawnY", 0f);
+		PlayerPrefs.SetFloat ("RespawnZ", 0f);
+		PlayerPrefs.SetInt ("ContinueFlag", 0);
 		Application.LoadLevel(Application.loadedLevel);
+
 	}
 	public void continuePress(){
 		Debug.Log ("player before load: " + player.transform.position.ToString ());
