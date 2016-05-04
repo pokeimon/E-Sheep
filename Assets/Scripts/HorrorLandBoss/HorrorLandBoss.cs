@@ -48,6 +48,7 @@ public class HorrorLandBoss : MonoBehaviour {
 				jumpShockWave.transform.position = jumpWavePoint.position;
 				jumpShockWave.SetActive(true);
 				jumping = false;
+				GameObject.Find ("Main Camera").GetComponent<ShakeCamera> ().DoShake ();
 			}
 		}
 		if (sword.activeSelf || jumpShockWave.activeSelf || punchShockWave.activeSelf || !standing) {
@@ -117,5 +118,11 @@ public class HorrorLandBoss : MonoBehaviour {
 		pos.y += transform.position.y;
 
 		Gizmos.DrawWireSphere (pos, collisionRadius);
+	}
+
+	void OnDisable(){
+		Debug.Log ("I....AM.......SAGIJIM!!!!!!!!!!!!!!");
+		Time.timeScale = 0.5f;
+//		GameObject.Find ("Main Camera").GetComponent<ShakeCamera> ().DoShake ();
 	}
 }

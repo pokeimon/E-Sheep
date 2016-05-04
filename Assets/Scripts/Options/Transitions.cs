@@ -14,23 +14,29 @@ public class Transitions : MonoBehaviour
 
 	void OnEnable(){
 		player = GameObject.Find("Player");
+
 	}
 
 	//used to disable or enable player input while/after transitioning
 	void disableInput(bool disable){
 		int current = Application.loadedLevel;
+
 		if(current != 1){										//prevents running on main menu
 			if(disable){										//disables player input
-				player.GetComponent<Jump>().enabled = false;
-				player.GetComponent<Walk>().enabled = false;
-				player.GetComponent<Shoot>().enabled = false;
-				player.GetComponent<Melee>().enabled = false;
+				if (!(player == null)) {
+					player.GetComponent<Jump> ().enabled = false;
+					player.GetComponent<Walk> ().enabled = false;
+					player.GetComponent<Shoot> ().enabled = false;
+					player.GetComponent<Melee> ().enabled = false;
+				}
 			}
 			else{												//enables player input
-				player.GetComponent<Jump>().enabled = true;
-				player.GetComponent<Walk>().enabled = true;
-				player.GetComponent<Shoot>().enabled = true;
-				player.GetComponent<Melee>().enabled = true;
+				if (!(player == null)) {
+					player.GetComponent<Jump> ().enabled = true;
+					player.GetComponent<Walk> ().enabled = true;
+					player.GetComponent<Shoot> ().enabled = true;
+					player.GetComponent<Melee> ().enabled = true;
+				}
 			}
 		}
 
