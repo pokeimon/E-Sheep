@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class HorrorLandBoss : MonoBehaviour {
@@ -24,9 +24,9 @@ public class HorrorLandBoss : MonoBehaviour {
 	public float punchDelay = 15f;
 
 	public float currentShootDelay = 2f;
-	public float currentMeleeDelay = 0f;
-	public float currentJumpDelay = 0f;
-	public float currentPunchDelay = 0f;
+	public float currentMeleeDelay = 7f;
+	public float currentJumpDelay = 7f;
+	public float currentPunchDelay = 7f;
 
 	public bool moveActive = false;
 	public bool jumping = false;
@@ -91,7 +91,7 @@ public class HorrorLandBoss : MonoBehaviour {
 		if (obj != null) {			
 			obj.transform.position = firingPoint.position;
 			obj.transform.rotation = transform.rotation;
-			obj.transform.localScale = transform.localScale * .1f;
+			obj.transform.localScale = transform.localScale * .06f;
 			obj.SetActive (true);
 		}
 	}

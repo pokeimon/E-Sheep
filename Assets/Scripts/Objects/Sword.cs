@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Sword : MonoBehaviour {
 
-	private GameObject sword;
+	private Transform sword;
 	private GameObject player;
 	private Health health;
 	public int damage = 1;
@@ -11,17 +11,17 @@ public class Sword : MonoBehaviour {
 	public float swingSpeed = 10;
 
 	void Awake() {
-		
+
 		if(this.transform.parent.tag == "Player"){
-			sword = GameObject.FindGameObjectWithTag ("PlayerSword");
+			sword = transform.GetChild(0);
 			player = GameObject.FindGameObjectWithTag ("Player");
 			health = player.GetComponent<Health> ();
 		}
 		else {
-			sword = GameObject.FindGameObjectWithTag ("EnemySword");
+			sword = transform.GetChild(0);;
 		}
 	}
-	
+
 	void OnEnable() {
 		if (this.transform.parent.tag == "Player") {
 			if (health.currentHP == 1) {
@@ -38,12 +38,26 @@ public class Sword : MonoBehaviour {
 				length = 2f; //double length at 4 hp
 			}
 		}
-		sword.transform.localPosition = new Vector3 (0f, 1.2f, 0f); //put sword and rotator in swing start position
-		sword.transform.localScale = new Vector3 (0.2f, length, 1f);
+
+		//put sword and rotator in swing start position
+
+		if (this.transform.parent.tag == "Player") {
+			transform.localScale = new Vector3 (1f, length / 2f, 1f);
+			transform.localPosition = new Vector3 (0.75f, 0.25f, 0f);
+			sword.localPosition = new Vector3 (0f, 1.2f, 0f); 
+			sword.localScale = new Vector3 (0.2f, length, 1f);
+		} 
+		else {// is boss
+			transform.localScale = new Vector3 (1f, 1f, 1f);
+			transform.localPosition = new Vector3 (0.15f, 0.05f, 0f);
+			sword.localPosition = new Vector3 (0f, 0.46f, 0f); 
+			sword.localScale = new Vector3 (0.025f, .90f, 1f);	
+
+		}
 		sword.transform.localEulerAngles = new Vector3 (0f, 0f, 0f);
-		transform.localPosition = new Vector3 (0.75f, 0.25f, 0f);
-		transform.localScale = new Vector3 (1f, length / 2f, 1f);
-		transform.localEulerAngles = new Vector3 (0f, 0f, 30f);
+
+
+		transform.localEulerAngles = new Vector3 (0f, 0f, 30f);	
 	}
 
 	void FixedUpdate () { 
