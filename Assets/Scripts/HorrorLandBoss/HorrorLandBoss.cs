@@ -33,6 +33,7 @@ public class HorrorLandBoss : MonoBehaviour {
 	public bool standing = true;
 
 	void Awake(){
+		Time.timeScale = 1f;
 		objectPooler = GameObject.Find("HorrorBossObjectPool").GetComponent<ObjectPooler>();
 		health = GetComponent<Health> ();
 		body2d = GetComponent<Rigidbody2D> ();
@@ -121,8 +122,8 @@ public class HorrorLandBoss : MonoBehaviour {
 	}
 
 	void OnDisable(){
-//		Debug.Log ("I....AM.......SAGIJIM!!!!!!!!!!!!!!");
-//		Time.timeScale = 0.5f;
-//		GameObject.Find ("Main Camera").GetComponent<ShakeCamera> ().DoShake ();
+		Debug.Log ("I....AM.......SAGIJIM!!!!!!!!!!!!!!");
+		Time.timeScale = 0.5f;
+		GameObject.Find ("Main Camera").GetComponent<ShakeCamera> ().DoShake ();
 	}
 }
