@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraBoundsSwitching : MonoBehaviour {
 
-	CameraFollow camera;
+	private CameraFollow camera;
 
 	public float cameraX;
 	public float cameraY;

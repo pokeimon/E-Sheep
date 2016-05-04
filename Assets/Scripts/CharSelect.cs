@@ -20,7 +20,7 @@ public class CharSelect : PlayerSave {
 	public Canvas char0;
 	public Canvas char1;
 	public Canvas char2;
-	public InputField name;
+	private InputField name;
 
 	public Text playerName0;
 	public Text playerName1;

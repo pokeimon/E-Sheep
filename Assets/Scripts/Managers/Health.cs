@@ -19,9 +19,9 @@ public class Health : MonoBehaviour {
 	public GameObject deathCanvas; //temp to get deathmenu to work
 
 	void Awake() {
-		Debug.Log ("Awake called.");
+//		Debug.Log ("Awake called.");
 		if (this.tag == "Player") {
-			Debug.Log ("Awake called.");
+//			Debug.Log ("Awake called.");
 			currentHP = PlayerPrefs.GetInt("HP" + PlayerPrefs.GetInt("SelectedPlayer", 0), 2); 
 			if (currentHP == 0) {
 				currentHP = 2;
