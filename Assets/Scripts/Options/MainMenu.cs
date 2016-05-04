@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour {
 	public Button exitText;
 	public Button mainMenuText0;
 	public Button mainMenuText1;
+	public Button mainMenuText2;
 	public Button newGameText;
 	public Button scoreText;
 	public Button playText;
@@ -37,6 +38,7 @@ public class MainMenu : MonoBehaviour {
 		exitText = exitText.GetComponent<Button> ();
 		mainMenuText0 = mainMenuText0.GetComponent<Button> ();
 		mainMenuText1 = mainMenuText1.GetComponent<Button> ();
+		mainMenuText2 = mainMenuText2.GetComponent<Button> ();
 		newGameText = newGameText.GetComponent<Button> ();
 		scoreText = scoreText.GetComponent<Button> ();
 		playText = playText.GetComponent<Button> ();
@@ -89,6 +91,7 @@ public class MainMenu : MonoBehaviour {
 
 		creditMenu.enabled = false;
 		playMenu.enabled = false;
+		scoreMenu.enabled = false;
 
 	}
 	
@@ -137,6 +140,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void ScorePress () {
 		//scoreFillTest ();
+		mainMenuText2.enabled = true;
 		string[,] names = gm.GetComponent<PlayerSave>().ReturnNames();
 		int[,] scores = gm.GetComponent<PlayerSave>().ReturnScores();
 		scoreMenu.enabled = true;
